@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: 'slide_deck/build/index-published.html'
+          path: 'slide_deck/build/'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
