@@ -26,11 +26,12 @@ For the second pass (with visuals added):
 
 `publish.sh` produces a self-contained `index-published.html` with all images inlined as base64, so the file can be shared or hosted without any accompanying assets.
 
-**Prerequisites:** run `build.sh` first so that `build/index.html` exists.
+**Prerequisites:** run `build-visuals.sh` first so that `build/index-with-visuals.html` exists.
 
 ```bash
 cd slide_deck
-./build.sh .          # must run first
+./build.sh .           # must run first
+./build-visuals.sh .   # must run second
 ./publish.sh .
 # Output: build/index-published.html
 ```

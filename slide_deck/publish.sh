@@ -5,11 +5,11 @@
 set -e
 
 DECK_DIR="${1:-.}"
-INPUT="$DECK_DIR/build/index.html"
+INPUT="$DECK_DIR/build/index-with-visuals.html"
 OUTPUT="$DECK_DIR/build/index-published.html"
 
 if [ ! -f "$INPUT" ]; then
-  echo "Error: $INPUT not found. Run build.sh first."
+  echo "Error: $INPUT not found. Run build-visuals.sh first."
   exit 1
 fi
 
