@@ -8,7 +8,7 @@
     <h1>When agents go wrong, they tend to go wrong in predictable ways.</h1>
     <div class="modes">
       <div class="mode">
-        <p class="mode-name">Hallucination</p>
+        <p class="mode-name">Fabrication <span class="aka">(hallucination)</span></p>
         <p class="mode-desc">The model produces confident, plausible-sounding output that is factually wrong. This is especially dangerous in scientific contexts because the output often looks like it could be correct.</p>
       </div>
       <div class="mode">
@@ -104,6 +104,14 @@
       color: var(--uw-gray-70);
       line-height: 1.55;
       margin: 0;
+    }
+
+    section[data-slide="10-failure-modes"] .aka {
+      font-weight: 400;
+      font-size: 0.75em;
+      opacity: 0.6;
+      letter-spacing: 0;
+      text-transform: none;
     }
 
     section[data-slide="10-failure-modes"] .coda {

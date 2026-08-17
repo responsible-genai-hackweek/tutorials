@@ -5,35 +5,90 @@
   <div class="accent-bar-top"></div>
   <div class="content">
     <p class="eyebrow">Landscape of tools</p>
-    <h1>For coding specifically, there are five broad categories of AI agent tools.</h1>
-    <div class="tools">
-      <div class="tool">
-        <p class="tool-name">IDE-native tools</p>
-        <p class="tool-example">e.g., GitHub Copilot in VS Code</p>
-        <p class="tool-desc">Require no setup for someone already in that editor. Autocomplete plus chat. Lowest friction and lowest ceiling.</p>
-      </div>
-      <div class="tool">
-        <p class="tool-name">Command-line agents</p>
-        <p class="tool-example">e.g., Claude Code</p>
-        <p class="tool-desc">Integrate with any workflow and require comfort at the terminal. Highest flexibility and steepest learning curve.</p>
-      </div>
-      <div class="tool">
-        <p class="tool-name">AI-native IDEs</p>
-        <p class="tool-example">e.g., Cursor, Windsurf</p>
-        <p class="tool-desc">Purpose-built environments with deeper model integration. Middle ground on flexibility and capability ceiling.</p>
-      </div>
-      <div class="tool">
-        <p class="tool-name">Cloud-hosted assistants</p>
-        <p class="tool-example">e.g., ChatGPT, Claude.ai, Gemini</p>
-        <p class="tool-desc">No local setup, but assume you will paste or upload what you want the agent to see. Least integration with your actual workflow.</p>
-      </div>
-      <div class="tool">
-        <p class="tool-name">Open-source options</p>
-        <p class="tool-example">e.g., OpenCode, Aider, continue.dev</p>
-        <p class="tool-desc">Self-hostable and auditable. Often limited in model choice or capability. Maximum control over where your data goes.</p>
-      </div>
-    </div>
-    <p class="coda">The six-piece anatomy applies to all of them. Switching tools is a configuration exercise, not a re-learning exercise.</p>
+    <h1>Five categories of AI coding tools — two axes that matter most for research data.</h1>
+
+    <svg class="plot" viewBox="0 0 920 462" fill="none"
+         aria-label="Scatter plot of five AI tool categories by integration depth and privacy control">
+
+      <!-- ── MIDPOINT GRID LINES ────────────────────────────────── -->
+      <line x1="490" y1="28" x2="490" y2="408"
+            stroke="#e6e6e6" stroke-width="1" stroke-dasharray="6 4"/>
+      <line x1="100" y1="218" x2="880" y2="218"
+            stroke="#e6e6e6" stroke-width="1" stroke-dasharray="6 4"/>
+
+      <!-- ── AXES ───────────────────────────────────────────────── -->
+      <!-- X axis -->
+      <line x1="100" y1="408" x2="876" y2="408" stroke="#4b2e83" stroke-width="1.5" opacity="0.5"/>
+      <polygon points="880,408 870,403 870,413" fill="#4b2e83" opacity="0.5"/>
+      <!-- Y axis -->
+      <line x1="100" y1="408" x2="100" y2="32" stroke="#4b2e83" stroke-width="1.5" opacity="0.5"/>
+      <polygon points="100,28 95,38 105,38" fill="#4b2e83" opacity="0.5"/>
+
+      <!-- ── AXIS END LABELS ─────────────────────────────────────── -->
+      <text x="108" y="424" fill="#808080" font-size="14"
+            font-family="'Open Sans',sans-serif">Low</text>
+      <text x="866" y="424" text-anchor="end" fill="#808080" font-size="14"
+            font-family="'Open Sans',sans-serif">High</text>
+      <text x="88" y="404" text-anchor="end" fill="#808080" font-size="14"
+            font-family="'Open Sans',sans-serif">Low</text>
+      <text x="88" y="42" text-anchor="end" fill="#808080" font-size="14"
+            font-family="'Open Sans',sans-serif">High</text>
+
+      <!-- ── AXIS TITLES ────────────────────────────────────────── -->
+      <!-- X title -->
+      <text x="490" y="444" text-anchor="middle" fill="#4b2e83" font-size="16" font-weight="700"
+            font-family="'Encode Sans',sans-serif" letter-spacing="0.06em">INTEGRATION DEPTH</text>
+
+      <!-- Y title (rotated) -->
+      <text transform="rotate(-90 28 218)" x="28" y="218" text-anchor="middle"
+            fill="#4b2e83" font-size="16" font-weight="700"
+            font-family="'Encode Sans',sans-serif" letter-spacing="0.06em">PRIVACY CEILING</text>
+
+      <!-- ── PLOTTED POINTS ─────────────────────────────────────── -->
+
+      <!-- 1. Cloud-hosted assistants: norm(14, 14) → svg(209, 350) -->
+      <circle cx="209" cy="350" r="8" fill="#4b2e83" opacity="0.8"/>
+      <!-- label: below-right -->
+      <text x="222" y="368" fill="#4b2e83" font-size="16" font-weight="700"
+            font-family="'Encode Sans',sans-serif">Cloud-hosted assistants</text>
+      <text x="222" y="386" fill="#808080" font-size="14" font-style="italic"
+            font-family="'Open Sans',sans-serif">ChatGPT, Claude.ai, Gemini</text>
+
+      <!-- 2. IDE-native tools: norm(78, 22) → svg(708, 318) -->
+      <circle cx="708" cy="318" r="8" fill="#4b2e83" opacity="0.8"/>
+      <!-- label: above, centered -->
+      <text x="708" y="296" text-anchor="middle" fill="#4b2e83" font-size="16" font-weight="700"
+            font-family="'Encode Sans',sans-serif">IDE-native tools</text>
+      <text x="708" y="312" text-anchor="middle" fill="#808080" font-size="14" font-style="italic"
+            font-family="'Open Sans',sans-serif">GitHub Copilot</text>
+
+      <!-- 3. AI-native IDEs: norm(50, 30) → svg(490, 285) -->
+      <circle cx="490" cy="285" r="8" fill="#4b2e83" opacity="0.8"/>
+      <!-- label: below, centered, shifted right to avoid grid line -->
+      <text x="506" y="305" fill="#4b2e83" font-size="16" font-weight="700"
+            font-family="'Encode Sans',sans-serif">AI-native IDEs</text>
+      <text x="506" y="321" fill="#808080" font-size="14" font-style="italic"
+            font-family="'Open Sans',sans-serif">Cursor, Windsurf</text>
+
+      <!-- 4. Open-source: norm(26, 82) → svg(303, 72) -->
+      <circle cx="303" cy="72" r="8" fill="#4b2e83" opacity="0.8"/>
+      <!-- label: below-right -->
+      <text x="316" y="90" fill="#4b2e83" font-size="16" font-weight="700"
+            font-family="'Encode Sans',sans-serif">Open-source options</text>
+      <text x="316" y="107" fill="#808080" font-size="14" font-style="italic"
+            font-family="'Open Sans',sans-serif">Aider, OpenCode</text>
+
+      <!-- 5. Command-line agents: norm(86, 74) → svg(771, 104) -->
+      <!-- gold marker — non-obvious top-right position worth calling out -->
+      <circle cx="771" cy="104" r="9" fill="#ffc700"/>
+      <circle cx="771" cy="104" r="9" stroke="#4b2e83" stroke-width="1.5" fill="none"/>
+      <!-- label: above-left -->
+      <text x="758" y="82" text-anchor="end" fill="#4b2e83" font-size="16" font-weight="700"
+            font-family="'Encode Sans',sans-serif">Command-line agents</text>
+      <text x="758" y="98" text-anchor="end" fill="#808080" font-size="14" font-style="italic"
+            font-family="'Open Sans',sans-serif">Claude Code</text>
+
+    </svg>
   </div>
 
   <style>
@@ -47,7 +102,7 @@
     }
 
     section[data-slide="12-landscape-of-tools"] .content {
-      max-width: 1400px;
+      max-width: 1300px;
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -66,7 +121,7 @@
 
     section[data-slide="12-landscape-of-tools"] h1 {
       font-family: var(--font-display);
-      font-size: clamp(1.75rem, 2.2vw, 2.25rem);
+      font-size: clamp(1.625rem, 2vw, 2rem);
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: -0.02em;
@@ -75,57 +130,8 @@
       margin: 0;
     }
 
-    section[data-slide="12-landscape-of-tools"] .tools {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: var(--space-3);
-    }
-
-    section[data-slide="12-landscape-of-tools"] .tool {
-      border-top: 3px solid var(--uw-spirit-gold);
-      padding-top: var(--space-3);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-1);
-    }
-
-    section[data-slide="12-landscape-of-tools"] .tool-name {
-      font-family: var(--font-display);
-      font-size: clamp(1.25rem, 1.25vw, 1.25rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: -0.01em;
-      line-height: 1.2;
-      color: var(--uw-spirit-purple);
-      margin: 0;
-    }
-
-    section[data-slide="12-landscape-of-tools"] .tool-example {
-      font-family: var(--font-body);
-      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
-      font-weight: 400;
-      color: var(--uw-heritage-gold);
-      font-style: italic;
-      margin: 0 0 var(--space-1) 0;
-    }
-
-    section[data-slide="12-landscape-of-tools"] .tool-desc {
-      font-family: var(--font-body);
-      font-size: clamp(1.25rem, 1.25vw, 1.25rem);
-      font-weight: 400;
-      color: var(--uw-gray-70);
-      line-height: 1.5;
-      margin: 0;
-    }
-
-    section[data-slide="12-landscape-of-tools"] .coda {
-      font-family: var(--font-body);
-      font-size: clamp(1.375rem, 1.3vw, 1.375rem);
-      color: var(--uw-gray-70);
-      font-style: italic;
-      margin: 0;
-      border-top: 1px solid var(--uw-gray-10);
-      padding-top: var(--space-3);
+    section[data-slide="12-landscape-of-tools"] .plot {
+      width: 100%;
     }
   </style>
 </section>

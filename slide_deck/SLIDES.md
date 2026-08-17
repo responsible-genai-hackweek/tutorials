@@ -54,13 +54,18 @@ Title slide with UW branding. **Edit existing HTML — update text only.**
 
 ## 04-chat-vs-agent
 
-**Keep existing HTML as-is.** No changes needed.
+**Rebuild this slide.** Replace the harness callout text block with an original inline SVG diagram. Do not extract from the PDF source.
 
 - Key message: The chat experience many of us have with LLMs is around answering questions. An agent is different because it reads your files, runs your code, and edits your project.
 - Bullets:
   - Same LLM underneath, but different harness around it
   - Saying "I'm using Claude" is under-specified: browser Claude, Claude Code, and Claude in Cursor all behave differently
   - The harness, not the model, is what has changed in the last two years
+- Diagram: Two-panel SVG showing the contrast between chat and agent configurations.
+  - Left panel (Chat): a single box labeled "LLM" with one arrow in (user message) and one arrow out (response). Minimal. No surrounding elements.
+  - Right panel (Agent): the same "LLM" box at center, surrounded by a visible boundary labeled "Harness". Inside the boundary, small labeled nodes around the LLM: "Files", "Terminal", "Tools", "Memory". Arrows connect the nodes to the LLM, and one arrow exits to the user.
+  - The two panels are separated by a vertical divider. The LLM box is visually identical in both panels — the point is that the shell changed, not the core.
+  - Style: thin lines, no filled shapes, gold accent on the harness boundary, white labels, consistent with the deck's geometric aesthetic. Built as inline SVG, no external image file needed.
 
 ## 05-six-pieces
 
@@ -108,17 +113,26 @@ Render as two-column layout with the phrase as headline.
 ## 09-diagnosis-slide
 
 - Key message: When an agent does something surprising or wrong, the first debugging question is: is this a training problem or a prompt problem?
-- Bullets:
-  - Training problem: the model does not know something it was never trained on, or exhibits a systematic behavior baked in by RLHF. No amount of prompt tweaking will fix it. You either switch models or restructure the task.
-  - Prompt problem: the model is missing context you could provide — your data format, your conventions, your constraints. You have real levers to pull: rewrite the instruction, add examples, load relevant files, define what "done" means.
-  - Most problems researchers encounter are prompt problems. That is good news because it means the researcher has control.
-- Note to self: This slide sets up the "trained-in or prompt?" interactive exercise if we run it. Use the SnowEx example again: "The agent picked the wrong table for snow depth — is that a training problem or a prompt problem? It is a prompt problem. The model knows how to query databases; it does not know your database. Monday afternoon's AGENTS.md tutorial teaches you exactly how to fix that."
+- Diagram: Two-level decision tree as inline SVG. Root question branches into two outcomes; each outcome has a second level. No coda text — the tree fills the slide.
+  - Root question: "Does the agent seem unaware of something specific to your work?" This frames context as the diagnostic axis, not prompt phrasing.
+  - YES branch → Context problem (gold border — visually emphasized as the more common and actionable case)
+    - Four levers listed beneath the box, not as tree nodes. Each lever is a context engineering move, not a prompt tweak:
+      1. Load your data schema into context
+      2. Add conventions to AGENTS.md
+      3. Define what "done" looks like
+      4. Write a skill for this task
+  - NO branch → Training problem (white border)
+    - Sub-question: "Can I restructure the task?"
+    - YES leaf: Restructure the task
+    - NO leaf: Switch models
+- Note to self: This slide sets up the "trained-in or prompt?" interactive exercise if we run it. Use the SnowEx example: "The agent picked the wrong table for snow depth — is that a context problem or a training problem? It is a context problem. Monday afternoon's AGENTS.md tutorial teaches you exactly how to fix that."
+- Note to self — "restructure the task": when someone asks what this means, it is a task decomposition move for when more context will not help — the model genuinely cannot do the thing as specified. Concrete examples: if the model struggles to write a complex multi-step analysis in one shot, break it into sequential steps with a separate prompt for each; if it can't reliably produce a specific output format, separate the reasoning step from the formatting step; if it loses track of constraints in a long conversation, scope the task more narrowly so the relevant constraints fit cleanly in a short prompt. The common thread is changing the shape of the problem so it no longer requires the capability the model lacks — not giving it more context, but asking for something different.
 
 ## 10-failure-modes
 
 - Key message: When agents go wrong, they tend to go wrong in predictable ways. Naming these patterns now gives you vocabulary you will use all week.
 - Bullets:
-  - Hallucination: the model produces confident, plausible-sounding output that is factually wrong. This is especially dangerous in scientific contexts because the output often looks like it could be correct.
+  - Fabrication (hallucination): the model produces confident, plausible-sounding output that is factually wrong. This is especially dangerous in scientific contexts because the output often looks like it could be correct. "Fabrication" is preferred over "hallucination" because it describes what actually happens without anthropomorphizing the model.
   - Sycophancy: the model agrees with your framing rather than pushing back, even when your framing is wrong. This is a systematic side-effect of RLHF training that rewards responses users rate as helpful.
   - Scope creep: the model does more than you asked — adds type hints, refactors adjacent code, restructures your project. Trained to be maximally helpful, it over-delivers by default.
   - Context exhaustion: as the conversation grows long and the context window fills up, the model loses track of earlier instructions and makes increasingly confused decisions.
@@ -135,14 +149,18 @@ Render as two-column layout with the phrase as headline.
 
 ## 12-landscape-of-tools
 
-- Key message: For coding specifically, the major agent tools today are GitHub Copilot (IDE-integrated), Claude Code (command-line), Cursor and Windsurf (AI-native IDEs), plus open-source options. Beyond coding, researchers are increasingly encountering agents that browse the web, manipulate spreadsheets, and work across applications. The six-piece anatomy applies to all of them.
-- Bullets:
-  - IDE-native tools (Copilot in VS Code): require no setup for someone already in that IDE. Autocomplete plus chat. Lowest friction, lowest ceiling.
-  - Command-line agents (Claude Code): integrate with any workflow, require comfort at the terminal. Highest flexibility, steepest learning curve.
-  - AI-native IDEs (Cursor, Windsurf): purpose-built environments with deeper integration. Middle ground on flexibility and ceiling.
-  - Cloud-hosted agents (ChatGPT, Claude.ai, Gemini): no local setup, but assume you will paste or upload what you want the agent to see. Least integration with your actual workflow.
-  - Open-source options (OpenCode, Aider, continue.dev): self-hostable, auditable, often limited in model choice or capability.
-- Note to self: Keep this descriptive not prescriptive. The audience will make their own choices. The point is that they know the categories exist.
+- Key message: Five categories of AI coding tools, mapped by integration depth and privacy control. The right choice depends on the constraints of your work — for most researchers with sensitive data, those two axes dominate the decision.
+- Diagram: Scatter plot as inline SVG. Two axes:
+  - X-axis: Integration Depth (Low → High). Sub-label: "how connected to your actual workflow"
+  - Y-axis: Privacy Ceiling (Low → High). Sub-label: "maximum achievable privacy for this tool category"
+  - Five plotted points, each labeled with category name (bold) and example (italic, smaller):
+    1. Cloud-hosted assistants (ChatGPT, Claude.ai, Gemini) — low integration, low privacy control. Bottom-left.
+    2. IDE-native tools (GitHub Copilot) — high integration, low-medium privacy control. Bottom-right.
+    3. AI-native IDEs (Cursor, Windsurf) — medium integration, low-medium privacy control. Center-right.
+    4. Open-source options (Aider, OpenCode) — low-medium integration, high privacy control. Top-left.
+    5. Command-line agents (Claude Code) — high integration, high privacy control. Top-right. This is the non-obvious finding: pairing a command-line agent with a local model gives you both deep integration and full data control.
+  - Light dashed midpoint grid lines divide the plot into four quadrants. No quadrant labels — let the positions speak.
+- Note to self: Keep this descriptive not prescriptive. The key insight to name aloud is the command-line agents point in the top-right: most people assume high capability means low privacy control, but that is not true if you choose the model hosting yourself.
 
 ## 13-five-axes
 

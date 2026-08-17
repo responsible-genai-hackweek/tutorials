@@ -47,7 +47,7 @@ No additions.
 - **Attribution:** Include footer credit "Adapted from Jason Gilman, Element 84" on this slide.
 
 ## 04-chat-vs-agent
-No additions.
+Original inline SVG diagram built directly into the first-pass HTML. No second-pass additions needed. No attribution required.
 
 ## 05-six-pieces
 No additions.
@@ -116,7 +116,7 @@ No additions.
 
 These are from misc-ai-slides.pdf and may be useful in future passes or for other tutorials in the HACK Week:
 
-- **Page 45–46:** "Typical Agent Harness Flow" (Parts 1 & 2) — hand-drawn style showing the full agent loop: User Question → Agent Harness → LLM → Tool/MCP → response feeds back with all previous text. Could enhance slide 04 or 05 if more visual explanation of the agent loop is needed.
+- **Page 45–46:** "Typical Agent Harness Flow" (Parts 1 & 2) — hand-drawn style. Not used; slide 04 instead uses an original inline SVG with a simpler framing appropriate for early in the tutorial.
 - **Page 47:** "AI Agents" comprehensive architecture — User → Loop → Model, with Tool Registry, Tool Dispatcher, Plans/Memory, System Prompt. Labeled "Choice on Each Loop: Use a Tool, Write/Read a Plan, Answer the user." Most detailed view of the agent loop.
 - **Page 15:** "An LLM is like a CPU" — Context/Instructions → AI chip → outputs. Alternative framing for slide 03.
 - **Page 37:** Agent example with Lyme disease query — Broker → LLM → Catalogs/Data/Docs/API. NASA-relevant but uses "Broker" terminology rather than our "harness" framing.
