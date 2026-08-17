@@ -1,0 +1,95 @@
+<section data-slide="08-convergent-training"
+         aria-label="Slide 8: Convergent Training"
+         class="slide">
+
+  <div class="accent-bar"></div>
+  <div class="content">
+    <p class="eyebrow">Convergent post-training</p>
+    <h1>All major AI labs do post-training in roughly similar ways.</h1>
+    <p class="lead">Anthropic, OpenAI, Google, and Meta all use supervised fine-tuning, reinforcement learning from human feedback, and tool-use training — with different data but similar pipelines. The resulting behaviors converge: all modern models can follow instructions, use tools, and stop when done.</p>
+    <div class="callout">
+      <p class="callout-label">The practical implication</p>
+      <p class="callout-body">You can swap Claude for GPT for Gemini in most coding agents and things still mostly work. Your investment in learning how to shape agent behavior — context documents, skills, workflow patterns — transfers across tools. You are not locked in. Invest in concepts, not in products.</p>
+    </div>
+  </div>
+
+  <style>
+    section[data-slide="08-convergent-training"] {
+      background: var(--uw-white);
+      padding: var(--space-8) var(--space-10) var(--space-8) var(--space-12);
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section[data-slide="08-convergent-training"] .accent-bar {
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 8px;
+      background: var(--uw-spirit-gold);
+    }
+
+    section[data-slide="08-convergent-training"] .content {
+      max-width: 960px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+
+    section[data-slide="08-convergent-training"] .eyebrow {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--uw-gray-70);
+      margin: 0;
+    }
+
+    section[data-slide="08-convergent-training"] h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 3.2vw, 3.25rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.0;
+      color: var(--uw-spirit-purple);
+      margin: 0;
+    }
+
+    section[data-slide="08-convergent-training"] .lead {
+      font-family: var(--font-body);
+      font-size: clamp(1.5rem, 1.5vw, 1.5rem);
+      font-weight: 400;
+      color: var(--uw-gray-70);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    section[data-slide="08-convergent-training"] .callout {
+      border-left: 4px solid var(--uw-spirit-gold);
+      padding: var(--space-4) var(--space-5);
+      background: rgba(75, 46, 131, 0.06);
+    }
+
+    section[data-slide="08-convergent-training"] .callout-label {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 1.1vw, 1.125rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--uw-spirit-purple);
+      margin: 0 0 var(--space-2) 0;
+    }
+
+    section[data-slide="08-convergent-training"] .callout-body {
+      font-family: var(--font-body);
+      font-size: clamp(1.5rem, 1.5vw, 1.5rem);
+      font-weight: 400;
+      color: var(--uw-gray-90);
+      line-height: 1.6;
+      margin: 0;
+    }
+  </style>
+</section>

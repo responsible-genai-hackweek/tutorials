@@ -1,0 +1,131 @@
+<section data-slide="12-landscape-of-tools"
+         aria-label="Slide 12: Landscape of Tools"
+         class="slide">
+
+  <div class="accent-bar-top"></div>
+  <div class="content">
+    <p class="eyebrow">Landscape of tools</p>
+    <h1>For coding specifically, there are five broad categories of AI agent tools.</h1>
+    <div class="tools">
+      <div class="tool">
+        <p class="tool-name">IDE-native tools</p>
+        <p class="tool-example">e.g., GitHub Copilot in VS Code</p>
+        <p class="tool-desc">Require no setup for someone already in that editor. Autocomplete plus chat. Lowest friction and lowest ceiling.</p>
+      </div>
+      <div class="tool">
+        <p class="tool-name">Command-line agents</p>
+        <p class="tool-example">e.g., Claude Code</p>
+        <p class="tool-desc">Integrate with any workflow and require comfort at the terminal. Highest flexibility and steepest learning curve.</p>
+      </div>
+      <div class="tool">
+        <p class="tool-name">AI-native IDEs</p>
+        <p class="tool-example">e.g., Cursor, Windsurf</p>
+        <p class="tool-desc">Purpose-built environments with deeper model integration. Middle ground on flexibility and capability ceiling.</p>
+      </div>
+      <div class="tool">
+        <p class="tool-name">Cloud-hosted assistants</p>
+        <p class="tool-example">e.g., ChatGPT, Claude.ai, Gemini</p>
+        <p class="tool-desc">No local setup, but assume you will paste or upload what you want the agent to see. Least integration with your actual workflow.</p>
+      </div>
+      <div class="tool">
+        <p class="tool-name">Open-source options</p>
+        <p class="tool-example">e.g., OpenCode, Aider, continue.dev</p>
+        <p class="tool-desc">Self-hostable and auditable. Often limited in model choice or capability. Maximum control over where your data goes.</p>
+      </div>
+    </div>
+    <p class="coda">The six-piece anatomy applies to all of them. Switching tools is a configuration exercise, not a re-learning exercise.</p>
+  </div>
+
+  <style>
+    section[data-slide="12-landscape-of-tools"] {
+      background: var(--uw-white);
+      padding: var(--space-6) var(--space-10);
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section[data-slide="12-landscape-of-tools"] .content {
+      max-width: 1400px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    section[data-slide="12-landscape-of-tools"] .eyebrow {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--uw-gray-70);
+      margin: 0;
+    }
+
+    section[data-slide="12-landscape-of-tools"] h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 2.2vw, 2.25rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--uw-spirit-purple);
+      margin: 0;
+    }
+
+    section[data-slide="12-landscape-of-tools"] .tools {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: var(--space-3);
+    }
+
+    section[data-slide="12-landscape-of-tools"] .tool {
+      border-top: 3px solid var(--uw-spirit-gold);
+      padding-top: var(--space-3);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+
+    section[data-slide="12-landscape-of-tools"] .tool-name {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 1.25vw, 1.25rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      color: var(--uw-spirit-purple);
+      margin: 0;
+    }
+
+    section[data-slide="12-landscape-of-tools"] .tool-example {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      color: var(--uw-heritage-gold);
+      font-style: italic;
+      margin: 0 0 var(--space-1) 0;
+    }
+
+    section[data-slide="12-landscape-of-tools"] .tool-desc {
+      font-family: var(--font-body);
+      font-size: clamp(1.25rem, 1.25vw, 1.25rem);
+      font-weight: 400;
+      color: var(--uw-gray-70);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    section[data-slide="12-landscape-of-tools"] .coda {
+      font-family: var(--font-body);
+      font-size: clamp(1.375rem, 1.3vw, 1.375rem);
+      color: var(--uw-gray-70);
+      font-style: italic;
+      margin: 0;
+      border-top: 1px solid var(--uw-gray-10);
+      padding-top: var(--space-3);
+    }
+  </style>
+</section>

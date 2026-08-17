@@ -195,12 +195,12 @@
          class="slide">
 
   <div class="title-layout">
-    <p class="institution">University of Washington · eScience Institute</p>
-    <h1>Generative-AI<br>for Software<br>Development</h1>
-    <p class="context">AI-in-Practice Summer Institute</p>
+    <p class="institution">NASA Responsible GenAI HACK Week · CryoCloud</p>
+    <h1>Landscape of<br>Coding Agents</h1>
+    <p class="context">An orientation to the technology underneath AI coding tools</p>
     <div class="meta">
-      <span class="presenters">Anthony Arendt &amp; Don (Landung) Setiawan</span>
-      <span class="date">July 29, 2026</span>
+      <span class="presenters">Anthony Arendt · Anshul Tambay · Don Setiawan</span>
+      <span class="date">August 18, 2026</span>
     </div>
   </div>
 
@@ -284,6 +284,197 @@
       font-size: clamp(1.375rem, 1.4vw, 1.375rem);
       font-weight: 400;
       color: var(--uw-spirit-gold);
+    }
+  </style>
+</section>
+<section data-slide="02-framing"
+         aria-label="Slide 2: Framing"
+         class="slide">
+
+  <div class="accent-bar-top"></div>
+  <div class="content">
+    <p class="eyebrow">Welcome</p>
+    <h1>This tutorial orients you to the technology underneath all of the tools you will use this week.</h1>
+    <p class="sub">The goal is a shared mental model, not a product recommendation.</p>
+    <ul class="bullets">
+      <li>We are starting from the premise that you have some familiarity with generative AI, whether through browser chat, Copilot, or something else.</li>
+      <li>By the end of this session you will have a framework for understanding any AI coding tool you encounter, regardless of vendor or interface.</li>
+      <li>This is the conceptual foundation. Later tutorials this week will give you hands-on practice with context engineering, MCP servers, workflow patterns, and sandboxing.</li>
+    </ul>
+  </div>
+
+  <style>
+    section[data-slide="02-framing"] {
+      background: var(--uw-spirit-purple);
+      padding: var(--space-10);
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section[data-slide="02-framing"] .content {
+      max-width: 1000px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+
+    section[data-slide="02-framing"] .eyebrow {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--uw-spirit-gold);
+      margin: 0;
+    }
+
+    section[data-slide="02-framing"] h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--uw-white);
+      margin: 0;
+    }
+
+    section[data-slide="02-framing"] .sub {
+      font-family: var(--font-body);
+      font-size: clamp(1.5rem, 1.7vw, 1.75rem);
+      font-weight: 300;
+      color: var(--uw-husky-gold-web);
+      line-height: 1.4;
+      margin: 0;
+      font-style: italic;
+    }
+
+    section[data-slide="02-framing"] .bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      border-top: 1px solid rgba(255,199,0,0.2);
+      padding-top: var(--space-4);
+    }
+
+    section[data-slide="02-framing"] .bullets li {
+      font-family: var(--font-body);
+      font-size: clamp(1.5rem, 1.5vw, 1.5rem);
+      color: var(--uw-husky-gold-web);
+      line-height: 1.55;
+      padding-left: 2rem;
+      position: relative;
+    }
+
+    section[data-slide="02-framing"] .bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--uw-spirit-gold);
+    }
+  </style>
+</section>
+<section data-slide="03-what-is-an-llm"
+         aria-label="Slide 3: What Is a Large Language Model?"
+         class="slide">
+
+  <div class="accent-bar"></div>
+  <div class="content">
+    <p class="eyebrow">Large Language Models</p>
+    <h1>A prediction machine,<br>not a knowledge base.</h1>
+    <p class="lead">A large language model is a statistical model that predicts the next chunk of text given the text that came before it. At each step the model picks a likely next token — roughly three-quarters of a word — given everything that came before. This is all it does. Every capability you observe emerges from this one mechanism.</p>
+    <ul class="bullets">
+      <li>The model works in tokens. Everything about the model — context limits, cost, speed — is measured in tokens.</li>
+      <li>Randomness in this process is why you get different answers to the same question, and why the model can sound confident while being wrong.</li>
+      <li>The model has no memory, no internet access, and no special knowledge unless that information is placed into its context window.</li>
+    </ul>
+  </div>
+
+  <style>
+    section[data-slide="03-what-is-an-llm"] {
+      background: var(--uw-white);
+      padding: var(--space-8) var(--space-10) var(--space-8) var(--space-12);
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section[data-slide="03-what-is-an-llm"] .accent-bar {
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 8px;
+      background: var(--uw-spirit-gold);
+    }
+
+    section[data-slide="03-what-is-an-llm"] .content {
+      max-width: 960px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+
+    section[data-slide="03-what-is-an-llm"] .eyebrow {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--uw-gray-70);
+      margin: 0;
+    }
+
+    section[data-slide="03-what-is-an-llm"] h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 3.5vw, 3.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.0;
+      color: var(--uw-spirit-purple);
+      margin: 0;
+    }
+
+    section[data-slide="03-what-is-an-llm"] .lead {
+      font-family: var(--font-body);
+      font-size: clamp(1.5rem, 1.5vw, 1.5rem);
+      font-weight: 400;
+      color: var(--uw-gray-70);
+      line-height: 1.6;
+      margin: 0;
+      border-left: 4px solid var(--uw-spirit-gold);
+      padding-left: var(--space-4);
+    }
+
+    section[data-slide="03-what-is-an-llm"] .bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    section[data-slide="03-what-is-an-llm"] .bullets li {
+      font-family: var(--font-body);
+      font-size: clamp(1.5rem, 1.5vw, 1.5rem);
+      color: var(--uw-gray-90);
+      line-height: 1.5;
+      padding-left: 2rem;
+      position: relative;
+    }
+
+    section[data-slide="03-what-is-an-llm"] .bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--uw-gray-30);
     }
   </style>
 </section>
@@ -765,6 +956,1204 @@
     }
   </style>
 </section>
+<section data-slide="07-post-training"
+         aria-label="Slide 7: Post-Training"
+         class="slide">
+
+  <div class="accent-bar-top"></div>
+  <div class="content">
+    <p class="eyebrow">How models learn to be useful</p>
+    <h1>Useful behaviors come from a second training phase — post-training.</h1>
+    <div class="phases">
+      <div class="phase">
+        <p class="phase-label">Supervised fine-tuning</p>
+        <p class="phase-desc">Human contractors write thousands of examples of ideal conversations. The model learns the shape of a helpful interaction. This is why the agent follows your instructions.</p>
+      </div>
+      <div class="phase">
+        <p class="phase-label">Reinforcement learning from human feedback</p>
+        <p class="phase-desc">Contractors judge which of two model responses is better. The model is tuned to produce responses that score well. This is why the agent stops and decides it is done, instead of looping forever.</p>
+      </div>
+      <div class="phase">
+        <p class="phase-label">Tool-use fine-tuning</p>
+        <p class="phase-desc">The model is trained on examples of conversations that include tool calls. It learns both the format and the harder meta-skill of knowing when a tool call is needed versus when it can answer from memory. This is how the agent calls a tool instead of just describing what to do.</p>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    section[data-slide="07-post-training"] {
+      background: var(--uw-spirit-purple);
+      padding: var(--space-8) var(--space-10);
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section[data-slide="07-post-training"] .content {
+      max-width: 1300px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+
+    section[data-slide="07-post-training"] .eyebrow {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--uw-spirit-gold);
+      margin: 0;
+    }
+
+    section[data-slide="07-post-training"] h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 2.4vw, 2.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--uw-white);
+      margin: 0;
+    }
+
+    section[data-slide="07-post-training"] .phases {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+    }
+
+    section[data-slide="07-post-training"] .phase {
+      background: rgba(255,255,255,0.07);
+      border-top: 3px solid var(--uw-spirit-gold);
+      padding: var(--space-4);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    section[data-slide="07-post-training"] .phase-label {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 1.4vw, 1.375rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      color: var(--uw-spirit-gold);
+      margin: 0;
+    }
+
+    section[data-slide="07-post-training"] .phase-desc {
+      font-family: var(--font-body);
+      font-size: clamp(1.375rem, 1.4vw, 1.375rem);
+      font-weight: 400;
+      color: var(--uw-husky-gold-web);
+      line-height: 1.55;
+      margin: 0;
+    }
+  </style>
+</section>
+<section data-slide="08-convergent-training"
+         aria-label="Slide 8: Convergent Training"
+         class="slide">
+
+  <div class="accent-bar"></div>
+  <div class="content">
+    <p class="eyebrow">Convergent post-training</p>
+    <h1>All major AI labs do post-training in roughly similar ways.</h1>
+    <p class="lead">Anthropic, OpenAI, Google, and Meta all use supervised fine-tuning, reinforcement learning from human feedback, and tool-use training — with different data but similar pipelines. The resulting behaviors converge: all modern models can follow instructions, use tools, and stop when done.</p>
+    <div class="callout">
+      <p class="callout-label">The practical implication</p>
+      <p class="callout-body">You can swap Claude for GPT for Gemini in most coding agents and things still mostly work. Your investment in learning how to shape agent behavior — context documents, skills, workflow patterns — transfers across tools. You are not locked in. Invest in concepts, not in products.</p>
+    </div>
+  </div>
+
+  <style>
+    section[data-slide="08-convergent-training"] {
+      background: var(--uw-white);
+      padding: var(--space-8) var(--space-10) var(--space-8) var(--space-12);
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section[data-slide="08-convergent-training"] .accent-bar {
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 8px;
+      background: var(--uw-spirit-gold);
+    }
+
+    section[data-slide="08-convergent-training"] .content {
+      max-width: 960px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+
+    section[data-slide="08-convergent-training"] .eyebrow {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--uw-gray-70);
+      margin: 0;
+    }
+
+    section[data-slide="08-convergent-training"] h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 3.2vw, 3.25rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.0;
+      color: var(--uw-spirit-purple);
+      margin: 0;
+    }
+
+    section[data-slide="08-convergent-training"] .lead {
+      font-family: var(--font-body);
+      font-size: clamp(1.5rem, 1.5vw, 1.5rem);
+      font-weight: 400;
+      color: var(--uw-gray-70);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    section[data-slide="08-convergent-training"] .callout {
+      border-left: 4px solid var(--uw-spirit-gold);
+      padding: var(--space-4) var(--space-5);
+      background: rgba(75, 46, 131, 0.06);
+    }
+
+    section[data-slide="08-convergent-training"] .callout-label {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 1.1vw, 1.125rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--uw-spirit-purple);
+      margin: 0 0 var(--space-2) 0;
+    }
+
+    section[data-slide="08-convergent-training"] .callout-body {
+      font-family: var(--font-body);
+      font-size: clamp(1.5rem, 1.5vw, 1.5rem);
+      font-weight: 400;
+      color: var(--uw-gray-90);
+      line-height: 1.6;
+      margin: 0;
+    }
+  </style>
+</section>
+<section data-slide="09-diagnosis-slide"
+         aria-label="Slide 9: Diagnosing Agent Problems"
+         class="slide">
+
+  <div class="accent-bar-top"></div>
+  <div class="content">
+    <h2 class="slide-title">When something goes wrong, ask first: is this a training problem or a prompt problem?</h2>
+    <div class="columns">
+      <div class="col training">
+        <p class="col-label">Training problem</p>
+        <p class="col-body">The model does not know something it was never trained on, or exhibits a systematic behavior baked in during post-training. No amount of prompt tweaking will fix it. You either switch models or restructure the task.</p>
+        <p class="col-signal">Signal: the problem is consistent and reproducible regardless of how you phrase the prompt.</p>
+      </div>
+      <div class="divider"></div>
+      <div class="col prompt">
+        <p class="col-label">Prompt problem</p>
+        <p class="col-body">The model is missing context you could provide — your data format, your conventions, your constraints. You have real levers to pull: rewrite the instruction, add examples, load relevant files, define what "done" means.</p>
+        <p class="col-signal">Signal: the problem disappears when you give the model the missing context.</p>
+      </div>
+    </div>
+    <p class="coda">Most problems researchers encounter are prompt problems. That is good news because it means the researcher has control.</p>
+  </div>
+
+  <style>
+    section[data-slide="09-diagnosis-slide"] {
+      background: var(--uw-spirit-purple);
+      padding: var(--space-8) var(--space-10);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      gap: var(--space-5);
+    }
+
+    section[data-slide="09-diagnosis-slide"] .content {
+      max-width: 1300px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+
+    section[data-slide="09-diagnosis-slide"] .slide-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 2vw, 2rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 1.15;
+      color: var(--uw-spirit-gold);
+      margin: 0;
+    }
+
+    section[data-slide="09-diagnosis-slide"] .columns {
+      display: grid;
+      grid-template-columns: 1fr 2px 1fr;
+      gap: var(--space-6);
+      align-items: start;
+    }
+
+    section[data-slide="09-diagnosis-slide"] .divider {
+      background: rgba(255, 199, 0, 0.25);
+      align-self: stretch;
+    }
+
+    section[data-slide="09-diagnosis-slide"] .col {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      padding: var(--space-3) 0;
+    }
+
+    section[data-slide="09-diagnosis-slide"] .col-label {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 1.4vw, 1.375rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--uw-spirit-gold);
+      margin: 0;
+    }
+
+    section[data-slide="09-diagnosis-slide"] .col-body {
+      font-family: var(--font-body);
+      font-size: clamp(1.375rem, 1.4vw, 1.375rem);
+      font-weight: 400;
+      color: var(--uw-white);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    section[data-slide="09-diagnosis-slide"] .col-signal {
+      font-family: var(--font-body);
+      font-size: clamp(1.25rem, 1.25vw, 1.25rem);
+      font-weight: 400;
+      color: rgba(232,227,211,0.7);
+      line-height: 1.5;
+      margin: 0;
+      font-style: italic;
+    }
+
+    section[data-slide="09-diagnosis-slide"] .coda {
+      font-family: var(--font-body);
+      font-size: clamp(1.375rem, 1.4vw, 1.375rem);
+      font-weight: 600;
+      color: var(--uw-husky-gold-web);
+      line-height: 1.4;
+      margin: 0;
+      border-top: 1px solid rgba(255,199,0,0.2);
+      padding-top: var(--space-4);
+    }
+  </style>
+</section>
+<section data-slide="10-failure-modes"
+         aria-label="Slide 10: Failure Modes"
+         class="slide">
+
+  <div class="accent-bar-top-purple"></div>
+  <div class="content">
+    <p class="eyebrow">Failure modes</p>
+    <h1>When agents go wrong, they tend to go wrong in predictable ways.</h1>
+    <div class="modes">
+      <div class="mode">
+        <p class="mode-name">Hallucination</p>
+        <p class="mode-desc">The model produces confident, plausible-sounding output that is factually wrong. This is especially dangerous in scientific contexts because the output often looks like it could be correct.</p>
+      </div>
+      <div class="mode">
+        <p class="mode-name">Sycophancy</p>
+        <p class="mode-desc">The model agrees with your framing rather than pushing back, even when your framing is wrong. This is a systematic side-effect of reinforcement learning training that rewards responses users rate as helpful.</p>
+      </div>
+      <div class="mode">
+        <p class="mode-name">Scope creep</p>
+        <p class="mode-desc">The model does more than you asked — adds type hints, refactors adjacent code, restructures your project. Trained to be maximally helpful, it over-delivers by default.</p>
+      </div>
+      <div class="mode">
+        <p class="mode-name">Context exhaustion</p>
+        <p class="mode-desc">As the conversation grows long and the context window fills up, the model loses track of earlier instructions and makes increasingly confused decisions.</p>
+      </div>
+    </div>
+    <p class="coda">These are prompt problems or architecture problems, not mysteries. Name them so you can recognize and address them.</p>
+  </div>
+
+  <style>
+    section[data-slide="10-failure-modes"] {
+      background: var(--uw-white);
+      padding: var(--space-6) var(--space-10);
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section[data-slide="10-failure-modes"] .accent-bar-top-purple {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 8px;
+      background: var(--uw-spirit-purple);
+    }
+
+    section[data-slide="10-failure-modes"] .content {
+      max-width: 1400px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+
+    section[data-slide="10-failure-modes"] .eyebrow {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--uw-gray-70);
+      margin: 0;
+    }
+
+    section[data-slide="10-failure-modes"] h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 2.4vw, 2.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--uw-spirit-purple);
+      margin: 0;
+    }
+
+    section[data-slide="10-failure-modes"] .modes {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-4);
+    }
+
+    section[data-slide="10-failure-modes"] .mode {
+      border-top: 3px solid var(--uw-spirit-purple);
+      padding-top: var(--space-3);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    section[data-slide="10-failure-modes"] .mode-name {
+      font-family: var(--font-display);
+      font-size: clamp(1.375rem, 1.5vw, 1.5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--uw-spirit-purple);
+      margin: 0;
+    }
+
+    section[data-slide="10-failure-modes"] .mode-desc {
+      font-family: var(--font-body);
+      font-size: clamp(1.375rem, 1.35vw, 1.375rem);
+      font-weight: 400;
+      color: var(--uw-gray-70);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    section[data-slide="10-failure-modes"] .coda {
+      font-family: var(--font-body);
+      font-size: clamp(1.375rem, 1.3vw, 1.375rem);
+      color: var(--uw-gray-70);
+      font-style: italic;
+      margin: 0;
+      border-top: 1px solid var(--uw-gray-10);
+      padding-top: var(--space-3);
+    }
+  </style>
+</section>
+<section data-slide="11-mapping-exercise"
+         aria-label="Slide 11: Mapping Exercise"
+         class="slide">
+
+  <div class="accent-bar-top"></div>
+  <div class="content">
+    <p class="eyebrow">Interactive pause — 3 minutes</p>
+    <h1>Before we go further, let us understand where everyone in this room is starting from.</h1>
+    <p class="instruction">Take three minutes to fill out this survey on your phone. There are no wrong answers.</p>
+    <div class="qr-area" aria-label="QR code placeholder — will link to audience survey">
+      <div class="qr-box">
+        <svg viewBox="0 0 120 120" fill="none" aria-hidden="true" class="qr-placeholder">
+          <!-- QR code border squares -->
+          <rect x="8" y="8" width="36" height="36" rx="2" stroke="currentColor" stroke-width="3" fill="none"/>
+          <rect x="16" y="16" width="20" height="20" rx="1" stroke="currentColor" stroke-width="2.5" fill="none"/>
+          <rect x="20" y="20" width="12" height="12" fill="currentColor"/>
+          <rect x="76" y="8" width="36" height="36" rx="2" stroke="currentColor" stroke-width="3" fill="none"/>
+          <rect x="84" y="16" width="20" height="20" rx="1" stroke="currentColor" stroke-width="2.5" fill="none"/>
+          <rect x="88" y="20" width="12" height="12" fill="currentColor"/>
+          <rect x="8" y="76" width="36" height="36" rx="2" stroke="currentColor" stroke-width="3" fill="none"/>
+          <rect x="16" y="84" width="20" height="20" rx="1" stroke="currentColor" stroke-width="2.5" fill="none"/>
+          <rect x="20" y="88" width="12" height="12" fill="currentColor"/>
+          <!-- Scattered data modules -->
+          <rect x="54" y="8" width="8" height="8" fill="currentColor"/>
+          <rect x="66" y="8" width="8" height="8" fill="currentColor"/>
+          <rect x="54" y="20" width="8" height="8" fill="currentColor"/>
+          <rect x="54" y="54" width="8" height="8" fill="currentColor"/>
+          <rect x="66" y="54" width="8" height="8" fill="currentColor"/>
+          <rect x="78" y="54" width="8" height="8" fill="currentColor"/>
+          <rect x="90" y="54" width="8" height="8" fill="currentColor"/>
+          <rect x="102" y="54" width="8" height="8" fill="currentColor"/>
+          <rect x="54" y="66" width="8" height="8" fill="currentColor"/>
+          <rect x="78" y="66" width="8" height="8" fill="currentColor"/>
+          <rect x="102" y="66" width="8" height="8" fill="currentColor"/>
+          <rect x="54" y="78" width="8" height="8" fill="currentColor"/>
+          <rect x="66" y="78" width="8" height="8" fill="currentColor"/>
+          <rect x="90" y="78" width="8" height="8" fill="currentColor"/>
+          <rect x="54" y="90" width="8" height="8" fill="currentColor"/>
+          <rect x="78" y="90" width="8" height="8" fill="currentColor"/>
+          <rect x="90" y="90" width="8" height="8" fill="currentColor"/>
+          <rect x="54" y="102" width="8" height="8" fill="currentColor"/>
+          <rect x="66" y="102" width="8" height="8" fill="currentColor"/>
+          <rect x="102" y="102" width="8" height="8" fill="currentColor"/>
+        </svg>
+        <p class="qr-label">QR code — add before session</p>
+      </div>
+      <div class="survey-info">
+        <p class="survey-title">Where Does Your Work Sit?</p>
+        <p class="survey-desc">This is not a quiz. "I have not used any AI tools yet" is useful data. Your answers will help all instructors this week calibrate tutorials to this specific group.</p>
+        <ul class="survey-bullets">
+          <li>What types of data do you work with?</li>
+          <li>Which AI tools, if any, have you used so far?</li>
+          <li>What is your primary programming environment?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    section[data-slide="11-mapping-exercise"] {
+      background: var(--uw-spirit-purple);
+      padding: var(--space-8) var(--space-10);
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section[data-slide="11-mapping-exercise"] .content {
+      max-width: 1200px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+
+    section[data-slide="11-mapping-exercise"] .eyebrow {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--uw-spirit-gold);
+      margin: 0;
+    }
+
+    section[data-slide="11-mapping-exercise"] h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 2.4vw, 2.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--uw-white);
+      margin: 0;
+      max-width: 800px;
+    }
+
+    section[data-slide="11-mapping-exercise"] .instruction {
+      font-family: var(--font-body);
+      font-size: clamp(1.5rem, 1.5vw, 1.5rem);
+      font-weight: 400;
+      color: var(--uw-husky-gold-web);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    section[data-slide="11-mapping-exercise"] .qr-area {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: var(--space-8);
+      align-items: center;
+      background: rgba(255,255,255,0.06);
+      padding: var(--space-5);
+    }
+
+    section[data-slide="11-mapping-exercise"] .qr-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    section[data-slide="11-mapping-exercise"] .qr-placeholder {
+      width: 160px;
+      height: 160px;
+      color: var(--uw-spirit-gold);
+      opacity: 0.8;
+    }
+
+    section[data-slide="11-mapping-exercise"] .qr-label {
+      font-family: var(--font-body);
+      font-size: clamp(0.875rem, 0.9vw, 0.875rem);
+      color: rgba(255,199,0,0.5);
+      text-align: center;
+      font-style: italic;
+      margin: 0;
+    }
+
+    section[data-slide="11-mapping-exercise"] .survey-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 2vw, 2rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--uw-white);
+      margin: 0 0 var(--space-3) 0;
+    }
+
+    section[data-slide="11-mapping-exercise"] .survey-desc {
+      font-family: var(--font-body);
+      font-size: clamp(1.375rem, 1.3vw, 1.375rem);
+      font-weight: 400;
+      color: var(--uw-husky-gold-web);
+      line-height: 1.55;
+      margin: 0 0 var(--space-3) 0;
+    }
+
+    section[data-slide="11-mapping-exercise"] .survey-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    section[data-slide="11-mapping-exercise"] .survey-bullets li {
+      font-family: var(--font-body);
+      font-size: clamp(1.25rem, 1.25vw, 1.25rem);
+      color: rgba(232,227,211,0.7);
+      line-height: 1.5;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    section[data-slide="11-mapping-exercise"] .survey-bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--uw-spirit-gold);
+    }
+  </style>
+</section>
+<section data-slide="12-landscape-of-tools"
+         aria-label="Slide 12: Landscape of Tools"
+         class="slide">
+
+  <div class="accent-bar-top"></div>
+  <div class="content">
+    <p class="eyebrow">Landscape of tools</p>
+    <h1>For coding specifically, there are five broad categories of AI agent tools.</h1>
+    <div class="tools">
+      <div class="tool">
+        <p class="tool-name">IDE-native tools</p>
+        <p class="tool-example">e.g., GitHub Copilot in VS Code</p>
+        <p class="tool-desc">Require no setup for someone already in that editor. Autocomplete plus chat. Lowest friction and lowest ceiling.</p>
+      </div>
+      <div class="tool">
+        <p class="tool-name">Command-line agents</p>
+        <p class="tool-example">e.g., Claude Code</p>
+        <p class="tool-desc">Integrate with any workflow and require comfort at the terminal. Highest flexibility and steepest learning curve.</p>
+      </div>
+      <div class="tool">
+        <p class="tool-name">AI-native IDEs</p>
+        <p class="tool-example">e.g., Cursor, Windsurf</p>
+        <p class="tool-desc">Purpose-built environments with deeper model integration. Middle ground on flexibility and capability ceiling.</p>
+      </div>
+      <div class="tool">
+        <p class="tool-name">Cloud-hosted assistants</p>
+        <p class="tool-example">e.g., ChatGPT, Claude.ai, Gemini</p>
+        <p class="tool-desc">No local setup, but assume you will paste or upload what you want the agent to see. Least integration with your actual workflow.</p>
+      </div>
+      <div class="tool">
+        <p class="tool-name">Open-source options</p>
+        <p class="tool-example">e.g., OpenCode, Aider, continue.dev</p>
+        <p class="tool-desc">Self-hostable and auditable. Often limited in model choice or capability. Maximum control over where your data goes.</p>
+      </div>
+    </div>
+    <p class="coda">The six-piece anatomy applies to all of them. Switching tools is a configuration exercise, not a re-learning exercise.</p>
+  </div>
+
+  <style>
+    section[data-slide="12-landscape-of-tools"] {
+      background: var(--uw-white);
+      padding: var(--space-6) var(--space-10);
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section[data-slide="12-landscape-of-tools"] .content {
+      max-width: 1400px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    section[data-slide="12-landscape-of-tools"] .eyebrow {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--uw-gray-70);
+      margin: 0;
+    }
+
+    section[data-slide="12-landscape-of-tools"] h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 2.2vw, 2.25rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--uw-spirit-purple);
+      margin: 0;
+    }
+
+    section[data-slide="12-landscape-of-tools"] .tools {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: var(--space-3);
+    }
+
+    section[data-slide="12-landscape-of-tools"] .tool {
+      border-top: 3px solid var(--uw-spirit-gold);
+      padding-top: var(--space-3);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+
+    section[data-slide="12-landscape-of-tools"] .tool-name {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 1.25vw, 1.25rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      color: var(--uw-spirit-purple);
+      margin: 0;
+    }
+
+    section[data-slide="12-landscape-of-tools"] .tool-example {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      color: var(--uw-heritage-gold);
+      font-style: italic;
+      margin: 0 0 var(--space-1) 0;
+    }
+
+    section[data-slide="12-landscape-of-tools"] .tool-desc {
+      font-family: var(--font-body);
+      font-size: clamp(1.25rem, 1.25vw, 1.25rem);
+      font-weight: 400;
+      color: var(--uw-gray-70);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    section[data-slide="12-landscape-of-tools"] .coda {
+      font-family: var(--font-body);
+      font-size: clamp(1.375rem, 1.3vw, 1.375rem);
+      color: var(--uw-gray-70);
+      font-style: italic;
+      margin: 0;
+      border-top: 1px solid var(--uw-gray-10);
+      padding-top: var(--space-3);
+    }
+  </style>
+</section>
+<section data-slide="13-five-axes"
+         aria-label="Slide 13: Five Axes for Choosing a Tool"
+         class="slide">
+
+  <div class="accent-bar-top"></div>
+  <div class="content">
+    <p class="eyebrow">Choosing a tool</p>
+    <h1>There is no single best tool. The right choice depends on the constraints of the specific task and the data involved.</h1>
+    <div class="axes">
+      <div class="axis">
+        <p class="axis-num">01</p>
+        <p class="axis-name">Cost</p>
+        <p class="axis-desc">Flat subscription, metered by token (pay for every API call), or self-hosted (pay for the compute yourself).</p>
+      </div>
+      <div class="axis">
+        <p class="axis-num">02</p>
+        <p class="axis-name">Capability</p>
+        <p class="axis-desc">Single-file edits vs. multi-file refactors vs. autonomous multi-hour tasks. More capable tools tend to cost more, but not always.</p>
+      </div>
+      <div class="axis">
+        <p class="axis-num">03</p>
+        <p class="axis-name">Integration</p>
+        <p class="axis-desc">How deeply the tool connects to your actual work environment — IDE-native, terminal-based, or cloud-only.</p>
+      </div>
+      <div class="axis">
+        <p class="axis-num">04</p>
+        <p class="axis-name">Model hosting</p>
+        <p class="axis-desc">Where the model runs: vendor cloud (fastest, most capable), institution's cloud (institutional control), or your own hardware (maximum control, least capability).</p>
+      </div>
+      <div class="axis">
+        <p class="axis-num">05</p>
+        <p class="axis-name">Privacy</p>
+        <p class="axis-desc">What data can leave your machine? Some research data, code, or context can never go to a vendor. This constraint often dominates the other four. The practical default: match model hosting to data sensitivity.</p>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    section[data-slide="13-five-axes"] {
+      background: var(--uw-spirit-purple);
+      padding: var(--space-8) var(--space-10);
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section[data-slide="13-five-axes"] .content {
+      max-width: 1400px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+
+    section[data-slide="13-five-axes"] .eyebrow {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--uw-spirit-gold);
+      margin: 0;
+    }
+
+    section[data-slide="13-five-axes"] h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 2vw, 2rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+      color: var(--uw-white);
+      margin: 0;
+    }
+
+    section[data-slide="13-five-axes"] .axes {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: var(--space-4);
+    }
+
+    section[data-slide="13-five-axes"] .axis {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    section[data-slide="13-five-axes"] .axis-num {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 1.3vw, 1.25rem);
+      font-weight: 900;
+      color: var(--uw-spirit-gold);
+      opacity: 0.6;
+      margin: 0;
+    }
+
+    section[data-slide="13-five-axes"] .axis-name {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 1.8vw, 1.875rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+      color: var(--uw-spirit-gold);
+      margin: 0;
+      border-bottom: 2px solid rgba(255,199,0,0.3);
+      padding-bottom: var(--space-2);
+    }
+
+    section[data-slide="13-five-axes"] .axis-desc {
+      font-family: var(--font-body);
+      font-size: clamp(1.25rem, 1.25vw, 1.25rem);
+      font-weight: 400;
+      color: var(--uw-husky-gold-web);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    section[data-slide="13-five-axes"] .axis:last-child .axis-name {
+      color: var(--uw-accent-teal);
+      border-bottom-color: rgba(42,210,201,0.3);
+    }
+
+    section[data-slide="13-five-axes"] .axis:last-child .axis-desc {
+      color: var(--uw-white);
+    }
+  </style>
+</section>
+<section data-slide="14-context-window"
+         aria-label="Slide 14: The Context Window"
+         class="slide">
+
+  <div class="accent-bar"></div>
+  <div class="content">
+    <p class="eyebrow">The context window</p>
+    <h1>The model sees exactly what the harness puts into its context, and nothing else.</h1>
+    <p class="lead">Understanding this single concept explains most of the confusing behavior researchers encounter. The context window is the total amount of text the model can consider at once, shared across every source of input.</p>
+    <div class="budget">
+      <p class="budget-label">The shared budget</p>
+      <div class="blocks">
+        <div class="block block-system">System prompt &amp; project memory</div>
+        <div class="block block-history">Conversation history</div>
+        <div class="block block-tools">Tool calls &amp; tool results</div>
+        <div class="block block-reasoning">Model reasoning</div>
+        <div class="block block-answer">The answer being written</div>
+      </div>
+    </div>
+    <ul class="bullets">
+      <li>Modern context windows range from roughly 100,000 tokens to 1 million tokens. Every turn of a conversation, the entire history is re-sent to the model.</li>
+      <li>Cost scales with conversation length. A twenty-turn conversation costs more per turn than turn one did.</li>
+      <li>Models have no memory between conversations. What looks like memory is the harness reloading context. Close the window, and the model has no idea who you are.</li>
+      <li>When the context window fills up, models get confused, forget instructions, and fail in unexpected ways.</li>
+    </ul>
+  </div>
+
+  <style>
+    section[data-slide="14-context-window"] {
+      background: var(--uw-white);
+      padding: var(--space-7) var(--space-10) var(--space-7) var(--space-12);
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section[data-slide="14-context-window"] .accent-bar {
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 8px;
+      background: var(--uw-spirit-gold);
+    }
+
+    section[data-slide="14-context-window"] .content {
+      max-width: 1300px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    section[data-slide="14-context-window"] .eyebrow {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--uw-gray-70);
+      margin: 0;
+    }
+
+    section[data-slide="14-context-window"] h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 2.4vw, 2.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--uw-spirit-purple);
+      margin: 0;
+    }
+
+    section[data-slide="14-context-window"] .lead {
+      font-family: var(--font-body);
+      font-size: clamp(1.375rem, 1.35vw, 1.375rem);
+      font-weight: 400;
+      color: var(--uw-gray-70);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    section[data-slide="14-context-window"] .budget {
+      display: flex;
+      align-items: center;
+      gap: var(--space-5);
+    }
+
+    section[data-slide="14-context-window"] .budget-label {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 1vw, 1rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--uw-spirit-purple);
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg);
+      white-space: nowrap;
+      margin: 0;
+    }
+
+    section[data-slide="14-context-window"] .blocks {
+      display: flex;
+      flex-direction: row;
+      gap: 4px;
+      flex: 1;
+      border: 2px solid var(--uw-spirit-purple);
+      padding: 6px;
+      border-radius: var(--radius-md);
+    }
+
+    section[data-slide="14-context-window"] .block {
+      font-family: var(--font-body);
+      font-size: clamp(0.875rem, 0.85vw, 0.875rem);
+      font-weight: 600;
+      text-align: center;
+      padding: var(--space-3) var(--space-2);
+      border-radius: 2px;
+      line-height: 1.3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    section[data-slide="14-context-window"] .block-system {
+      background: rgba(75, 46, 131, 0.12);
+      color: var(--uw-spirit-purple);
+      flex: 2;
+    }
+
+    section[data-slide="14-context-window"] .block-history {
+      background: rgba(42, 210, 201, 0.12);
+      color: #1a7a76;
+      flex: 3;
+    }
+
+    section[data-slide="14-context-window"] .block-tools {
+      background: rgba(255, 199, 0, 0.18);
+      color: #7a6000;
+      flex: 2.5;
+    }
+
+    section[data-slide="14-context-window"] .block-reasoning {
+      background: rgba(233, 60, 172, 0.10);
+      color: #a01f77;
+      flex: 1.5;
+    }
+
+    section[data-slide="14-context-window"] .block-answer {
+      background: rgba(75, 46, 131, 0.18);
+      color: var(--uw-spirit-purple);
+      flex: 1;
+    }
+
+    section[data-slide="14-context-window"] .bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    section[data-slide="14-context-window"] .bullets li {
+      font-family: var(--font-body);
+      font-size: clamp(1.25rem, 1.25vw, 1.25rem);
+      color: var(--uw-gray-70);
+      line-height: 1.5;
+      padding-left: 2rem;
+      position: relative;
+    }
+
+    section[data-slide="14-context-window"] .bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--uw-gray-30);
+    }
+  </style>
+</section>
+<section data-slide="15-data-privacy-preview"
+         aria-label="Slide 15: Data Privacy Preview"
+         class="slide">
+
+  <div class="accent-bar-top"></div>
+  <div class="content">
+    <p class="eyebrow">Data privacy — a preview</p>
+    <h1>When you use a cloud-hosted AI tool, your data leaves your machine.</h1>
+    <p class="sub">Where it goes and what happens next depends on your access tier. This week's sandboxing and security tutorial on Thursday covers this in depth.</p>
+    <div class="tiers">
+      <div class="tier">
+        <p class="tier-name">Consumer tier</p>
+        <p class="tier-eg">Free or personal-paid accounts</p>
+        <p class="tier-desc">Prompts are often logged and may be used for model training.</p>
+      </div>
+      <div class="tier">
+        <p class="tier-name">Enterprise &amp; API</p>
+        <p class="tier-eg">Paid API access, team accounts</p>
+        <p class="tier-desc">Contractual guarantees that prompts are not logged or used for training.</p>
+      </div>
+      <div class="tier">
+        <p class="tier-name">Institutional gateway</p>
+        <p class="tier-eg">Proxy your institution runs</p>
+        <p class="tier-desc">Adds authentication, budget controls, and audit logging on top of a vendor API.</p>
+      </div>
+      <div class="tier tier-local">
+        <p class="tier-name">Local models</p>
+        <p class="tier-eg">Runs on your machine</p>
+        <p class="tier-desc">Nothing leaves your machine. Capability is lower, but data sensitivity constraints are satisfied by default.</p>
+      </div>
+    </div>
+    <p class="coda">The practical default: match model hosting to data sensitivity. When in doubt, do not send it. A schema description or synthetic sample is often enough.</p>
+  </div>
+
+  <style>
+    section[data-slide="15-data-privacy-preview"] {
+      background: var(--uw-spirit-purple);
+      padding: var(--space-7) var(--space-10);
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section[data-slide="15-data-privacy-preview"] .content {
+      max-width: 1300px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    section[data-slide="15-data-privacy-preview"] .eyebrow {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--uw-spirit-gold);
+      margin: 0;
+    }
+
+    section[data-slide="15-data-privacy-preview"] h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 2.8vw, 2.75rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--uw-white);
+      margin: 0;
+    }
+
+    section[data-slide="15-data-privacy-preview"] .sub {
+      font-family: var(--font-body);
+      font-size: clamp(1.375rem, 1.35vw, 1.375rem);
+      font-weight: 300;
+      color: var(--uw-husky-gold-web);
+      line-height: 1.5;
+      margin: 0;
+      font-style: italic;
+    }
+
+    section[data-slide="15-data-privacy-preview"] .tiers {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-4);
+    }
+
+    section[data-slide="15-data-privacy-preview"] .tier {
+      background: rgba(255,255,255,0.07);
+      border-top: 3px solid rgba(255,199,0,0.4);
+      padding: var(--space-4);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    section[data-slide="15-data-privacy-preview"] .tier-local {
+      border-top-color: var(--uw-accent-teal);
+      background: rgba(42,210,201,0.07);
+    }
+
+    section[data-slide="15-data-privacy-preview"] .tier-name {
+      font-family: var(--font-display);
+      font-size: clamp(1.375rem, 1.4vw, 1.375rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--uw-spirit-gold);
+      margin: 0;
+    }
+
+    section[data-slide="15-data-privacy-preview"] .tier-local .tier-name {
+      color: var(--uw-accent-teal);
+    }
+
+    section[data-slide="15-data-privacy-preview"] .tier-eg {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      color: rgba(232,227,211,0.6);
+      font-style: italic;
+      margin: 0;
+    }
+
+    section[data-slide="15-data-privacy-preview"] .tier-desc {
+      font-family: var(--font-body);
+      font-size: clamp(1.375rem, 1.35vw, 1.375rem);
+      font-weight: 400;
+      color: var(--uw-husky-gold-web);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    section[data-slide="15-data-privacy-preview"] .coda {
+      font-family: var(--font-body);
+      font-size: clamp(1.375rem, 1.35vw, 1.375rem);
+      font-weight: 600;
+      color: var(--uw-husky-gold-web);
+      line-height: 1.5;
+      margin: 0;
+      border-top: 1px solid rgba(255,199,0,0.2);
+      padding-top: var(--space-3);
+    }
+  </style>
+</section>
 <section data-slide="16-four-surfaces"
          aria-label="Slide 16: Four Surfaces to Shape Agent Behavior"
          class="slide">
@@ -1006,6 +2395,316 @@
       padding: 0.1em 0.35em;
       border-radius: 3px;
       color: var(--uw-spirit-purple);
+    }
+  </style>
+</section>
+<section data-slide="18-week-ahead"
+         aria-label="Slide 18: The Week Ahead"
+         class="slide">
+
+  <div class="accent-bar-top-purple"></div>
+  <div class="content">
+    <p class="eyebrow">The week ahead</p>
+    <h1>Each tutorial this week adds a layer of capability, and each layer requires the one below it.</h1>
+    <div class="stack">
+      <div class="layer layer-current">
+        <div class="layer-inner">
+          <p class="layer-day">Monday AM — this tutorial</p>
+          <p class="layer-name">Landscape of Coding Agents</p>
+          <p class="layer-desc">The shared mental model: LLMs, agent anatomy, context, failure modes.</p>
+        </div>
+      </div>
+      <div class="layer layer-2">
+        <div class="layer-inner">
+          <p class="layer-day">Monday PM</p>
+          <p class="layer-name">Context Engineering</p>
+          <p class="layer-desc">Writing AGENTS.md for a real scientific codebase. Building skills that encode your procedures.</p>
+        </div>
+      </div>
+      <div class="layer layer-3">
+        <div class="layer-inner">
+          <p class="layer-day">Tuesday</p>
+          <p class="layer-name">MCP Servers &amp; Workflow Patterns</p>
+          <p class="layer-desc">Giving agents structured access to real systems. Research / Plan / Implement as a discipline.</p>
+        </div>
+      </div>
+      <div class="layer layer-4">
+        <div class="layer-inner">
+          <p class="layer-day">Thursday</p>
+          <p class="layer-name">Sandboxing, Security &amp; Validation</p>
+          <p class="layer-desc">Constraining what capable agents can do. Knowing that the output is correct.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    section[data-slide="18-week-ahead"] {
+      background: var(--uw-white);
+      padding: var(--space-6) var(--space-10);
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section[data-slide="18-week-ahead"] .accent-bar-top-purple {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 8px;
+      background: var(--uw-spirit-purple);
+    }
+
+    section[data-slide="18-week-ahead"] .content {
+      max-width: 1300px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+
+    section[data-slide="18-week-ahead"] .eyebrow {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--uw-gray-70);
+      margin: 0;
+    }
+
+    section[data-slide="18-week-ahead"] h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.625rem, 2vw, 2rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+      color: var(--uw-spirit-purple);
+      margin: 0;
+    }
+
+    section[data-slide="18-week-ahead"] .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    section[data-slide="18-week-ahead"] .layer {
+      border-left: 6px solid transparent;
+      padding: var(--space-3) var(--space-4);
+      transition: background 0.15s;
+    }
+
+    section[data-slide="18-week-ahead"] .layer-inner {
+      display: grid;
+      grid-template-columns: 180px 260px 1fr;
+      gap: var(--space-4);
+      align-items: center;
+    }
+
+    section[data-slide="18-week-ahead"] .layer-current {
+      background: var(--uw-spirit-purple);
+      border-left-color: var(--uw-spirit-gold);
+    }
+
+    section[data-slide="18-week-ahead"] .layer-current .layer-day {
+      color: var(--uw-spirit-gold);
+    }
+
+    section[data-slide="18-week-ahead"] .layer-current .layer-name {
+      color: var(--uw-white);
+    }
+
+    section[data-slide="18-week-ahead"] .layer-current .layer-desc {
+      color: var(--uw-husky-gold-web);
+    }
+
+    section[data-slide="18-week-ahead"] .layer-2 {
+      background: rgba(75, 46, 131, 0.08);
+      border-left-color: var(--uw-spirit-purple);
+    }
+
+    section[data-slide="18-week-ahead"] .layer-3 {
+      background: rgba(75, 46, 131, 0.04);
+      border-left-color: rgba(75,46,131,0.4);
+    }
+
+    section[data-slide="18-week-ahead"] .layer-4 {
+      background: rgba(75, 46, 131, 0.02);
+      border-left-color: rgba(75,46,131,0.2);
+    }
+
+    section[data-slide="18-week-ahead"] .layer-day {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      color: var(--uw-gray-70);
+      font-style: italic;
+      margin: 0;
+    }
+
+    section[data-slide="18-week-ahead"] .layer-name {
+      font-family: var(--font-display);
+      font-size: clamp(1.375rem, 1.4vw, 1.375rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--uw-spirit-purple);
+      margin: 0;
+    }
+
+    section[data-slide="18-week-ahead"] .layer-desc {
+      font-family: var(--font-body);
+      font-size: clamp(1.375rem, 1.35vw, 1.375rem);
+      font-weight: 400;
+      color: var(--uw-gray-70);
+      line-height: 1.5;
+      margin: 0;
+    }
+  </style>
+</section>
+<section data-slide="19-closing"
+         aria-label="Slide 19: Closing"
+         class="slide">
+
+  <div class="content">
+    <p class="eyebrow">Three things to take with you</p>
+    <div class="concepts">
+      <div class="concept">
+        <p class="concept-num">01</p>
+        <p class="concept-name">The six pieces</p>
+        <p class="concept-desc">LLM backbone, tool use, agent loop, project memory, MCP servers, skills. Every feature in every product maps to one of these. Tools will change. This anatomy will not.</p>
+      </div>
+      <div class="concept">
+        <p class="concept-num">02</p>
+        <p class="concept-name">Trained-in vs. prompt</p>
+        <p class="concept-desc">The model knows general patterns. You control what goes into its context. Context engineering is the practice of filling that side deliberately. It is the researcher's primary lever.</p>
+      </div>
+      <div class="concept">
+        <p class="concept-num">03</p>
+        <p class="concept-name">The four surfaces</p>
+        <p class="concept-desc">Context documents, skills, rules, and custom agents. Durable places to shape agent behavior. Portable across tools and vendors. Write them once, use them everywhere.</p>
+      </div>
+    </div>
+    <div class="close">
+      <p class="close-main">You do not need to pick a tool today. You need to understand the architecture so you can evaluate any tool tomorrow.</p>
+      <p class="close-cta">Questions welcome now. We will be available all week.</p>
+    </div>
+  </div>
+
+  <style>
+    section[data-slide="19-closing"] {
+      background: var(--uw-spirit-purple);
+      padding: var(--space-8) var(--space-10);
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section[data-slide="19-closing"]::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 8px;
+      background: var(--uw-spirit-gold);
+    }
+
+    section[data-slide="19-closing"]::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: rgba(255, 199, 0, 0.3);
+    }
+
+    section[data-slide="19-closing"] .content {
+      max-width: 1300px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+
+    section[data-slide="19-closing"] .eyebrow {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--uw-spirit-gold);
+      margin: 0;
+    }
+
+    section[data-slide="19-closing"] .concepts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-5);
+    }
+
+    section[data-slide="19-closing"] .concept {
+      border-top: 3px solid var(--uw-spirit-gold);
+      padding-top: var(--space-4);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    section[data-slide="19-closing"] .concept-num {
+      font-family: var(--font-display);
+      font-size: clamp(1.375rem, 1.4vw, 1.375rem);
+      font-weight: 900;
+      color: var(--uw-spirit-gold);
+      opacity: 0.6;
+      margin: 0;
+    }
+
+    section[data-slide="19-closing"] .concept-name {
+      font-family: var(--font-display);
+      font-size: clamp(1.625rem, 2vw, 2rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+      color: var(--uw-white);
+      margin: 0;
+    }
+
+    section[data-slide="19-closing"] .concept-desc {
+      font-family: var(--font-body);
+      font-size: clamp(1.375rem, 1.35vw, 1.375rem);
+      font-weight: 400;
+      color: var(--uw-husky-gold-web);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    section[data-slide="19-closing"] .close {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      border-top: 1px solid rgba(255,199,0,0.2);
+      padding-top: var(--space-4);
+    }
+
+    section[data-slide="19-closing"] .close-main {
+      font-family: var(--font-display);
+      font-size: clamp(1.625rem, 2vw, 2rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+      color: var(--uw-white);
+      margin: 0;
+    }
+
+    section[data-slide="19-closing"] .close-cta {
+      font-family: var(--font-body);
+      font-size: clamp(1.375rem, 1.4vw, 1.375rem);
+      font-weight: 400;
+      color: var(--uw-spirit-gold);
+      margin: 0;
     }
   </style>
 </section>

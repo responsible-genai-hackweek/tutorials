@@ -1,0 +1,99 @@
+<section data-slide="07-post-training"
+         aria-label="Slide 7: Post-Training"
+         class="slide">
+
+  <div class="accent-bar-top"></div>
+  <div class="content">
+    <p class="eyebrow">How models learn to be useful</p>
+    <h1>Useful behaviors come from a second training phase — post-training.</h1>
+    <div class="phases">
+      <div class="phase">
+        <p class="phase-label">Supervised fine-tuning</p>
+        <p class="phase-desc">Human contractors write thousands of examples of ideal conversations. The model learns the shape of a helpful interaction. This is why the agent follows your instructions.</p>
+      </div>
+      <div class="phase">
+        <p class="phase-label">Reinforcement learning from human feedback</p>
+        <p class="phase-desc">Contractors judge which of two model responses is better. The model is tuned to produce responses that score well. This is why the agent stops and decides it is done, instead of looping forever.</p>
+      </div>
+      <div class="phase">
+        <p class="phase-label">Tool-use fine-tuning</p>
+        <p class="phase-desc">The model is trained on examples of conversations that include tool calls. It learns both the format and the harder meta-skill of knowing when a tool call is needed versus when it can answer from memory. This is how the agent calls a tool instead of just describing what to do.</p>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    section[data-slide="07-post-training"] {
+      background: var(--uw-spirit-purple);
+      padding: var(--space-8) var(--space-10);
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section[data-slide="07-post-training"] .content {
+      max-width: 1300px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+
+    section[data-slide="07-post-training"] .eyebrow {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--uw-spirit-gold);
+      margin: 0;
+    }
+
+    section[data-slide="07-post-training"] h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 2.4vw, 2.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--uw-white);
+      margin: 0;
+    }
+
+    section[data-slide="07-post-training"] .phases {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+    }
+
+    section[data-slide="07-post-training"] .phase {
+      background: rgba(255,255,255,0.07);
+      border-top: 3px solid var(--uw-spirit-gold);
+      padding: var(--space-4);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    section[data-slide="07-post-training"] .phase-label {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 1.4vw, 1.375rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      color: var(--uw-spirit-gold);
+      margin: 0;
+    }
+
+    section[data-slide="07-post-training"] .phase-desc {
+      font-family: var(--font-body);
+      font-size: clamp(1.375rem, 1.4vw, 1.375rem);
+      font-weight: 400;
+      color: var(--uw-husky-gold-web);
+      line-height: 1.55;
+      margin: 0;
+    }
+  </style>
+</section>
