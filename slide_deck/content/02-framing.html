@@ -4,13 +4,10 @@
 
   <div class="accent-bar-top"></div>
   <div class="content">
-    <p class="eyebrow">Welcome</p>
-    <h1>This tutorial orients you to the technology underneath all of the tools you will use this week.</h1>
-    <p class="sub">The goal is a shared mental model, not a product recommendation.</p>
+    <h1>Goal for this week: a shared mental model of fundamental concepts.</h1>
     <ul class="bullets">
-      <li>We are starting from the premise that you have some familiarity with generative AI, whether through browser chat, Copilot, or something else.</li>
       <li>By the end of this session you will have a framework for understanding any AI coding tool you encounter, regardless of vendor or interface.</li>
-      <li>This is the conceptual foundation. Later tutorials this week will give you hands-on practice with context engineering, MCP servers, workflow patterns, and sandboxing.</li>
+      <li>The core architecture has stabilized. We will focus on the concepts that persist across tools and vendors, rather than the rapidly shifting product landscape.</li>
     </ul>
   </div>
 
@@ -29,22 +26,12 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: var(--space-5);
-    }
-
-    section[data-slide="02-framing"] .eyebrow {
-      font-family: var(--font-body);
-      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
-      font-weight: 400;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--uw-spirit-gold);
-      margin: 0;
+      gap: var(--space-8);
     }
 
     section[data-slide="02-framing"] h1 {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 3vw, 3rem);
+      font-size: clamp(2.25rem, 3.2vw, 3.25rem);
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: -0.02em;
@@ -53,30 +40,20 @@
       margin: 0;
     }
 
-    section[data-slide="02-framing"] .sub {
-      font-family: var(--font-body);
-      font-size: clamp(1.5rem, 1.7vw, 1.75rem);
-      font-weight: 300;
-      color: var(--uw-husky-gold-web);
-      line-height: 1.4;
-      margin: 0;
-      font-style: italic;
-    }
-
     section[data-slide="02-framing"] .bullets {
       list-style: none;
       padding: 0;
       margin: 0;
       display: flex;
       flex-direction: column;
-      gap: var(--space-3);
+      gap: var(--space-4);
       border-top: 1px solid rgba(255,199,0,0.2);
-      padding-top: var(--space-4);
+      padding-top: var(--space-6);
     }
 
     section[data-slide="02-framing"] .bullets li {
       font-family: var(--font-body);
-      font-size: clamp(1.5rem, 1.5vw, 1.5rem);
+      font-size: clamp(1.5rem, 1.6vw, 1.625rem);
       color: var(--uw-husky-gold-web);
       line-height: 1.55;
       padding-left: 2rem;

@@ -36,12 +36,10 @@ Title slide with UW branding. **Edit existing HTML — update text only.**
 
 ## 02-framing
 
-- Key message: This tutorial orients you to the technology underneath all of the tools you will use this week. The goal is a shared mental model, not a product recommendation.
+- Title: Goal for this week: a shared mental model of fundamental concepts
 - Bullets:
-  - We are starting from the premise that you have some familiarity with generative AI, whether through browser chat, Copilot, or something else.
   - By the end of this session you will have a framework for understanding any AI coding tool you encounter, regardless of vendor or interface.
-  - This is the conceptual foundation. Later tutorials this week will give you hands-on practice with context engineering, MCP servers, workflow patterns, and sandboxing.
-- Note to self: Acknowledge the range of experience in the room. Some people may not have used any tool yet — that is fine and expected.
+  - The core architecture of generative AI tools have stabilized. We will focus on the concepts that persist across tools and vendors, rather than the rapidly shifting product landscape.
 
 ## 03-what-is-an-llm
 

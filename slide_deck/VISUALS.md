@@ -40,7 +40,7 @@ No additions.
 No additions.
 
 ## 03-what-is-an-llm
-- **Source:** misc-ai-slides.pdf, page 27
+- **Source:** assets/diagrams/token-prediction-diagram.png
 - **Description:** "Non-deterministic" diagram showing tokenized input ("The sky is") → LLM network → probability distribution (blue = -0.96, clear = -1.60, usually = -2.47, etc.) → gradient bar (more likely / less likely) → selected output ("The sky is blue"). Color-coded tokens throughout.
 - **Placement:** Below or beside the bullet content. This diagram visually demonstrates next-token prediction and non-determinism — the two core concepts of this slide.
 - **Adaptation notes:** May need to be redrawn in UW brand colors (purple/gold) to match the deck. The conceptual layout and flow are the key elements to preserve. Original source cited in Jason's deck: NVIDIA developer blog.
@@ -56,11 +56,7 @@ No additions.
 No additions.
 
 ## 07-post-training
-- **Source:** misc-ai-slides.pdf, page 38
-- **Description:** Diagram showing the structure of a tool-selection prompt: system instructions in a code block ("Your job is to choose the next step... Choose from one of these tools. Tools: {tools} User Request: {user_request}") with a red arrow pointing from a list of available tools (Search a Catalog, Aggregate Data, Download a file, Read a document, Run a computation, Send an API request, Ask the user) into the {tools} placeholder.
-- **Placement:** As a supporting visual alongside the tool-use fine-tuning bullet point. Shows what the model actually "sees" when it decides to call a tool.
-- **Adaptation notes:** Simplify and redraw in brand style. The key insight is the prompt structure — the model learns to respond to this pattern during tool-use fine-tuning.
-- **Attribution:** Include footer credit "Adapted from Jason Gilman, Element 84" on this slide.
+No additions.
 
 ## 08-convergent-training
 No additions.
@@ -81,7 +77,7 @@ No additions.
 No additions.
 
 ## 14-context-window
-- **Source:** misc-ai-slides.pdf, page 43
+- **Source:** assets/diagrams/context-window-diagram.png
 - **Description:** "Context limits are the cause of almost all problems" — context window visualized as a rounded-rectangle container with stacked colored blocks: System Instructions/Tools/Agent Instructions (pink), User Messages (green), Agent Thoughts (light blue), Tool Call Input and Responses (yellow), Agent Responses (blue). Arrow pointing from the container to an LLM icon.
 - **Placement:** Primary visual for this slide, replacing or supplementing the bullet list. The stacked container makes the "shared budget" concept immediately graspable.
 - **Adaptation notes:** Redraw with UW color palette. Keep the stacked-block metaphor and the finite container boundary. Label the blocks with the terminology used in our deck (system prompt, project memory, conversation history, tool results, model reasoning).

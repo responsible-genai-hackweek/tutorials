@@ -1,0 +1,137 @@
+<section data-slide="03-what-is-an-llm"
+         aria-label="Slide 3: What Is a Large Language Model?"
+         class="slide">
+
+  <div class="accent-bar"></div>
+
+  <div class="text-section">
+    <p class="eyebrow">Large Language Models</p>
+    <h1>A prediction machine,<br>not a knowledge base.</h1>
+    <p class="lead">A large language model is a statistical model that predicts the next chunk of text given the text that came before it. At each step the model picks a likely next token — roughly three-quarters of a word — given everything that came before. This is all it does. Every capability you observe emerges from this one mechanism.</p>
+    <ul class="bullets">
+      <li>The model works in tokens. Everything about the model — context limits, cost, speed — is measured in tokens.</li>
+      <li>Randomness in this process is why you get different answers to the same question, and why the model can sound confident while being wrong.</li>
+      <li>The model has no memory, no internet access, and no special knowledge unless that information is placed into its context window.</li>
+    </ul>
+  </div>
+
+  <div class="diagram-section">
+    <img src="../assets/diagrams/token-prediction-diagram.png"
+         alt="Diagram showing tokenized input feeding into an LLM network, which outputs a probability distribution over possible next tokens, with the most likely token selected"
+         class="diagram-img">
+    <p class="attribution">Credit: Jason Gilman, Element 84</p>
+  </div>
+
+  <style>
+    section[data-slide="03-what-is-an-llm"] {
+      background: var(--uw-white);
+      flex-direction: column;
+      padding: var(--space-5) var(--space-10) var(--space-4) var(--space-12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    section[data-slide="03-what-is-an-llm"] .accent-bar {
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 8px;
+      background: var(--uw-spirit-gold);
+    }
+
+    section[data-slide="03-what-is-an-llm"] .text-section {
+      flex: 0 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      max-width: 1300px;
+      width: 100%;
+      align-self: center;
+    }
+
+    section[data-slide="03-what-is-an-llm"] .diagram-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      gap: var(--space-2);
+      width: 100%;
+      padding-top: var(--space-3);
+    }
+
+    section[data-slide="03-what-is-an-llm"] .diagram-img {
+      max-width: 100%;
+      max-height: calc(100% - 2rem);
+      width: auto;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    section[data-slide="03-what-is-an-llm"] .attribution {
+      font-family: var(--font-body);
+      font-size: clamp(0.875rem, 0.85vw, 0.875rem);
+      font-weight: 400;
+      color: var(--uw-gray-50);
+      font-style: italic;
+      margin: 0;
+    }
+
+    section[data-slide="03-what-is-an-llm"] .eyebrow {
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 1vw, 1rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--uw-gray-70);
+      margin: 0;
+    }
+
+    section[data-slide="03-what-is-an-llm"] h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 2.8vw, 2.75rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.0;
+      color: var(--uw-spirit-purple);
+      margin: 0;
+    }
+
+    section[data-slide="03-what-is-an-llm"] .lead {
+      font-family: var(--font-body);
+      font-size: clamp(1.25rem, 1.25vw, 1.25rem);
+      font-weight: 400;
+      color: var(--uw-gray-70);
+      line-height: 1.5;
+      margin: 0;
+      border-left: 4px solid var(--uw-spirit-gold);
+      padding-left: var(--space-4);
+    }
+
+    section[data-slide="03-what-is-an-llm"] .bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    section[data-slide="03-what-is-an-llm"] .bullets li {
+      font-family: var(--font-body);
+      font-size: clamp(1.25rem, 1.25vw, 1.25rem);
+      color: var(--uw-gray-90);
+      line-height: 1.4;
+      padding-left: 2rem;
+      position: relative;
+    }
+
+    section[data-slide="03-what-is-an-llm"] .bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--uw-gray-30);
+    }
+  </style>
+</section>
