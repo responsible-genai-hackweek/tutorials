@@ -50,7 +50,24 @@ Title slide with UW branding. **Edit existing HTML — update text only.**
   - Randomness in this process is why you get different answers to the same question and why the model can sound confident while being wrong.
 - Note to self: The audience includes people who may think of LLMs as search engines or databases. The "prediction machine" framing corrects that without being condescending.
 
-## 04-chat-vs-agent
+## 04-post-training
+
+- Key message: The useful behaviors of an AI assistant — following instructions, knowing when to stop, calling tools — are not built into the base language model. They come from a second training phase called post-training.
+- Bullets:
+  - Supervised fine-tuning (SFT): human contractors write thousands of examples of ideal conversations, and the model learns the shape of a helpful interaction. This is why the agent follows your instructions.
+  - Reinforcement learning from human feedback (RLHF): contractors judge which of two model responses is better, and the model is tuned to produce responses that score well. This is why the agent stops and decides it is done, instead of looping forever.
+  - Tool-use fine-tuning: the model is trained on examples of conversations that include tool calls. It learns both the format and the harder meta-skill of knowing when a tool call is needed versus when it can answer from memory. This is how the agent calls a tool instead of just describing what to do.
+- Note to self: Post-training is what makes agents possible. Without it you have an autocomplete engine, not something that can follow instructions or use tools. This slide is the prerequisite for understanding what a coding agent is.
+
+## 05-convergent-training
+
+- Key message: All major AI labs do post-training in roughly similar ways. This is why you can swap Claude for GPT for Gemini in most coding agents and things still mostly work. It is also why investing in concepts (the six pieces, context engineering) rather than a specific product is the right strategy.
+- Bullets:
+  - Anthropic, OpenAI, Google, and Meta all use SFT + RLHF + tool-use training with different data but similar pipelines.
+  - The resulting behaviors converge: all modern models can follow instructions, use tools, and stop when done.
+  - The practical implication: your investment in learning how to shape agent behavior (context documents, skills, workflow patterns) transfers across tools. You are not locked in.
+
+## 06-chat-vs-agent
 
 **Rebuild this slide.** Replace the harness callout text block with an original inline SVG diagram. Do not extract from the PDF source.
 
@@ -65,7 +82,19 @@ Title slide with UW branding. **Edit existing HTML — update text only.**
   - The two panels are separated by a vertical divider. The LLM box is visually identical in both panels — the point is that the shell changed, not the core.
   - Style: thin lines, no filled shapes, gold accent on the harness boundary, white labels, consistent with the deck's geometric aesthetic. Built as inline SVG, no external image file needed.
 
-## 05-six-pieces
+## 07-trained-in-vs-prompt
+
+**Keep existing HTML as-is.** No changes needed.
+
+- Key message: Trained in vs. in the prompt.
+- Bullets:
+  - Trained in: Python, common libraries, general patterns, dialogue format, when to stop
+  - In the prompt: your data's quirks, your lab's conventions, your specific goal
+  - You control one side of that line. Context engineering is the practice of filling the right side deliberately.
+- Note to self: Ground this with a concrete example. "If you ask an agent to query snow depth observations from a database it has never seen, it will guess at table names and column conventions — confidently and incorrectly. That is a prompt problem. The model knows SQL; it does not know your schema. Giving it that schema is context engineering."
+Render as two-column layout with the phrase as headline.
+
+## 08-six-pieces
 
 **Keep existing HTML as-is.** No changes needed.
 
@@ -78,35 +107,6 @@ Every tool has all of these six components:
   - MCP servers — a standard way to plug in external things like databases, calendars, APIs
   - Skills — reusable procedures for specific kinds of tasks
   - Every feature in every product maps to one of these. Switching tools is a configuration exercise, not a re-learning exercise
-
-## 06-trained-in-vs-prompt
-
-**Keep existing HTML as-is.** No changes needed.
-
-- Key message: Trained in vs. in the prompt.
-- Bullets:
-  - Trained in: Python, common libraries, general patterns, dialogue format, when to stop
-  - In the prompt: your data's quirks, your lab's conventions, your specific goal
-  - You control one side of that line. Context engineering is the practice of filling the right side deliberately.
-- Note to self: Ground this with a concrete example. "If you ask an agent to query snow depth observations from a database it has never seen, it will guess at table names and column conventions — confidently and incorrectly. That is a prompt problem. The model knows SQL; it does not know your schema. Giving it that schema is context engineering."
-Render as two-column layout with the phrase as headline.
-
-## 07-post-training
-
-- Key message: The useful behaviors of an AI assistant — following instructions, knowing when to stop, calling tools — are not built into the base language model. They come from a second training phase called post-training.
-- Bullets:
-  - Supervised fine-tuning (SFT): human contractors write thousands of examples of ideal conversations, and the model learns the shape of a helpful interaction. This is why the agent follows your instructions.
-  - Reinforcement learning from human feedback (RLHF): contractors judge which of two model responses is better, and the model is tuned to produce responses that score well. This is why the agent stops and decides it is done, instead of looping forever.
-  - Tool-use fine-tuning: the model is trained on examples of conversations that include tool calls. It learns both the format and the harder meta-skill of knowing when a tool call is needed versus when it can answer from memory. This is how the agent calls a tool instead of just describing what to do.
-- Note to self: The reason this matters for the audience is the next point — convergent post-training.
-
-## 08-convergent-training
-
-- Key message: All major AI labs do post-training in roughly similar ways. This is why you can swap Claude for GPT for Gemini in most coding agents and things still mostly work. It is also why investing in concepts (the six pieces, context engineering) rather than a specific product is the right strategy.
-- Bullets:
-  - Anthropic, OpenAI, Google, and Meta all use SFT + RLHF + tool-use training with different data but similar pipelines.
-  - The resulting behaviors converge: all modern models can follow instructions, use tools, and stop when done.
-  - The practical implication: your investment in learning how to shape agent behavior (context documents, skills, workflow patterns) transfers across tools. You are not locked in.
 
 ## 09-diagnosis-slide
 
@@ -134,7 +134,11 @@ Render as two-column layout with the phrase as headline.
   - Sycophancy: the model agrees with your framing rather than pushing back, even when your framing is wrong. This is a systematic side-effect of RLHF training that rewards responses users rate as helpful.
   - Scope creep: the model does more than you asked — adds type hints, refactors adjacent code, restructures your project. Trained to be maximally helpful, it over-delivers by default.
   - Context exhaustion: as the conversation grows long and the context window fills up, the model loses track of earlier instructions and makes increasingly confused decisions.
-- Note to self: These are all prompt problems or architecture problems, not mysteries. The point is to name them so participants can recognize them in their project work this week.
+- Note to self: These are all prompt problems or architecture problems, not mysteries. The point is to name them so participants can recognize them in their project work this week. Connect back to slide 7 (post-training): these failure modes are the predictable cost of the training that makes agents useful.
+  - Fabrication ← SFT teaches the model to always produce a complete, helpful-looking answer. It learns the shape of a good response without learning to say "I don't know." So it fabricates confidently when it lacks specific knowledge.
+  - Sycophancy ← RLHF rewards responses humans rate highly. Humans rate agreeable responses higher. That reward signal systematically biases toward agreement even when the user's framing is wrong.
+  - Scope creep ← RLHF + SFT reward comprehensive, thorough answers. There is no "you did too much" penalty in training, so the model over-delivers by default.
+  - Context exhaustion is the exception — this is an architecture limitation (finite context window), not a post-training side effect.
 
 ## 11-mapping-exercise
 
@@ -152,7 +156,7 @@ Render as two-column layout with the phrase as headline.
   - X-axis: Integration Depth (Low → High). Sub-label: "how connected to your actual workflow"
   - Y-axis: Privacy Ceiling (Low → High). Sub-label: "maximum achievable privacy for this tool category"
   - Five plotted points, each labeled with category name (bold) and example (italic, smaller):
-    1. Cloud-hosted assistants (ChatGPT, Claude.ai, Gemini) — low integration, low privacy control. Bottom-left.
+    1. Web-based assistants (ChatGPT, Claude.ai, Gemini) — low integration, low privacy control. Bottom-left.
     2. IDE-native tools (GitHub Copilot) — high integration, low-medium privacy control. Bottom-right.
     3. AI-native IDEs (Cursor, Windsurf) — medium integration, low-medium privacy control. Center-right.
     4. Open-source options (Aider, OpenCode) — low-medium integration, high privacy control. Top-left.
@@ -166,8 +170,8 @@ Render as two-column layout with the phrase as headline.
 - Bullets:
   - Cost: flat subscription, metered by token (pay for every API call), or self-hosted (pay for the compute yourself).
   - Capability: single-file edits vs. multi-file refactors vs. autonomous multi-hour tasks. More expensive tools tend to be more capable, but not always.
-  - Integration: how deeply the tool connects to your actual work environment. IDE-native, terminal, cloud-only.
-  - Model hosting: where the model runs. Vendor cloud (fastest, most capable, least private), institution's cloud (institutional control), your own hardware (maximum control, least capability).
+  - Integration: how deeply the tool connects to your actual work environment. IDE-native, terminal, web-based.
+  - Model hosting: where the model runs. Vendor cloud (fastest, most capable, least private), institution's cloud (institutional control), your own hardware (maximum control).
   - Privacy: what data can leave your machine? Some research data, code, or context can never go to a vendor. This constraint often dominates the other four.
 - Note to self: Privacy is the axis most relevant to this NASA audience. It sets up the data-privacy slide and connects forward to Thursday's sandboxing tutorial.
 
@@ -211,16 +215,14 @@ Render as two-column layout with the phrase as headline.
 
 ## 17-reproducibility
 
-**Keep existing HTML as-is.** No changes needed.
+**Rebuild this slide.** Tighten to the conceptual tension and its resolution. Cut prescriptive how-to bullets — those belong in later tutorials.
 
 - Key message: The conversation is scaffolding. The artifact is the science.
 - Bullets:
-  - LLMs are stochastic; science demands reproducibility. That tension is real.
-  - The resolution: the process is not reproducible, however the artifacts are.
-  - Your git repo, not your chat log, is the record.
-  - You can commit plans, review notes, and validation outputs alongside code. git log docs/ reads like a lab notebook.
-  - Log model, version, and date in your methods section, the way you would cite any tool.
-  - Pin your dependencies, because AI-generated code often assumes packages it did not declare.
+  - LLMs are stochastic. You will get different outputs from the same prompt on different days. This is a real tension with scientific reproducibility.
+  - The resolution is to separate the process from the product. The conversation that generated the code is not the scientific record. The versioned artifact is.
+  - This means the standard of evidence does not change. Your code, your data pipeline, and your results still need to be reproducible by someone who never saw your chat log.
+- Note to self: This is a framing slide, not a how-to. The specific practices (git workflows, citing models, pinning dependencies) come in later tutorials. The point here is to name the tension so participants are thinking about it from day one.
 
 ## 18-week-ahead
 
@@ -235,11 +237,14 @@ Render as two-column layout with the phrase as headline.
 
 ## 19-closing
 
-- Key message: The six pieces, the trained-in vs. prompt distinction, and the four surfaces are the durable concepts. Tools will change. These will not.
-- Bullets:
-  - You do not need to pick a tool today. You need to understand the architecture so you can evaluate any tool tomorrow.
-  - The researcher's primary lever is what goes into the prompt — context engineering. That is what this week teaches.
-  - Questions welcome now. We will be available all week.
-- Note to self: End with questions. If the mapping exercise surfaced anything surprising, reference it here.
+**Rebuild this slide.** Replace the mechanism-focused takeaways with three goal-oriented principles that frame the entire week.
+
+- Key message: Everything this week serves three principles: robust science, reproducible science, and secure science. The tools and techniques change. These goals do not.
+- Layout: Three principle blocks, each with a name, a one-sentence description, and a connection to what was taught today or what is coming later in the week.
+  - Robust — Agents will confidently produce wrong output. Context engineering and the diagnostic habits you learned today are how you catch and prevent that.
+  - Reproducible — The process is stochastic but the artifact is versioned. Separate the scaffolding from the science.
+  - Secure — Your data has constraints that do not bend for convenience. Match model hosting to data sensitivity. Thursday makes this practical.
+- Closing line: "You do not need to pick a tool today. You need to know what to demand from any tool tomorrow."
+- Note to self: End with questions. If the mapping exercise surfaced anything surprising, reference it here. The three principles are also the framing for the responsible AI discussion on Wednesday — name that connection aloud.
 
 ---
