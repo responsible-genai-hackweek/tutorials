@@ -21,7 +21,7 @@
       <li>Modern context windows range from roughly 100,000 tokens to 1 million tokens. Every turn of a conversation, the entire history is re-sent to the model.</li>
       <li>Cost scales with conversation length. A twenty-turn conversation costs more per turn than turn one did.</li>
       <li>Models have no memory between conversations. What looks like memory is the harness reloading context. Close the window, and the model has no idea who you are.</li>
-      <li>When the context window fills up, models get confused, forget instructions, and fail in unexpected ways.</li>
+      <li>As a conversation grows, the harness is forced into harder curation decisions — summarizing, truncating, or dropping earlier context. The model is not forgetting; it is simply never receiving information the harness had to cut.</li>
     </ul>
   </div>
 

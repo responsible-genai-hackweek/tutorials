@@ -75,12 +75,15 @@
       --uw-gray-10:        #e6e6e6;
 
       /* Font families */
-      --font-display:      'Encode Sans', sans-serif;
-      --font-display-wide: 'Encode Sans Wide', sans-serif;
+      --font-display:            'Encode Sans', sans-serif;
+      --font-display-wide:       'Encode Sans Wide', sans-serif;
+      --font-display-narrow:     'Encode Sans Narrow', sans-serif;
+      --font-display-condensed:  'Encode Sans Condensed', sans-serif;
       --font-display-compressed: 'Encode Sans Compressed', sans-serif;
-      --font-body:         'Open Sans', sans-serif;
+      --font-body:               'Open Sans', sans-serif;
+      --font-mono:               'Courier New', monospace;
 
-      /* Spacing tokens (based on 8px grid) */
+      /* Spacing tokens (8px base) */
       --space-1:   8px;
       --space-2:  16px;
       --space-3:  24px;
@@ -91,6 +94,8 @@
       --space-8:  64px;
       --space-10: 80px;
       --space-12: 96px;
+      --space-16: 128px;
+      --space-20: 160px;
 
       /* Border radius */
       --radius-sm:   2px;
@@ -494,8 +499,202 @@
     }
   </style>
 </section>
-<section data-slide="04-chat-vs-agent"
-         aria-label="Slide 4: Chat vs Agent"
+<section data-slide="04-post-training"
+         aria-label="Slide 4: Post-Training"
+         class="slide">
+
+  <div class="accent-bar-top"></div>
+  <div class="content">
+    <p class="eyebrow">How models learn to be useful</p>
+    <h1>Useful behaviors come from a second training phase — post-training.</h1>
+    <div class="phases">
+      <div class="phase">
+        <p class="phase-label">Supervised fine-tuning</p>
+        <p class="phase-desc">Human contractors write thousands of examples of ideal conversations. The model learns the shape of a helpful interaction. This is why the agent follows your instructions.</p>
+      </div>
+      <div class="phase">
+        <p class="phase-label">Reinforcement learning from human feedback</p>
+        <p class="phase-desc">Contractors judge which of two model responses is better. The model is tuned to produce responses that score well. This is why the agent stops and decides it is done, instead of looping forever.</p>
+      </div>
+      <div class="phase">
+        <p class="phase-label">Tool-use fine-tuning</p>
+        <p class="phase-desc">The model is trained on examples of conversations that include tool calls. It learns both the format and the harder meta-skill of knowing when a tool call is needed versus when it can answer from memory. This is how the agent calls a tool instead of just describing what to do.</p>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    section[data-slide="04-post-training"] {
+      background: var(--uw-spirit-purple);
+      padding: var(--space-8) var(--space-10);
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section[data-slide="04-post-training"] .content {
+      max-width: 1300px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+
+    section[data-slide="04-post-training"] .eyebrow {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--uw-spirit-gold);
+      margin: 0;
+    }
+
+    section[data-slide="04-post-training"] h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 2.4vw, 2.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--uw-white);
+      margin: 0;
+    }
+
+    section[data-slide="04-post-training"] .phases {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+    }
+
+    section[data-slide="04-post-training"] .phase {
+      background: rgba(255,255,255,0.07);
+      border-top: 3px solid var(--uw-spirit-gold);
+      padding: var(--space-4);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    section[data-slide="04-post-training"] .phase-label {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 1.4vw, 1.375rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      color: var(--uw-spirit-gold);
+      margin: 0;
+    }
+
+    section[data-slide="04-post-training"] .phase-desc {
+      font-family: var(--font-body);
+      font-size: clamp(1.375rem, 1.4vw, 1.375rem);
+      font-weight: 400;
+      color: var(--uw-husky-gold-web);
+      line-height: 1.55;
+      margin: 0;
+    }
+  </style>
+</section>
+<section data-slide="05-convergent-training"
+         aria-label="Slide 5: Convergent Training"
+         class="slide">
+
+  <div class="accent-bar"></div>
+  <div class="content">
+    <p class="eyebrow">Convergent post-training</p>
+    <h1>All major AI labs do post-training in roughly similar ways.</h1>
+    <p class="lead">Anthropic, OpenAI, Google, and Meta all use supervised fine-tuning, reinforcement learning from human feedback, and tool-use training — with different data but similar pipelines. The resulting behaviors converge: all modern models can follow instructions, use tools, and stop when done.</p>
+    <div class="callout">
+      <p class="callout-label">The practical implication</p>
+      <p class="callout-body">You can swap Claude for GPT for Gemini in most coding agents and things still mostly work. Your investment in learning how to shape agent behavior — context documents, skills, workflow patterns — transfers across tools. You are not locked in. Invest in concepts, not in products.</p>
+    </div>
+  </div>
+
+  <style>
+    section[data-slide="05-convergent-training"] {
+      background: var(--uw-white);
+      padding: var(--space-8) var(--space-10) var(--space-8) var(--space-12);
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section[data-slide="05-convergent-training"] .accent-bar {
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 8px;
+      background: var(--uw-spirit-gold);
+    }
+
+    section[data-slide="05-convergent-training"] .content {
+      max-width: 960px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+
+    section[data-slide="05-convergent-training"] .eyebrow {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--uw-gray-70);
+      margin: 0;
+    }
+
+    section[data-slide="05-convergent-training"] h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 3.2vw, 3.25rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.0;
+      color: var(--uw-spirit-purple);
+      margin: 0;
+    }
+
+    section[data-slide="05-convergent-training"] .lead {
+      font-family: var(--font-body);
+      font-size: clamp(1.5rem, 1.5vw, 1.5rem);
+      font-weight: 400;
+      color: var(--uw-gray-70);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    section[data-slide="05-convergent-training"] .callout {
+      border-left: 4px solid var(--uw-spirit-gold);
+      padding: var(--space-4) var(--space-5);
+      background: rgba(75, 46, 131, 0.06);
+    }
+
+    section[data-slide="05-convergent-training"] .callout-label {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 1.1vw, 1.125rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--uw-spirit-purple);
+      margin: 0 0 var(--space-2) 0;
+    }
+
+    section[data-slide="05-convergent-training"] .callout-body {
+      font-family: var(--font-body);
+      font-size: clamp(1.5rem, 1.5vw, 1.5rem);
+      font-weight: 400;
+      color: var(--uw-gray-90);
+      line-height: 1.6;
+      margin: 0;
+    }
+  </style>
+</section>
+<section data-slide="06-chat-vs-agent"
+         aria-label="Slide 6: Chat vs Agent"
          class="slide">
 
   <div class="accent-bar-top"></div>
@@ -608,7 +807,7 @@
   </div>
 
   <style>
-    section[data-slide="04-chat-vs-agent"] {
+    section[data-slide="06-chat-vs-agent"] {
       background: var(--uw-spirit-purple);
       flex-direction: column;
       align-items: center;
@@ -619,7 +818,7 @@
       gap: var(--space-5);
     }
 
-    section[data-slide="04-chat-vs-agent"] .cva-layout {
+    section[data-slide="06-chat-vs-agent"] .cva-layout {
       max-width: 1300px;
       width: 100%;
       display: flex;
@@ -627,7 +826,7 @@
       gap: var(--space-5);
     }
 
-    section[data-slide="04-chat-vs-agent"] .slide-title {
+    section[data-slide="06-chat-vs-agent"] .slide-title {
       font-family: var(--font-display);
       font-size: clamp(1.75rem, 2.2vw, 2.5rem);
       font-weight: 700;
@@ -637,26 +836,26 @@
       margin: 0;
     }
 
-    section[data-slide="04-chat-vs-agent"] .diagram {
+    section[data-slide="06-chat-vs-agent"] .diagram {
       display: grid;
       grid-template-columns: 1fr 2px 1fr;
       gap: var(--space-6);
       align-items: center;
     }
 
-    section[data-slide="04-chat-vs-agent"] .panel-divider {
+    section[data-slide="06-chat-vs-agent"] .panel-divider {
       background: rgba(255, 199, 0, 0.25);
       align-self: stretch;
     }
 
-    section[data-slide="04-chat-vs-agent"] .panel {
+    section[data-slide="06-chat-vs-agent"] .panel {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: var(--space-3);
     }
 
-    section[data-slide="04-chat-vs-agent"] .panel-label {
+    section[data-slide="06-chat-vs-agent"] .panel-label {
       font-family: var(--font-display);
       font-size: clamp(1rem, 1.1vw, 1.125rem);
       font-weight: 700;
@@ -667,12 +866,12 @@
       align-self: flex-start;
     }
 
-    section[data-slide="04-chat-vs-agent"] .panel-svg {
+    section[data-slide="06-chat-vs-agent"] .panel-svg {
       width: 100%;
       max-width: 420px;
     }
 
-    section[data-slide="04-chat-vs-agent"] .panel-desc {
+    section[data-slide="06-chat-vs-agent"] .panel-desc {
       font-family: var(--font-display);
       font-size: clamp(1.375rem, 1.8vw, 1.875rem);
       font-weight: 900;
@@ -684,11 +883,11 @@
       align-self: flex-start;
     }
 
-    section[data-slide="04-chat-vs-agent"] .panel:first-child .panel-desc {
+    section[data-slide="06-chat-vs-agent"] .panel:first-child .panel-desc {
       color: rgba(255,255,255,0.45);
     }
 
-    section[data-slide="04-chat-vs-agent"] .coda {
+    section[data-slide="06-chat-vs-agent"] .coda {
       font-family: var(--font-body);
       font-size: clamp(1.375rem, 1.4vw, 1.375rem);
       font-weight: 400;
@@ -700,8 +899,183 @@
     }
   </style>
 </section>
-<section data-slide="05-six-pieces"
-         aria-label="Slide 5: Six Pieces"
+<section data-slide="07-trained-in-vs-prompt"
+         aria-label="Slide 7: Trained In vs In the Prompt"
+         class="slide">
+
+  <div class="content">
+    <div class="header">
+      <p class="slide-title">What the model knows vs. what you tell it</p>
+      <h1>Built-in knowledge <span class="vs">vs.</span> In the prompt.</h1>
+    </div>
+    <div class="columns">
+      <div class="col">
+        <p class="col-label">Built-in knowledge</p>
+        <ul>
+          <li><strong>Python and common libraries</strong> — the model has seen millions of lines of code and understands standard patterns, idioms, and APIs.</li>
+          <li><strong>General best practices</strong> — it knows how to structure a function, write a test, or refactor a loop without being told.</li>
+          <li><strong>When to stop</strong> — it has a sense of when a task is complete or when it needs more information before acting.</li>
+        </ul>
+        <p class="col-note">You don't control this — it is fixed at training time and has a knowledge cutoff date.</p>
+      </div>
+      <div class="col-divider"></div>
+      <div class="col">
+        <p class="col-label">In the prompt</p>
+        <ul>
+          <li><strong>Your data's quirks</strong> — the model has never seen your CSV headers, your variable naming conventions, or your domain vocabulary.</li>
+          <li><strong>Your lab's conventions</strong> — style guides, preferred libraries, and project structure exist nowhere in its training data.</li>
+          <li><strong>Your specific goal</strong> — what "done" looks like for this task is something only you can define.</li>
+        </ul>
+        <p class="col-note highlight">You control this!</p>
+      </div>
+    </div>
+    <div class="footer-note">
+      <p>Most of what people call "context engineering" is really just learning how to fill the right side of this diagram.</p>
+    </div>
+  </div>
+
+  <style>
+    section[data-slide="07-trained-in-vs-prompt"] {
+      background: var(--uw-spirit-purple);
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-6) var(--space-10);
+      position: relative;
+      overflow: hidden;
+    }
+
+    section[data-slide="07-trained-in-vs-prompt"]::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 8px;
+      background: var(--uw-spirit-gold);
+    }
+
+    section[data-slide="07-trained-in-vs-prompt"] .content {
+      max-width: 1300px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+
+    section[data-slide="07-trained-in-vs-prompt"] .header {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    section[data-slide="07-trained-in-vs-prompt"] .slide-title {
+      font-family: var(--font-body);
+      font-size: clamp(1.5rem, 1.4vw, 1.5rem);
+      font-weight: 300;
+      color: var(--uw-husky-gold-web);
+      margin: 0;
+      text-transform: none;
+      letter-spacing: 0.02em;
+    }
+
+    section[data-slide="07-trained-in-vs-prompt"] h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.2vw, 3.25rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--uw-white);
+      margin: 0;
+    }
+
+    section[data-slide="07-trained-in-vs-prompt"] .vs {
+      color: var(--uw-spirit-gold);
+      font-weight: 400;
+    }
+
+    section[data-slide="07-trained-in-vs-prompt"] .columns {
+      display: grid;
+      grid-template-columns: 1fr 2px 1fr;
+      gap: var(--space-8);
+      align-items: start;
+    }
+
+    section[data-slide="07-trained-in-vs-prompt"] .col-divider {
+      background: rgba(255,199,0,0.3);
+      align-self: stretch;
+    }
+
+    section[data-slide="07-trained-in-vs-prompt"] .col-label {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 1.1vw, 1.125rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--uw-spirit-gold);
+      margin: 0 0 var(--space-3) 0;
+    }
+
+    section[data-slide="07-trained-in-vs-prompt"] ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 var(--space-3) 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    section[data-slide="07-trained-in-vs-prompt"] li {
+      font-family: var(--font-body);
+      font-size: clamp(1.5rem, 1.5vw, 1.625rem);
+      color: var(--uw-husky-gold-web);
+      line-height: 1.5;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    section[data-slide="07-trained-in-vs-prompt"] li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: rgba(255,199,0,0.4);
+    }
+
+    section[data-slide="07-trained-in-vs-prompt"] li strong {
+      color: var(--uw-white);
+      font-weight: 600;
+    }
+
+    section[data-slide="07-trained-in-vs-prompt"] .col-note {
+      font-family: var(--font-body);
+      font-size: clamp(1.5rem, 1.3vw, 1.5rem);
+      color: rgba(255,255,255,0.5);
+      margin: 0;
+      font-style: italic;
+    }
+
+    section[data-slide="07-trained-in-vs-prompt"] .col-note.highlight {
+      color: var(--uw-white);
+      font-weight: 600;
+      font-style: normal;
+    }
+
+    section[data-slide="07-trained-in-vs-prompt"] .footer-note {
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: var(--space-3);
+    }
+
+    section[data-slide="07-trained-in-vs-prompt"] .footer-note p {
+      font-family: var(--font-body);
+      font-size: clamp(1.5rem, 1.4vw, 1.5rem);
+      font-weight: 400;
+      color: var(--uw-husky-gold-web);
+      line-height: 1.6;
+      margin: 0;
+      font-style: italic;
+    }
+  </style>
+</section>
+<section data-slide="08-six-pieces"
+         aria-label="Slide 8: Six Pieces"
          class="slide">
 
   <div class="accent-bar-left"></div>
@@ -801,7 +1175,7 @@
     </div>
   </div>
   <style>
-    section[data-slide="05-six-pieces"] {
+    section[data-slide="08-six-pieces"] {
       background: var(--uw-white);
       padding: var(--space-5) var(--space-8) var(--space-5) calc(var(--space-10) + 8px);
       align-items: center;
@@ -809,7 +1183,7 @@
       overflow: hidden;
     }
 
-    section[data-slide="05-six-pieces"] .content {
+    section[data-slide="08-six-pieces"] .content {
       max-width: 1400px;
       width: 100%;
       display: flex;
@@ -817,13 +1191,13 @@
       gap: var(--space-5);
     }
 
-    section[data-slide="05-six-pieces"] .header {
+    section[data-slide="08-six-pieces"] .header {
       display: flex;
       flex-direction: column;
       gap: var(--space-2);
     }
 
-    section[data-slide="05-six-pieces"] h1 {
+    section[data-slide="08-six-pieces"] h1 {
       font-family: var(--font-display);
       font-size: clamp(1.75rem, 2.5vw, 2.75rem);
       font-weight: 900;
@@ -834,12 +1208,12 @@
       margin: 0;
     }
 
-    section[data-slide="05-six-pieces"] .grid {
+    section[data-slide="08-six-pieces"] .grid {
       display: flex;
       flex-direction: column;
     }
 
-    section[data-slide="05-six-pieces"] .piece {
+    section[data-slide="08-six-pieces"] .piece {
       display: grid;
       grid-template-columns: 280px 1fr;
       gap: var(--space-6);
@@ -848,24 +1222,24 @@
       align-items: center;
     }
 
-    section[data-slide="05-six-pieces"] .piece:last-child {
+    section[data-slide="08-six-pieces"] .piece:last-child {
       border-bottom: none;
     }
 
-    section[data-slide="05-six-pieces"] .piece-id {
+    section[data-slide="08-six-pieces"] .piece-id {
       display: flex;
       align-items: center;
       gap: var(--space-2);
     }
 
-    section[data-slide="05-six-pieces"] .icon {
+    section[data-slide="08-six-pieces"] .icon {
       width: 28px;
       height: 28px;
       flex-shrink: 0;
       color: var(--uw-spirit-purple);
     }
 
-    section[data-slide="05-six-pieces"] .name {
+    section[data-slide="08-six-pieces"] .name {
       font-family: var(--font-display);
       font-size: clamp(1.5rem, 1.6vw, 1.75rem);
       font-weight: 800;
@@ -875,381 +1249,12 @@
       line-height: 1.1;
     }
 
-    section[data-slide="05-six-pieces"] .desc {
+    section[data-slide="08-six-pieces"] .desc {
       font-family: var(--font-body);
       font-size: clamp(1.5rem, 1.3vw, 1.625rem);
       font-weight: 400;
       color: var(--uw-gray-70);
       line-height: 1.45;
-      margin: 0;
-    }
-  </style>
-</section>
-<section data-slide="06-trained-in-vs-prompt"
-         aria-label="Slide 6: Trained In vs In the Prompt"
-         class="slide">
-
-  <div class="content">
-    <div class="header">
-      <p class="slide-title">What the model knows vs. what you tell it</p>
-      <h1>Built-in knowledge <span class="vs">vs.</span> In the prompt.</h1>
-    </div>
-    <div class="columns">
-      <div class="col">
-        <p class="col-label">Built-in knowledge</p>
-        <ul>
-          <li><strong>Python and common libraries</strong> — the model has seen millions of lines of code and understands standard patterns, idioms, and APIs.</li>
-          <li><strong>General best practices</strong> — it knows how to structure a function, write a test, or refactor a loop without being told.</li>
-          <li><strong>When to stop</strong> — it has a sense of when a task is complete or when it needs more information before acting.</li>
-        </ul>
-        <p class="col-note">You don't control this — it is fixed at training time and has a knowledge cutoff date.</p>
-      </div>
-      <div class="col-divider"></div>
-      <div class="col">
-        <p class="col-label">In the prompt</p>
-        <ul>
-          <li><strong>Your data's quirks</strong> — the model has never seen your CSV headers, your variable naming conventions, or your domain vocabulary.</li>
-          <li><strong>Your lab's conventions</strong> — style guides, preferred libraries, and project structure exist nowhere in its training data.</li>
-          <li><strong>Your specific goal</strong> — what "done" looks like for this task is something only you can define.</li>
-        </ul>
-        <p class="col-note highlight">You control this!</p>
-      </div>
-    </div>
-    <div class="footer-note">
-      <p>Most of what people call "context engineering" is really just learning how to fill the right side of this diagram.</p>
-    </div>
-  </div>
-
-  <style>
-    section[data-slide="06-trained-in-vs-prompt"] {
-      background: var(--uw-spirit-purple);
-      align-items: center;
-      justify-content: center;
-      padding: var(--space-6) var(--space-10);
-      position: relative;
-      overflow: hidden;
-    }
-
-    section[data-slide="06-trained-in-vs-prompt"]::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 8px;
-      background: var(--uw-spirit-gold);
-    }
-
-    section[data-slide="06-trained-in-vs-prompt"] .content {
-      max-width: 1300px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-5);
-    }
-
-    section[data-slide="06-trained-in-vs-prompt"] .header {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-2);
-    }
-
-    section[data-slide="06-trained-in-vs-prompt"] .slide-title {
-      font-family: var(--font-body);
-      font-size: clamp(1.5rem, 1.4vw, 1.5rem);
-      font-weight: 300;
-      color: var(--uw-husky-gold-web);
-      margin: 0;
-      text-transform: none;
-      letter-spacing: 0.02em;
-    }
-
-    section[data-slide="06-trained-in-vs-prompt"] h1 {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 3.2vw, 3.25rem);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      color: var(--uw-white);
-      margin: 0;
-    }
-
-    section[data-slide="06-trained-in-vs-prompt"] .vs {
-      color: var(--uw-spirit-gold);
-      font-weight: 400;
-    }
-
-    section[data-slide="06-trained-in-vs-prompt"] .columns {
-      display: grid;
-      grid-template-columns: 1fr 2px 1fr;
-      gap: var(--space-8);
-      align-items: start;
-    }
-
-    section[data-slide="06-trained-in-vs-prompt"] .col-divider {
-      background: rgba(255,199,0,0.3);
-      align-self: stretch;
-    }
-
-    section[data-slide="06-trained-in-vs-prompt"] .col-label {
-      font-family: var(--font-display);
-      font-size: clamp(1rem, 1.1vw, 1.125rem);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--uw-spirit-gold);
-      margin: 0 0 var(--space-3) 0;
-    }
-
-    section[data-slide="06-trained-in-vs-prompt"] ul {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 var(--space-3) 0;
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-2);
-    }
-
-    section[data-slide="06-trained-in-vs-prompt"] li {
-      font-family: var(--font-body);
-      font-size: clamp(1.5rem, 1.5vw, 1.625rem);
-      color: var(--uw-husky-gold-web);
-      line-height: 1.5;
-      padding-left: 24px;
-      position: relative;
-    }
-
-    section[data-slide="06-trained-in-vs-prompt"] li::before {
-      content: '—';
-      position: absolute;
-      left: 0;
-      color: rgba(255,199,0,0.4);
-    }
-
-    section[data-slide="06-trained-in-vs-prompt"] li strong {
-      color: var(--uw-white);
-      font-weight: 600;
-    }
-
-    section[data-slide="06-trained-in-vs-prompt"] .col-note {
-      font-family: var(--font-body);
-      font-size: clamp(1.5rem, 1.3vw, 1.5rem);
-      color: rgba(255,255,255,0.5);
-      margin: 0;
-      font-style: italic;
-    }
-
-    section[data-slide="06-trained-in-vs-prompt"] .col-note.highlight {
-      color: var(--uw-white);
-      font-weight: 600;
-      font-style: normal;
-    }
-
-    section[data-slide="06-trained-in-vs-prompt"] .footer-note {
-      border-top: 1px solid rgba(255,255,255,0.15);
-      padding-top: var(--space-3);
-    }
-
-    section[data-slide="06-trained-in-vs-prompt"] .footer-note p {
-      font-family: var(--font-body);
-      font-size: clamp(1.5rem, 1.4vw, 1.5rem);
-      font-weight: 400;
-      color: var(--uw-husky-gold-web);
-      line-height: 1.6;
-      margin: 0;
-      font-style: italic;
-    }
-  </style>
-</section>
-<section data-slide="07-post-training"
-         aria-label="Slide 7: Post-Training"
-         class="slide">
-
-  <div class="accent-bar-top"></div>
-  <div class="content">
-    <p class="eyebrow">How models learn to be useful</p>
-    <h1>Useful behaviors come from a second training phase — post-training.</h1>
-    <div class="phases">
-      <div class="phase">
-        <p class="phase-label">Supervised fine-tuning</p>
-        <p class="phase-desc">Human contractors write thousands of examples of ideal conversations. The model learns the shape of a helpful interaction. This is why the agent follows your instructions.</p>
-      </div>
-      <div class="phase">
-        <p class="phase-label">Reinforcement learning from human feedback</p>
-        <p class="phase-desc">Contractors judge which of two model responses is better. The model is tuned to produce responses that score well. This is why the agent stops and decides it is done, instead of looping forever.</p>
-      </div>
-      <div class="phase">
-        <p class="phase-label">Tool-use fine-tuning</p>
-        <p class="phase-desc">The model is trained on examples of conversations that include tool calls. It learns both the format and the harder meta-skill of knowing when a tool call is needed versus when it can answer from memory. This is how the agent calls a tool instead of just describing what to do.</p>
-      </div>
-    </div>
-  </div>
-
-  <style>
-    section[data-slide="07-post-training"] {
-      background: var(--uw-spirit-purple);
-      padding: var(--space-8) var(--space-10);
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    section[data-slide="07-post-training"] .content {
-      max-width: 1300px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-6);
-    }
-
-    section[data-slide="07-post-training"] .eyebrow {
-      font-family: var(--font-body);
-      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
-      font-weight: 400;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--uw-spirit-gold);
-      margin: 0;
-    }
-
-    section[data-slide="07-post-training"] h1 {
-      font-family: var(--font-display);
-      font-size: clamp(1.75rem, 2.4vw, 2.5rem);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: -0.02em;
-      line-height: 1.05;
-      color: var(--uw-white);
-      margin: 0;
-    }
-
-    section[data-slide="07-post-training"] .phases {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-4);
-    }
-
-    section[data-slide="07-post-training"] .phase {
-      background: rgba(255,255,255,0.07);
-      border-top: 3px solid var(--uw-spirit-gold);
-      padding: var(--space-4);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-3);
-    }
-
-    section[data-slide="07-post-training"] .phase-label {
-      font-family: var(--font-display);
-      font-size: clamp(1.25rem, 1.4vw, 1.375rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      line-height: 1.2;
-      color: var(--uw-spirit-gold);
-      margin: 0;
-    }
-
-    section[data-slide="07-post-training"] .phase-desc {
-      font-family: var(--font-body);
-      font-size: clamp(1.375rem, 1.4vw, 1.375rem);
-      font-weight: 400;
-      color: var(--uw-husky-gold-web);
-      line-height: 1.55;
-      margin: 0;
-    }
-  </style>
-</section>
-<section data-slide="08-convergent-training"
-         aria-label="Slide 8: Convergent Training"
-         class="slide">
-
-  <div class="accent-bar"></div>
-  <div class="content">
-    <p class="eyebrow">Convergent post-training</p>
-    <h1>All major AI labs do post-training in roughly similar ways.</h1>
-    <p class="lead">Anthropic, OpenAI, Google, and Meta all use supervised fine-tuning, reinforcement learning from human feedback, and tool-use training — with different data but similar pipelines. The resulting behaviors converge: all modern models can follow instructions, use tools, and stop when done.</p>
-    <div class="callout">
-      <p class="callout-label">The practical implication</p>
-      <p class="callout-body">You can swap Claude for GPT for Gemini in most coding agents and things still mostly work. Your investment in learning how to shape agent behavior — context documents, skills, workflow patterns — transfers across tools. You are not locked in. Invest in concepts, not in products.</p>
-    </div>
-  </div>
-
-  <style>
-    section[data-slide="08-convergent-training"] {
-      background: var(--uw-white);
-      padding: var(--space-8) var(--space-10) var(--space-8) var(--space-12);
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    section[data-slide="08-convergent-training"] .accent-bar {
-      position: absolute;
-      top: 0; left: 0; bottom: 0;
-      width: 8px;
-      background: var(--uw-spirit-gold);
-    }
-
-    section[data-slide="08-convergent-training"] .content {
-      max-width: 960px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-5);
-    }
-
-    section[data-slide="08-convergent-training"] .eyebrow {
-      font-family: var(--font-body);
-      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
-      font-weight: 400;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--uw-gray-70);
-      margin: 0;
-    }
-
-    section[data-slide="08-convergent-training"] h1 {
-      font-family: var(--font-display);
-      font-size: clamp(2.25rem, 3.2vw, 3.25rem);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: -0.02em;
-      line-height: 1.0;
-      color: var(--uw-spirit-purple);
-      margin: 0;
-    }
-
-    section[data-slide="08-convergent-training"] .lead {
-      font-family: var(--font-body);
-      font-size: clamp(1.5rem, 1.5vw, 1.5rem);
-      font-weight: 400;
-      color: var(--uw-gray-70);
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    section[data-slide="08-convergent-training"] .callout {
-      border-left: 4px solid var(--uw-spirit-gold);
-      padding: var(--space-4) var(--space-5);
-      background: rgba(75, 46, 131, 0.06);
-    }
-
-    section[data-slide="08-convergent-training"] .callout-label {
-      font-family: var(--font-display);
-      font-size: clamp(1rem, 1.1vw, 1.125rem);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--uw-spirit-purple);
-      margin: 0 0 var(--space-2) 0;
-    }
-
-    section[data-slide="08-convergent-training"] .callout-body {
-      font-family: var(--font-body);
-      font-size: clamp(1.5rem, 1.5vw, 1.5rem);
-      font-weight: 400;
-      color: var(--uw-gray-90);
-      line-height: 1.6;
       margin: 0;
     }
   </style>
@@ -1771,11 +1776,11 @@
 
       <!-- ── PLOTTED POINTS ─────────────────────────────────────── -->
 
-      <!-- 1. Cloud-hosted assistants: norm(14, 14) → svg(209, 350) -->
+      <!-- 1. Web-based assistants: norm(14, 14) → svg(209, 350) -->
       <circle cx="209" cy="350" r="8" fill="#4b2e83" opacity="0.8"/>
       <!-- label: below-right -->
       <text x="222" y="368" fill="#4b2e83" font-size="16" font-weight="700"
-            font-family="'Encode Sans',sans-serif">Cloud-hosted assistants</text>
+            font-family="'Encode Sans',sans-serif">Web-based assistants</text>
       <text x="222" y="386" fill="#808080" font-size="14" font-style="italic"
             font-family="'Open Sans',sans-serif">ChatGPT, Claude.ai, Gemini</text>
 
@@ -1882,17 +1887,17 @@
       <div class="axis">
         <p class="axis-num">03</p>
         <p class="axis-name">Integration</p>
-        <p class="axis-desc">How deeply the tool connects to your actual work environment — IDE-native, terminal-based, or cloud-only.</p>
+        <p class="axis-desc">How deeply the tool connects to your actual work environment — IDE-native, terminal-based, or web-based.</p>
       </div>
       <div class="axis">
         <p class="axis-num">04</p>
         <p class="axis-name">Model hosting</p>
-        <p class="axis-desc">Where the model runs: vendor cloud (fastest, most capable), institution's cloud (institutional control), or your own hardware (maximum control, least capability).</p>
+        <p class="axis-desc">Where the model runs: vendor cloud (fastest, most capable), institution's cloud (institutional control), or your own hardware (maximum control).</p>
       </div>
       <div class="axis">
         <p class="axis-num">05</p>
         <p class="axis-name">Privacy</p>
-        <p class="axis-desc">What data can leave your machine? Some research data, code, or context can never go to a vendor. This constraint often dominates the other four. The practical default: match model hosting to data sensitivity.</p>
+        <p class="axis-desc">What data can leave your machine? Some research data, code, or context can never go to a vendor. This constraint often dominates the other four.</p>
       </div>
     </div>
   </div>
@@ -2275,38 +2280,54 @@
   </style>
 </section>
 <section data-slide="16-four-surfaces"
-         aria-label="Slide 16: Four Surfaces to Shape Agent Behavior"
+         aria-label="Slide 16: Context Durability Spectrum"
          class="slide">
 
   <div class="content">
-    <h1>Four Durable Places to Shape Agent Behavior</h1>
-    <div class="surfaces">
-      <div class="surface">
-        <p class="surface-num">01</p>
-        <p class="surface-name">Context<br>documents</p>
-        <p class="surface-desc">Always loaded on startup. Facts and conventions the agent has in hand for this project.</p>
-        <p class="surface-file">AGENTS.md</p>
+    <h1>Shaping Agent Behavior</h1>
+
+    <div class="spectrum">
+      <div class="spectrum-bar">
+        <div class="spectrum-gradient"></div>
+        <div class="spectrum-labels">
+          <div class="spectrum-endpoint endpoint-left">
+            <span class="endpoint-title">Always loaded</span>
+            <span class="endpoint-tradeoff">Guaranteed present, but costs context budget</span>
+          </div>
+          <div class="spectrum-endpoint endpoint-right">
+            <span class="endpoint-title">Summoned on demand</span>
+            <span class="endpoint-tradeoff">Efficient, but only loaded when triggered</span>
+          </div>
+        </div>
       </div>
-      <div class="surface">
-        <p class="surface-num">02</p>
-        <p class="surface-name">Skills</p>
-        <p class="surface-desc">Task-triggered procedures. The agent picks them up when the work matches.</p>
-        <p class="surface-file">skills/</p>
-      </div>
-      <div class="surface">
-        <p class="surface-num">03</p>
-        <p class="surface-name">Rules</p>
-        <p class="surface-desc">Path-scoped constraints that are hard limits, not helpful suggestions.</p>
-        <p class="surface-file">.claude/</p>
-      </div>
-      <div class="surface">
-        <p class="surface-num">04</p>
-        <p class="surface-name">Custom<br>agents</p>
-        <p class="surface-desc">Distinct personas with their own tool access. For focused, narrower jobs.</p>
-        <p class="surface-file">agents/</p>
+
+      <div class="mechanisms">
+        <div class="mechanism" style="--position: 8%">
+          <p class="mechanism-name">Context<br>documents</p>
+          <p class="mechanism-desc">Facts and conventions the agent has in hand every session.</p>
+          <p class="mechanism-file">AGENTS.md</p>
+        </div>
+        <div class="mechanism" style="--position: 33%">
+          <p class="mechanism-name">Rules</p>
+          <p class="mechanism-desc">Path-scoped constraints that fire when specific files are touched.</p>
+          <p class="mechanism-file">.claude/</p>
+        </div>
+        <div class="mechanism" style="--position: 58%">
+          <p class="mechanism-name">Skills</p>
+          <p class="mechanism-desc">Task-triggered procedures the agent picks up when the work matches.</p>
+          <p class="mechanism-file">skills/</p>
+        </div>
+        <div class="mechanism" style="--position: 83%">
+          <p class="mechanism-name">Custom<br>agents</p>
+          <p class="mechanism-desc">Distinct personas invoked for focused, narrower jobs.</p>
+          <p class="mechanism-file">agents/</p>
+        </div>
+        <div class="mechanism mechanism-ellipsis" style="--position: 97%">
+          <p class="mechanism-name">...</p>
+        </div>
       </div>
     </div>
-    <p class="coda">Taxonomy is portable across different provider's tools. The file names differ, but the concepts don't.</p>
+
   </div>
 
   <style>
@@ -2332,12 +2353,12 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: var(--space-6);
+      gap: var(--space-5);
     }
 
     section[data-slide="16-four-surfaces"] h1 {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 3.2vw, 3rem);
+      font-size: clamp(2rem, 3vw, 2.75rem);
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: -0.02em;
@@ -2346,33 +2367,85 @@
       margin: 0;
     }
 
-    section[data-slide="16-four-surfaces"] .surfaces {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+
+    section[data-slide="16-four-surfaces"] .spectrum {
+      display: flex;
+      flex-direction: column;
       gap: var(--space-4);
+      margin-top: var(--space-2);
     }
 
-    section[data-slide="16-four-surfaces"] .surface {
-      background: rgba(255,255,255,0.07);
-      border-top: 3px solid var(--uw-spirit-gold);
-      padding: var(--space-4) var(--space-4);
+    section[data-slide="16-four-surfaces"] .spectrum-bar {
       display: flex;
       flex-direction: column;
       gap: var(--space-2);
     }
 
-    section[data-slide="16-four-surfaces"] .surface-num {
-      font-family: var(--font-display);
-      font-size: clamp(1.375rem, 1.4vw, 1.375rem);
-      font-weight: 900;
-      color: var(--uw-spirit-gold);
-      margin: 0;
-      opacity: 0.7;
+    section[data-slide="16-four-surfaces"] .spectrum-gradient {
+      height: 6px;
+      border-radius: 3px;
+      background: linear-gradient(to right, var(--uw-spirit-gold), rgba(255, 199, 0, 0.15));
     }
 
-    section[data-slide="16-four-surfaces"] .surface-name {
+    section[data-slide="16-four-surfaces"] .spectrum-labels {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    section[data-slide="16-four-surfaces"] .spectrum-endpoint {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    section[data-slide="16-four-surfaces"] .endpoint-right {
+      text-align: right;
+    }
+
+    section[data-slide="16-four-surfaces"] .endpoint-title {
       font-family: var(--font-display);
-      font-size: clamp(1.5rem, 2vw, 2rem);
+      font-size: clamp(1.5rem, 1.5vw, 1.625rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--uw-spirit-gold);
+    }
+
+    section[data-slide="16-four-surfaces"] .endpoint-tradeoff {
+      font-family: var(--font-body);
+      font-size: clamp(1.5rem, 1.4vw, 1.5rem);
+      font-style: italic;
+      color: rgba(232, 227, 211, 0.7);
+    }
+
+    section[data-slide="16-four-surfaces"] .mechanisms {
+      position: relative;
+      display: flex;
+      gap: var(--space-3);
+      justify-content: space-between;
+    }
+
+    section[data-slide="16-four-surfaces"] .mechanism {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.07);
+      border-top: 3px solid rgba(255, 199, 0, 0.5);
+      padding: var(--space-3) var(--space-3);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    section[data-slide="16-four-surfaces"] .mechanism-ellipsis {
+      flex: 0.3;
+      background: transparent;
+      border-top-color: rgba(255, 199, 0, 0.2);
+      align-items: center;
+      justify-content: center;
+    }
+
+    section[data-slide="16-four-surfaces"] .mechanism-name {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 1.8vw, 1.75rem);
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: -0.01em;
@@ -2381,7 +2454,12 @@
       margin: 0;
     }
 
-    section[data-slide="16-four-surfaces"] .surface-desc {
+    section[data-slide="16-four-surfaces"] .mechanism-ellipsis .mechanism-name {
+      font-size: clamp(1.75rem, 2.2vw, 2.25rem);
+      color: rgba(255, 199, 0, 0.5);
+    }
+
+    section[data-slide="16-four-surfaces"] .mechanism-desc {
       font-family: var(--font-body);
       font-size: clamp(1.5rem, 1.5vw, 1.5rem);
       color: var(--uw-husky-gold-web);
@@ -2390,22 +2468,15 @@
       flex: 1;
     }
 
-    section[data-slide="16-four-surfaces"] .surface-file {
+    section[data-slide="16-four-surfaces"] .mechanism-file {
       font-family: var(--font-display-compressed);
-      font-size: clamp(1.375rem, 1.4vw, 1.375rem);
+      font-size: clamp(1.5rem, 1.4vw, 1.5rem);
       font-weight: 700;
       color: var(--uw-spirit-gold);
       margin: 0;
       letter-spacing: 0.04em;
     }
 
-    section[data-slide="16-four-surfaces"] .coda {
-      font-family: var(--font-body);
-      font-size: clamp(1.5rem, 1.5vw, 1.5rem);
-      color: rgba(232,227,211,0.7);
-      margin: 0;
-      font-style: italic;
-    }
   </style>
 </section>
 <section data-slide="17-reproducibility"
@@ -2415,14 +2486,11 @@
   <div class="accent-bar"></div>
   <div class="content">
     <p class="eyebrow">Reproducibility</p>
-    <h1>The conversation is scaffolding but<br>The artifact is the science.</h1>
+    <h1>The conversation is scaffolding.<br>The artifact is the science.</h1>
     <ul class="bullets">
-      <li>LLMs are stochastic, but science demands reproducibility.</li>
-      <li>The resolution: the process is not reproducible, however the artifacts are.</li>
-      <li>Your git repo, not your chat log, is the record.</li>
-      <li>You can commit plans, review notes, and validation outputs alongside code. <code>git log docs/</code> reads like a lab notebook.</li>
-      <li>Log the model, version, and date in your methods section, the way you would cite any tool.</li>
-      <li class="anchor">Pin your dependencies. AI-generated code often assumes packages it did not declare.</li>
+      <li>LLMs are stochastic. You will get different outputs from the same prompt on different days. This is a real tension with scientific reproducibility.</li>
+      <li>The resolution is to separate the process from the product. The conversation that generated the code is not the scientific record. The versioned artifact is.</li>
+      <li>This means the standard of evidence does not change. Your code, your data pipeline, and your results still need to be reproducible by someone who never saw your chat log.</li>
     </ul>
   </div>
 
@@ -2452,7 +2520,7 @@
 
     section[data-slide="17-reproducibility"] .eyebrow {
       font-family: var(--font-body);
-      font-size: clamp(1.375rem, 1.4vw, 1.375rem);
+      font-size: clamp(1.5rem, 1.4vw, 1.5rem);
       font-weight: 400;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -2494,27 +2562,6 @@
       position: absolute;
       left: 0;
       color: var(--uw-gray-30);
-    }
-
-    section[data-slide="17-reproducibility"] .bullets li.anchor {
-      color: var(--uw-spirit-purple);
-      font-weight: 600;
-      border-left: 4px solid var(--uw-spirit-gold);
-      padding-left: calc(2rem - 4px);
-      margin-top: var(--space-2);
-    }
-
-    section[data-slide="17-reproducibility"] .bullets li.anchor::before {
-      content: none;
-    }
-
-    section[data-slide="17-reproducibility"] code {
-      font-family: var(--font-mono, monospace);
-      font-size: 0.9em;
-      background: rgba(0, 0, 0, 0.06);
-      padding: 0.1em 0.35em;
-      border-radius: 3px;
-      color: var(--uw-spirit-purple);
     }
   </style>
 </section>
@@ -2689,26 +2736,23 @@
          class="slide">
 
   <div class="content">
-    <p class="eyebrow">Three things to take with you</p>
-    <div class="concepts">
-      <div class="concept">
-        <p class="concept-num">01</p>
-        <p class="concept-name">The six pieces</p>
-        <p class="concept-desc">LLM backbone, tool use, agent loop, project memory, MCP servers, skills. Every feature in every product maps to one of these. Tools will change. This anatomy will not.</p>
+    <p class="eyebrow">Three principles for the week</p>
+    <div class="principles">
+      <div class="principle">
+        <p class="principle-name">Robust</p>
+        <p class="principle-desc">Agents will confidently produce wrong output. Context engineering and the diagnostic habits you learned today are how you catch and prevent that.</p>
       </div>
-      <div class="concept">
-        <p class="concept-num">02</p>
-        <p class="concept-name">Trained-in vs. prompt</p>
-        <p class="concept-desc">The model knows general patterns. You control what goes into its context. Context engineering is the practice of filling that side deliberately. It is the researcher's primary lever.</p>
+      <div class="principle">
+        <p class="principle-name">Reproducible</p>
+        <p class="principle-desc">The process is stochastic but the artifact is versioned. Separate the scaffolding from the science.</p>
       </div>
-      <div class="concept">
-        <p class="concept-num">03</p>
-        <p class="concept-name">The four surfaces</p>
-        <p class="concept-desc">Context documents, skills, rules, and custom agents. Durable places to shape agent behavior. Portable across tools and vendors. Write them once, use them everywhere.</p>
+      <div class="principle">
+        <p class="principle-name">Secure</p>
+        <p class="principle-desc">Your data has constraints that do not bend for convenience. Match model hosting to data sensitivity. Thursday makes this practical.</p>
       </div>
     </div>
     <div class="close">
-      <p class="close-main">You do not need to pick a tool today. You need to understand the architecture so you can evaluate any tool tomorrow.</p>
+      <p class="close-main">You do not need to pick a tool today. You need to know what to demand from any tool tomorrow.</p>
       <p class="close-cta">Questions welcome now. We will be available all week.</p>
     </div>
   </div>
@@ -2749,7 +2793,7 @@
 
     section[data-slide="19-closing"] .eyebrow {
       font-family: var(--font-body);
-      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-size: clamp(1.5rem, 1.4vw, 1.5rem);
       font-weight: 400;
       text-transform: uppercase;
       letter-spacing: 0.12em;
@@ -2757,32 +2801,23 @@
       margin: 0;
     }
 
-    section[data-slide="19-closing"] .concepts {
+    section[data-slide="19-closing"] .principles {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: var(--space-5);
     }
 
-    section[data-slide="19-closing"] .concept {
+    section[data-slide="19-closing"] .principle {
       border-top: 3px solid var(--uw-spirit-gold);
       padding-top: var(--space-4);
       display: flex;
       flex-direction: column;
-      gap: var(--space-2);
+      gap: var(--space-3);
     }
 
-    section[data-slide="19-closing"] .concept-num {
+    section[data-slide="19-closing"] .principle-name {
       font-family: var(--font-display);
-      font-size: clamp(1.375rem, 1.4vw, 1.375rem);
-      font-weight: 900;
-      color: var(--uw-spirit-gold);
-      opacity: 0.6;
-      margin: 0;
-    }
-
-    section[data-slide="19-closing"] .concept-name {
-      font-family: var(--font-display);
-      font-size: clamp(1.625rem, 2vw, 2rem);
+      font-size: clamp(2rem, 2.4vw, 2.5rem);
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: -0.01em;
@@ -2791,9 +2826,9 @@
       margin: 0;
     }
 
-    section[data-slide="19-closing"] .concept-desc {
+    section[data-slide="19-closing"] .principle-desc {
       font-family: var(--font-body);
-      font-size: clamp(1.375rem, 1.35vw, 1.375rem);
+      font-size: clamp(1.5rem, 1.5vw, 1.5rem);
       font-weight: 400;
       color: var(--uw-husky-gold-web);
       line-height: 1.55;
@@ -2804,7 +2839,7 @@
       display: flex;
       flex-direction: column;
       gap: var(--space-3);
-      border-top: 1px solid rgba(255,199,0,0.2);
+      border-top: 1px solid rgba(255, 199, 0, 0.2);
       padding-top: var(--space-4);
     }
 
@@ -2821,7 +2856,7 @@
 
     section[data-slide="19-closing"] .close-cta {
       font-family: var(--font-body);
-      font-size: clamp(1.375rem, 1.4vw, 1.375rem);
+      font-size: clamp(1.5rem, 1.4vw, 1.5rem);
       font-weight: 400;
       color: var(--uw-spirit-gold);
       margin: 0;

@@ -1,36 +1,52 @@
 <section data-slide="16-four-surfaces"
-         aria-label="Slide 16: Four Surfaces to Shape Agent Behavior"
+         aria-label="Slide 16: Context Durability Spectrum"
          class="slide">
 
   <div class="content">
-    <h1>Four Durable Places to Shape Agent Behavior</h1>
-    <div class="surfaces">
-      <div class="surface">
-        <p class="surface-num">01</p>
-        <p class="surface-name">Context<br>documents</p>
-        <p class="surface-desc">Always loaded on startup. Facts and conventions the agent has in hand for this project.</p>
-        <p class="surface-file">AGENTS.md</p>
+    <h1>Shaping Agent Behavior</h1>
+
+    <div class="spectrum">
+      <div class="spectrum-bar">
+        <div class="spectrum-gradient"></div>
+        <div class="spectrum-labels">
+          <div class="spectrum-endpoint endpoint-left">
+            <span class="endpoint-title">Always loaded</span>
+            <span class="endpoint-tradeoff">Guaranteed present, but costs context budget</span>
+          </div>
+          <div class="spectrum-endpoint endpoint-right">
+            <span class="endpoint-title">Summoned on demand</span>
+            <span class="endpoint-tradeoff">Efficient, but only loaded when triggered</span>
+          </div>
+        </div>
       </div>
-      <div class="surface">
-        <p class="surface-num">02</p>
-        <p class="surface-name">Skills</p>
-        <p class="surface-desc">Task-triggered procedures. The agent picks them up when the work matches.</p>
-        <p class="surface-file">skills/</p>
-      </div>
-      <div class="surface">
-        <p class="surface-num">03</p>
-        <p class="surface-name">Rules</p>
-        <p class="surface-desc">Path-scoped constraints that are hard limits, not helpful suggestions.</p>
-        <p class="surface-file">.claude/</p>
-      </div>
-      <div class="surface">
-        <p class="surface-num">04</p>
-        <p class="surface-name">Custom<br>agents</p>
-        <p class="surface-desc">Distinct personas with their own tool access. For focused, narrower jobs.</p>
-        <p class="surface-file">agents/</p>
+
+      <div class="mechanisms">
+        <div class="mechanism" style="--position: 8%">
+          <p class="mechanism-name">Context<br>documents</p>
+          <p class="mechanism-desc">Facts and conventions the agent has in hand every session.</p>
+          <p class="mechanism-file">AGENTS.md</p>
+        </div>
+        <div class="mechanism" style="--position: 33%">
+          <p class="mechanism-name">Rules</p>
+          <p class="mechanism-desc">Path-scoped constraints that fire when specific files are touched.</p>
+          <p class="mechanism-file">.claude/</p>
+        </div>
+        <div class="mechanism" style="--position: 58%">
+          <p class="mechanism-name">Skills</p>
+          <p class="mechanism-desc">Task-triggered procedures the agent picks up when the work matches.</p>
+          <p class="mechanism-file">skills/</p>
+        </div>
+        <div class="mechanism" style="--position: 83%">
+          <p class="mechanism-name">Custom<br>agents</p>
+          <p class="mechanism-desc">Distinct personas invoked for focused, narrower jobs.</p>
+          <p class="mechanism-file">agents/</p>
+        </div>
+        <div class="mechanism mechanism-ellipsis" style="--position: 97%">
+          <p class="mechanism-name">...</p>
+        </div>
       </div>
     </div>
-    <p class="coda">Taxonomy is portable across different provider's tools. The file names differ, but the concepts don't.</p>
+
   </div>
 
   <style>
@@ -56,12 +72,12 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: var(--space-6);
+      gap: var(--space-5);
     }
 
     section[data-slide="16-four-surfaces"] h1 {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 3.2vw, 3rem);
+      font-size: clamp(2rem, 3vw, 2.75rem);
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: -0.02em;
@@ -70,33 +86,85 @@
       margin: 0;
     }
 
-    section[data-slide="16-four-surfaces"] .surfaces {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+
+    section[data-slide="16-four-surfaces"] .spectrum {
+      display: flex;
+      flex-direction: column;
       gap: var(--space-4);
+      margin-top: var(--space-2);
     }
 
-    section[data-slide="16-four-surfaces"] .surface {
-      background: rgba(255,255,255,0.07);
-      border-top: 3px solid var(--uw-spirit-gold);
-      padding: var(--space-4) var(--space-4);
+    section[data-slide="16-four-surfaces"] .spectrum-bar {
       display: flex;
       flex-direction: column;
       gap: var(--space-2);
     }
 
-    section[data-slide="16-four-surfaces"] .surface-num {
-      font-family: var(--font-display);
-      font-size: clamp(1.375rem, 1.4vw, 1.375rem);
-      font-weight: 900;
-      color: var(--uw-spirit-gold);
-      margin: 0;
-      opacity: 0.7;
+    section[data-slide="16-four-surfaces"] .spectrum-gradient {
+      height: 6px;
+      border-radius: 3px;
+      background: linear-gradient(to right, var(--uw-spirit-gold), rgba(255, 199, 0, 0.15));
     }
 
-    section[data-slide="16-four-surfaces"] .surface-name {
+    section[data-slide="16-four-surfaces"] .spectrum-labels {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    section[data-slide="16-four-surfaces"] .spectrum-endpoint {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    section[data-slide="16-four-surfaces"] .endpoint-right {
+      text-align: right;
+    }
+
+    section[data-slide="16-four-surfaces"] .endpoint-title {
       font-family: var(--font-display);
-      font-size: clamp(1.5rem, 2vw, 2rem);
+      font-size: clamp(1.5rem, 1.5vw, 1.625rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--uw-spirit-gold);
+    }
+
+    section[data-slide="16-four-surfaces"] .endpoint-tradeoff {
+      font-family: var(--font-body);
+      font-size: clamp(1.5rem, 1.4vw, 1.5rem);
+      font-style: italic;
+      color: rgba(232, 227, 211, 0.7);
+    }
+
+    section[data-slide="16-four-surfaces"] .mechanisms {
+      position: relative;
+      display: flex;
+      gap: var(--space-3);
+      justify-content: space-between;
+    }
+
+    section[data-slide="16-four-surfaces"] .mechanism {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.07);
+      border-top: 3px solid rgba(255, 199, 0, 0.5);
+      padding: var(--space-3) var(--space-3);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    section[data-slide="16-four-surfaces"] .mechanism-ellipsis {
+      flex: 0.3;
+      background: transparent;
+      border-top-color: rgba(255, 199, 0, 0.2);
+      align-items: center;
+      justify-content: center;
+    }
+
+    section[data-slide="16-four-surfaces"] .mechanism-name {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 1.8vw, 1.75rem);
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: -0.01em;
@@ -105,7 +173,12 @@
       margin: 0;
     }
 
-    section[data-slide="16-four-surfaces"] .surface-desc {
+    section[data-slide="16-four-surfaces"] .mechanism-ellipsis .mechanism-name {
+      font-size: clamp(1.75rem, 2.2vw, 2.25rem);
+      color: rgba(255, 199, 0, 0.5);
+    }
+
+    section[data-slide="16-four-surfaces"] .mechanism-desc {
       font-family: var(--font-body);
       font-size: clamp(1.5rem, 1.5vw, 1.5rem);
       color: var(--uw-husky-gold-web);
@@ -114,21 +187,14 @@
       flex: 1;
     }
 
-    section[data-slide="16-four-surfaces"] .surface-file {
+    section[data-slide="16-four-surfaces"] .mechanism-file {
       font-family: var(--font-display-compressed);
-      font-size: clamp(1.375rem, 1.4vw, 1.375rem);
+      font-size: clamp(1.5rem, 1.4vw, 1.5rem);
       font-weight: 700;
       color: var(--uw-spirit-gold);
       margin: 0;
       letter-spacing: 0.04em;
     }
 
-    section[data-slide="16-four-surfaces"] .coda {
-      font-family: var(--font-body);
-      font-size: clamp(1.5rem, 1.5vw, 1.5rem);
-      color: rgba(232,227,211,0.7);
-      margin: 0;
-      font-style: italic;
-    }
   </style>
 </section>
