@@ -197,16 +197,17 @@ Render as two-column layout with the phrase as headline.
 
 ## 16-four-surfaces
 
-**Keep existing HTML as-is.** No changes needed.
+**Rebuild this slide.** Replace the fixed four-box grid with a spectrum-oriented layout.
 
-- Key message: Four Durable Places to Shape Agent Behavior.
-- Bullets:
-  - Context documents (AGENTS.md) — always loaded on startup; the facts and conventions the agent should always have in hand when working in this project
-  - Skills — task-triggered procedures; the agent picks them up when the work matches.
-  - Rules — path-scoped constraints that fire based on which files are being touched; hard limits rather than helpful suggestions.
-  - Custom agents — distinct personas with their own tool access and voice; useful when you want a narrower, more focused agent for a specific job.
-  - Taxonomy is portable across tools; file names differ
-- Note to self: This is a preview of what people will learn hands-on in the AGENTS.md and Skills tutorials later today and Tuesday. Name them, don't teach them.
+- Key message: Context durability is a spectrum. Current tools give you several mechanisms along it — from files the agent reads every session to procedures it invokes only when the task matches. The mechanisms vary by tool and will evolve, but the underlying tradeoff between always-on and on-demand is durable.
+- Layout: A horizontal spectrum/gradient spanning the slide, anchored by "Always loaded" on the left and "Summoned on demand" on the right. Example mechanisms are positioned along the spectrum as illustrative points, not as an exhaustive numbered list.
+  - Left end (always loaded): Context documents — facts and conventions the agent has in hand every session.
+  - Middle-left: Rules — path-scoped constraints that fire when specific files are touched.
+  - Middle-right: Skills — task-triggered procedures the agent picks up when the work matches.
+  - Right end (on demand): Custom agents — distinct personas invoked for focused, narrower jobs.
+- A trailing "..." or visual fade at the right edge signals that the list is not exhaustive.
+- Coda text: "These are examples from today's tooling. The specific mechanisms will change, but the spectrum will not."
+- Note to self: This is a preview of what people will learn hands-on in the AGENTS.md and Skills tutorials later today and Tuesday. Name the spectrum concept and illustrate it, don't teach each mechanism. The audience should walk away remembering the tradeoff (always-on costs context budget but is guaranteed present; on-demand is efficient but requires recognition), not a specific count. Say aloud: "These are examples from today's tooling. The specific mechanisms will change, but the spectrum will not."
 
 ## 17-reproducibility
 
