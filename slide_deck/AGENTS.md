@@ -26,31 +26,6 @@ This directory contains slides for "Landscape of Coding Agents," a 90-minute tut
 1. **First pass:** Use `SLIDES.md` to generate slides in `content/`. Typography, layout, color, and accent only — no images or decorative icons.
 2. **Second pass:** Use `VISUALS.md` to generate enhanced versions in `content-with-visuals/`. This pass is additive; do not modify first-pass files.
 
-## Current slide inventory
-
-Slides that already exist as HTML in `content/`:
-- 01-title (needs text update for new event)
-- 04-chat-vs-agent
-- 05-six-pieces
-- 06-trained-in-vs-prompt
-- 16-four-surfaces
-- 17-reproducibility
-
-Slides that need to be built (defined in SLIDES.md but no HTML yet):
-- 02-framing
-- 03-what-is-an-llm
-- 07-post-training
-- 08-convergent-training
-- 09-diagnosis-slide
-- 10-failure-modes
-- 11-mapping-exercise
-- 12-landscape-of-tools
-- 13-five-axes
-- 14-context-window
-- 15-data-privacy-preview
-- 18-week-ahead
-- 19-closing
-
 ## Design standards
 
 All slides must follow the `uw-slides` plugin conventions in Claude Code. When in doubt about design decisions, consult that plugin for authoritative guidance on color tokens, typography, layout patterns, and logo usage.
