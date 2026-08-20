@@ -108,6 +108,14 @@ Every tool has all of these six components:
   - Skills — reusable procedures for specific kinds of tasks
   - Every feature in every product maps to one of these. Switching tools is a configuration exercise, not a re-learning exercise
 
+## 08b-agent-as-coworker
+
+- Key message: We will regard the agent as a co-worker who helps us review and improve existing code rather than building from scratch.
+- Bullets:
+  - The agent is most useful as a collaborator on existing work — reviewing code for correctness, suggesting improvements, and explaining what something does. It is not a code generator you hand a blank slate.
+  - Every output the agent produces requires human judgment. The agent can be confidently wrong, and it will not tell you when it is. Checking what it gives you is not a quality control step — it is the core practice. The next slides name the specific ways agents fail so you can recognize them.
+- Note to self: This slide is a pivot point. The first half of the session built a mental model of the technology. This slide reframes how to use it. The second bullet lands harder if you follow it immediately with the failure modes — the transition should feel natural: "Here is the mindset, and here is what you are watching for."
+
 ## 09-diagnosis-slide
 
 - Key message: When an agent does something surprising or wrong, the first debugging question is: is this a training problem or a prompt problem?
