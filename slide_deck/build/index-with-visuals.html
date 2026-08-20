@@ -510,15 +510,15 @@
     <div class="phases">
       <div class="phase">
         <p class="phase-label">Supervised fine-tuning</p>
-        <p class="phase-desc">Human contractors write thousands of examples of ideal conversations. The model learns the shape of a helpful interaction. This is why the agent follows your instructions.</p>
+        <p class="phase-desc">Human contractors write thousands of examples of ideal conversations. The model learns the shape of a helpful interaction. This is why the model follows your instructions.</p>
       </div>
       <div class="phase">
         <p class="phase-label">Reinforcement learning from human feedback</p>
-        <p class="phase-desc">Contractors judge which of two model responses is better. The model is tuned to produce responses that score well. This is why the agent stops and decides it is done, instead of looping forever.</p>
+        <p class="phase-desc">Contractors judge which of two model responses is better. The model is tuned to produce responses that score well. This is why the model stops and decides it is done, instead of looping forever.</p>
       </div>
       <div class="phase">
         <p class="phase-label">Tool-use fine-tuning</p>
-        <p class="phase-desc">The model is trained on examples of conversations that include tool calls. It learns both the format and the harder meta-skill of knowing when a tool call is needed versus when it can answer from memory. This is how the agent calls a tool instead of just describing what to do.</p>
+        <p class="phase-desc">The model is trained on examples of conversations that include tool calls. It learns both the format and the harder meta-skill of knowing when a tool call is needed versus when it can answer from memory.</p>
       </div>
     </div>
   </div>
@@ -606,10 +606,10 @@
   <div class="content">
     <p class="eyebrow">Convergent post-training</p>
     <h1>All major AI labs do post-training in roughly similar ways.</h1>
-    <p class="lead">Anthropic, OpenAI, Google, and Meta all use supervised fine-tuning, reinforcement learning from human feedback, and tool-use training — with different data but similar pipelines. The resulting behaviors converge: all modern models can follow instructions, use tools, and stop when done.</p>
+    <p class="lead">Anthropic, OpenAI, Google, and Meta all use supervised fine-tuning, reinforcement learning from human feedback, and tool-use training with different data but similar pipelines. The resulting behaviors converge: all modern models can follow instructions, use tools, and stop when done.</p>
     <div class="callout">
       <p class="callout-label">The practical implication</p>
-      <p class="callout-body">You can swap Claude for GPT for Gemini in most coding agents and things still mostly work. Your investment in learning how to shape agent behavior — context documents, skills, workflow patterns — transfers across tools. You are not locked in. Invest in concepts, not in products.</p>
+      <p class="callout-body">You can swap Claude for GPT for Gemini in most coding agents and things still mostly work. Your investment in learning how to work effectively with these tools transfers across products.</p>
     </div>
   </div>
 
@@ -1273,8 +1273,105 @@
     }
   </style>
 </section>
-<section data-slide="09-diagnosis-slide"
-         aria-label="Slide 9: Diagnosing Agent Problems"
+<section data-slide="09-agent-as-coworker"
+         aria-label="Slide 9: The Agent as Co-worker"
+         class="slide">
+
+  <div class="accent-bar"></div>
+  <div class="content">
+    <p class="eyebrow">Working with agents</p>
+    <h1>A co-worker who reviews and improves,<br>not a machine that builds from scratch.</h1>
+    <p class="lead">We will regard the agent as a co-worker who helps us review and improve existing code rather than build from scratch. This shapes how we prompt it, what we ask for, and how we evaluate its output.</p>
+    <ul class="bullets">
+      <li>The agent is most useful as a collaborator on existing work: reviewing code for correctness, suggesting improvements, and explaining what something does. It is not a code generator to which you hand a blank slate.</li>
+      <li>Every output the agent produces requires human judgment. The agent can be confidently wrong, and it will not tell you when it is. Checking what it gives you is not a quality control step; it is the core practice. The next slides name the specific ways agents fail so you can recognize them when they happen.</li>
+    </ul>
+  </div>
+
+  <style>
+    section[data-slide="09-agent-as-coworker"] {
+      background: var(--uw-white);
+      padding: var(--space-8) var(--space-10) var(--space-8) var(--space-12);
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section[data-slide="09-agent-as-coworker"] .accent-bar {
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 8px;
+      background: var(--uw-spirit-gold);
+    }
+
+    section[data-slide="09-agent-as-coworker"] .content {
+      max-width: 960px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+
+    section[data-slide="09-agent-as-coworker"] .eyebrow {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--uw-gray-70);
+      margin: 0;
+    }
+
+    section[data-slide="09-agent-as-coworker"] h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 3.2vw, 3.25rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.0;
+      color: var(--uw-spirit-purple);
+      margin: 0;
+    }
+
+    section[data-slide="09-agent-as-coworker"] .lead {
+      font-family: var(--font-body);
+      font-size: clamp(1.5rem, 1.5vw, 1.5rem);
+      font-weight: 400;
+      color: var(--uw-gray-70);
+      line-height: 1.6;
+      margin: 0;
+      border-left: 4px solid var(--uw-spirit-gold);
+      padding-left: var(--space-4);
+    }
+
+    section[data-slide="09-agent-as-coworker"] .bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    section[data-slide="09-agent-as-coworker"] .bullets li {
+      font-family: var(--font-body);
+      font-size: clamp(1.5rem, 1.5vw, 1.5rem);
+      color: var(--uw-gray-90);
+      line-height: 1.5;
+      padding-left: 2rem;
+      position: relative;
+    }
+
+    section[data-slide="09-agent-as-coworker"] .bullets li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--uw-gray-30);
+    }
+  </style>
+</section>
+<section data-slide="10-diagnosis-slide"
+         aria-label="Slide 10: Diagnosing Agent Problems"
          class="slide">
 
   <div class="accent-bar-top"></div>
@@ -1399,7 +1496,7 @@
   </div>
 
   <style>
-    section[data-slide="09-diagnosis-slide"] {
+    section[data-slide="10-diagnosis-slide"] {
       background: var(--uw-spirit-purple);
       padding: var(--space-6) var(--space-10);
       align-items: center;
@@ -1408,7 +1505,7 @@
       overflow: hidden;
     }
 
-    section[data-slide="09-diagnosis-slide"] .content {
+    section[data-slide="10-diagnosis-slide"] .content {
       max-width: 1300px;
       width: 100%;
       display: flex;
@@ -1416,7 +1513,7 @@
       gap: var(--space-4);
     }
 
-    section[data-slide="09-diagnosis-slide"] .eyebrow {
+    section[data-slide="10-diagnosis-slide"] .eyebrow {
       font-family: var(--font-body);
       font-size: clamp(1.125rem, 1.1vw, 1.125rem);
       font-weight: 400;
@@ -1426,13 +1523,13 @@
       margin: 0;
     }
 
-    section[data-slide="09-diagnosis-slide"] .tree {
+    section[data-slide="10-diagnosis-slide"] .tree {
       width: 100%;
     }
   </style>
 </section>
-<section data-slide="10-failure-modes"
-         aria-label="Slide 10: Failure Modes"
+<section data-slide="11-failure-modes"
+         aria-label="Slide 11: Failure Modes"
          class="slide">
 
   <div class="accent-bar-top-purple"></div>
@@ -1461,7 +1558,7 @@
   </div>
 
   <style>
-    section[data-slide="10-failure-modes"] {
+    section[data-slide="11-failure-modes"] {
       background: var(--uw-white);
       padding: var(--space-6) var(--space-10);
       align-items: center;
@@ -1470,14 +1567,14 @@
       overflow: hidden;
     }
 
-    section[data-slide="10-failure-modes"] .accent-bar-top-purple {
+    section[data-slide="11-failure-modes"] .accent-bar-top-purple {
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 8px;
       background: var(--uw-spirit-purple);
     }
 
-    section[data-slide="10-failure-modes"] .content {
+    section[data-slide="11-failure-modes"] .content {
       max-width: 1400px;
       width: 100%;
       display: flex;
@@ -1485,7 +1582,7 @@
       gap: var(--space-5);
     }
 
-    section[data-slide="10-failure-modes"] .eyebrow {
+    section[data-slide="11-failure-modes"] .eyebrow {
       font-family: var(--font-body);
       font-size: clamp(1.125rem, 1.1vw, 1.125rem);
       font-weight: 400;
@@ -1495,7 +1592,7 @@
       margin: 0;
     }
 
-    section[data-slide="10-failure-modes"] h1 {
+    section[data-slide="11-failure-modes"] h1 {
       font-family: var(--font-display);
       font-size: clamp(1.75rem, 2.4vw, 2.5rem);
       font-weight: 900;
@@ -1506,13 +1603,13 @@
       margin: 0;
     }
 
-    section[data-slide="10-failure-modes"] .modes {
+    section[data-slide="11-failure-modes"] .modes {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: var(--space-4);
     }
 
-    section[data-slide="10-failure-modes"] .mode {
+    section[data-slide="11-failure-modes"] .mode {
       border-top: 3px solid var(--uw-spirit-purple);
       padding-top: var(--space-3);
       display: flex;
@@ -1520,7 +1617,7 @@
       gap: var(--space-2);
     }
 
-    section[data-slide="10-failure-modes"] .mode-name {
+    section[data-slide="11-failure-modes"] .mode-name {
       font-family: var(--font-display);
       font-size: clamp(1.375rem, 1.5vw, 1.5rem);
       font-weight: 800;
@@ -1530,7 +1627,7 @@
       margin: 0;
     }
 
-    section[data-slide="10-failure-modes"] .mode-desc {
+    section[data-slide="11-failure-modes"] .mode-desc {
       font-family: var(--font-body);
       font-size: clamp(1.375rem, 1.35vw, 1.375rem);
       font-weight: 400;
@@ -1539,7 +1636,7 @@
       margin: 0;
     }
 
-    section[data-slide="10-failure-modes"] .aka {
+    section[data-slide="11-failure-modes"] .aka {
       font-weight: 400;
       font-size: 0.75em;
       opacity: 0.6;
@@ -1547,7 +1644,7 @@
       text-transform: none;
     }
 
-    section[data-slide="10-failure-modes"] .coda {
+    section[data-slide="11-failure-modes"] .coda {
       font-family: var(--font-body);
       font-size: clamp(1.375rem, 1.3vw, 1.375rem);
       color: var(--uw-gray-70);
@@ -1558,8 +1655,8 @@
     }
   </style>
 </section>
-<section data-slide="11-mapping-exercise"
-         aria-label="Slide 11: Mapping Exercise"
+<section data-slide="12-mapping-exercise"
+         aria-label="Slide 12: Mapping Exercise"
          class="slide">
 
   <div class="accent-bar-top"></div>
@@ -1617,7 +1714,7 @@
   </div>
 
   <style>
-    section[data-slide="11-mapping-exercise"] {
+    section[data-slide="12-mapping-exercise"] {
       background: var(--uw-spirit-purple);
       padding: var(--space-8) var(--space-10);
       align-items: center;
@@ -1626,7 +1723,7 @@
       overflow: hidden;
     }
 
-    section[data-slide="11-mapping-exercise"] .content {
+    section[data-slide="12-mapping-exercise"] .content {
       max-width: 1200px;
       width: 100%;
       display: flex;
@@ -1634,7 +1731,7 @@
       gap: var(--space-5);
     }
 
-    section[data-slide="11-mapping-exercise"] .eyebrow {
+    section[data-slide="12-mapping-exercise"] .eyebrow {
       font-family: var(--font-body);
       font-size: clamp(1.125rem, 1.1vw, 1.125rem);
       font-weight: 400;
@@ -1644,7 +1741,7 @@
       margin: 0;
     }
 
-    section[data-slide="11-mapping-exercise"] h1 {
+    section[data-slide="12-mapping-exercise"] h1 {
       font-family: var(--font-display);
       font-size: clamp(1.75rem, 2.4vw, 2.5rem);
       font-weight: 900;
@@ -1656,7 +1753,7 @@
       max-width: 800px;
     }
 
-    section[data-slide="11-mapping-exercise"] .instruction {
+    section[data-slide="12-mapping-exercise"] .instruction {
       font-family: var(--font-body);
       font-size: clamp(1.5rem, 1.5vw, 1.5rem);
       font-weight: 400;
@@ -1665,7 +1762,7 @@
       margin: 0;
     }
 
-    section[data-slide="11-mapping-exercise"] .qr-area {
+    section[data-slide="12-mapping-exercise"] .qr-area {
       display: grid;
       grid-template-columns: 200px 1fr;
       gap: var(--space-8);
@@ -1674,21 +1771,21 @@
       padding: var(--space-5);
     }
 
-    section[data-slide="11-mapping-exercise"] .qr-box {
+    section[data-slide="12-mapping-exercise"] .qr-box {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: var(--space-2);
     }
 
-    section[data-slide="11-mapping-exercise"] .qr-placeholder {
+    section[data-slide="12-mapping-exercise"] .qr-placeholder {
       width: 160px;
       height: 160px;
       color: var(--uw-spirit-gold);
       opacity: 0.8;
     }
 
-    section[data-slide="11-mapping-exercise"] .qr-label {
+    section[data-slide="12-mapping-exercise"] .qr-label {
       font-family: var(--font-body);
       font-size: clamp(0.875rem, 0.9vw, 0.875rem);
       color: rgba(255,199,0,0.5);
@@ -1697,7 +1794,7 @@
       margin: 0;
     }
 
-    section[data-slide="11-mapping-exercise"] .survey-title {
+    section[data-slide="12-mapping-exercise"] .survey-title {
       font-family: var(--font-display);
       font-size: clamp(1.5rem, 2vw, 2rem);
       font-weight: 900;
@@ -1707,7 +1804,7 @@
       margin: 0 0 var(--space-3) 0;
     }
 
-    section[data-slide="11-mapping-exercise"] .survey-desc {
+    section[data-slide="12-mapping-exercise"] .survey-desc {
       font-family: var(--font-body);
       font-size: clamp(1.375rem, 1.3vw, 1.375rem);
       font-weight: 400;
@@ -1716,7 +1813,7 @@
       margin: 0 0 var(--space-3) 0;
     }
 
-    section[data-slide="11-mapping-exercise"] .survey-bullets {
+    section[data-slide="12-mapping-exercise"] .survey-bullets {
       list-style: none;
       padding: 0;
       margin: 0;
@@ -1725,7 +1822,7 @@
       gap: var(--space-2);
     }
 
-    section[data-slide="11-mapping-exercise"] .survey-bullets li {
+    section[data-slide="12-mapping-exercise"] .survey-bullets li {
       font-family: var(--font-body);
       font-size: clamp(1.25rem, 1.25vw, 1.25rem);
       color: rgba(232,227,211,0.7);
@@ -1734,7 +1831,7 @@
       position: relative;
     }
 
-    section[data-slide="11-mapping-exercise"] .survey-bullets li::before {
+    section[data-slide="12-mapping-exercise"] .survey-bullets li::before {
       content: '—';
       position: absolute;
       left: 0;
@@ -1742,8 +1839,8 @@
     }
   </style>
 </section>
-<section data-slide="12-landscape-of-tools"
-         aria-label="Slide 12: Landscape of Tools"
+<section data-slide="13-landscape-of-tools"
+         aria-label="Slide 13: Landscape of Tools"
          class="slide">
 
   <div class="accent-bar-top"></div>
@@ -1836,7 +1933,7 @@
   </div>
 
   <style>
-    section[data-slide="12-landscape-of-tools"] {
+    section[data-slide="13-landscape-of-tools"] {
       background: var(--uw-white);
       padding: var(--space-6) var(--space-10);
       align-items: center;
@@ -1845,7 +1942,7 @@
       overflow: hidden;
     }
 
-    section[data-slide="12-landscape-of-tools"] .content {
+    section[data-slide="13-landscape-of-tools"] .content {
       max-width: 1300px;
       width: 100%;
       display: flex;
@@ -1853,7 +1950,7 @@
       gap: var(--space-4);
     }
 
-    section[data-slide="12-landscape-of-tools"] .eyebrow {
+    section[data-slide="13-landscape-of-tools"] .eyebrow {
       font-family: var(--font-body);
       font-size: clamp(1.125rem, 1.1vw, 1.125rem);
       font-weight: 400;
@@ -1863,7 +1960,7 @@
       margin: 0;
     }
 
-    section[data-slide="12-landscape-of-tools"] h1 {
+    section[data-slide="13-landscape-of-tools"] h1 {
       font-family: var(--font-display);
       font-size: clamp(1.625rem, 2vw, 2rem);
       font-weight: 900;
@@ -1874,13 +1971,13 @@
       margin: 0;
     }
 
-    section[data-slide="12-landscape-of-tools"] .plot {
+    section[data-slide="13-landscape-of-tools"] .plot {
       width: 100%;
     }
   </style>
 </section>
-<section data-slide="13-five-axes"
-         aria-label="Slide 13: Five Axes for Choosing a Tool"
+<section data-slide="14-five-axes"
+         aria-label="Slide 14: Five Axes for Choosing a Tool"
          class="slide">
 
   <div class="accent-bar-top"></div>
@@ -1917,7 +2014,7 @@
   </div>
 
   <style>
-    section[data-slide="13-five-axes"] {
+    section[data-slide="14-five-axes"] {
       background: var(--uw-spirit-purple);
       padding: var(--space-8) var(--space-10);
       align-items: center;
@@ -1926,7 +2023,7 @@
       overflow: hidden;
     }
 
-    section[data-slide="13-five-axes"] .content {
+    section[data-slide="14-five-axes"] .content {
       max-width: 1400px;
       width: 100%;
       display: flex;
@@ -1934,7 +2031,7 @@
       gap: var(--space-5);
     }
 
-    section[data-slide="13-five-axes"] .eyebrow {
+    section[data-slide="14-five-axes"] .eyebrow {
       font-family: var(--font-body);
       font-size: clamp(1.125rem, 1.1vw, 1.125rem);
       font-weight: 400;
@@ -1944,7 +2041,7 @@
       margin: 0;
     }
 
-    section[data-slide="13-five-axes"] h1 {
+    section[data-slide="14-five-axes"] h1 {
       font-family: var(--font-display);
       font-size: clamp(1.5rem, 2vw, 2rem);
       font-weight: 700;
@@ -1955,19 +2052,19 @@
       margin: 0;
     }
 
-    section[data-slide="13-five-axes"] .axes {
+    section[data-slide="14-five-axes"] .axes {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: var(--space-4);
     }
 
-    section[data-slide="13-five-axes"] .axis {
+    section[data-slide="14-five-axes"] .axis {
       display: flex;
       flex-direction: column;
       gap: var(--space-2);
     }
 
-    section[data-slide="13-five-axes"] .axis-num {
+    section[data-slide="14-five-axes"] .axis-num {
       font-family: var(--font-display);
       font-size: clamp(1.25rem, 1.3vw, 1.25rem);
       font-weight: 900;
@@ -1976,7 +2073,7 @@
       margin: 0;
     }
 
-    section[data-slide="13-five-axes"] .axis-name {
+    section[data-slide="14-five-axes"] .axis-name {
       font-family: var(--font-display);
       font-size: clamp(1.5rem, 1.8vw, 1.875rem);
       font-weight: 900;
@@ -1989,7 +2086,7 @@
       padding-bottom: var(--space-2);
     }
 
-    section[data-slide="13-five-axes"] .axis-desc {
+    section[data-slide="14-five-axes"] .axis-desc {
       font-family: var(--font-body);
       font-size: clamp(1.25rem, 1.25vw, 1.25rem);
       font-weight: 400;
@@ -1998,18 +2095,18 @@
       margin: 0;
     }
 
-    section[data-slide="13-five-axes"] .axis:last-child .axis-name {
+    section[data-slide="14-five-axes"] .axis:last-child .axis-name {
       color: var(--uw-accent-teal);
       border-bottom-color: rgba(42,210,201,0.3);
     }
 
-    section[data-slide="13-five-axes"] .axis:last-child .axis-desc {
+    section[data-slide="14-five-axes"] .axis:last-child .axis-desc {
       color: var(--uw-white);
     }
   </style>
 </section>
-<section data-slide="14-context-window"
-         aria-label="Slide 14: The Context Window"
+<section data-slide="15-context-window"
+         aria-label="Slide 15: The Context Window"
          class="slide">
 
   <div class="accent-bar"></div>
@@ -2037,7 +2134,7 @@
   </div>
 
   <style>
-    section[data-slide="14-context-window"] {
+    section[data-slide="15-context-window"] {
       background: var(--uw-white);
       padding: var(--space-7) var(--space-10) var(--space-7) var(--space-12);
       align-items: center;
@@ -2045,14 +2142,14 @@
       overflow: hidden;
     }
 
-    section[data-slide="14-context-window"] .accent-bar {
+    section[data-slide="15-context-window"] .accent-bar {
       position: absolute;
       top: 0; left: 0; bottom: 0;
       width: 8px;
       background: var(--uw-spirit-gold);
     }
 
-    section[data-slide="14-context-window"] .content {
+    section[data-slide="15-context-window"] .content {
       max-width: 1400px;
       width: 100%;
       display: grid;
@@ -2061,26 +2158,26 @@
       align-items: center;
     }
 
-    section[data-slide="14-context-window"] .text-col {
+    section[data-slide="15-context-window"] .text-col {
       display: flex;
       flex-direction: column;
       gap: var(--space-4);
     }
 
-    section[data-slide="14-context-window"] .diagram-col {
+    section[data-slide="15-context-window"] .diagram-col {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: var(--space-3);
     }
 
-    section[data-slide="14-context-window"] .diagram-img {
+    section[data-slide="15-context-window"] .diagram-img {
       width: 100%;
       height: auto;
       display: block;
     }
 
-    section[data-slide="14-context-window"] .attribution {
+    section[data-slide="15-context-window"] .attribution {
       font-family: var(--font-body);
       font-size: clamp(0.875rem, 0.85vw, 0.875rem);
       font-weight: 400;
@@ -2090,7 +2187,7 @@
       text-align: center;
     }
 
-    section[data-slide="14-context-window"] .eyebrow {
+    section[data-slide="15-context-window"] .eyebrow {
       font-family: var(--font-body);
       font-size: clamp(1.125rem, 1.1vw, 1.125rem);
       font-weight: 400;
@@ -2100,7 +2197,7 @@
       margin: 0;
     }
 
-    section[data-slide="14-context-window"] h1 {
+    section[data-slide="15-context-window"] h1 {
       font-family: var(--font-display);
       font-size: clamp(1.75rem, 2.4vw, 2.5rem);
       font-weight: 900;
@@ -2111,7 +2208,7 @@
       margin: 0;
     }
 
-    section[data-slide="14-context-window"] .lead {
+    section[data-slide="15-context-window"] .lead {
       font-family: var(--font-body);
       font-size: clamp(1.375rem, 1.35vw, 1.375rem);
       font-weight: 400;
@@ -2120,7 +2217,7 @@
       margin: 0;
     }
 
-    section[data-slide="14-context-window"] .bullets {
+    section[data-slide="15-context-window"] .bullets {
       list-style: none;
       padding: 0;
       margin: 0;
@@ -2129,7 +2226,7 @@
       gap: var(--space-2);
     }
 
-    section[data-slide="14-context-window"] .bullets li {
+    section[data-slide="15-context-window"] .bullets li {
       font-family: var(--font-body);
       font-size: clamp(1.25rem, 1.25vw, 1.25rem);
       color: var(--uw-gray-70);
@@ -2138,7 +2235,7 @@
       position: relative;
     }
 
-    section[data-slide="14-context-window"] .bullets li::before {
+    section[data-slide="15-context-window"] .bullets li::before {
       content: '—';
       position: absolute;
       left: 0;
@@ -2146,8 +2243,8 @@
     }
   </style>
 </section>
-<section data-slide="15-data-privacy-preview"
-         aria-label="Slide 15: Data Privacy Preview"
+<section data-slide="16-data-privacy-preview"
+         aria-label="Slide 16: Data Privacy Preview"
          class="slide">
 
   <div class="accent-bar-top"></div>
@@ -2181,7 +2278,7 @@
   </div>
 
   <style>
-    section[data-slide="15-data-privacy-preview"] {
+    section[data-slide="16-data-privacy-preview"] {
       background: var(--uw-spirit-purple);
       padding: var(--space-7) var(--space-10);
       align-items: center;
@@ -2190,7 +2287,7 @@
       overflow: hidden;
     }
 
-    section[data-slide="15-data-privacy-preview"] .content {
+    section[data-slide="16-data-privacy-preview"] .content {
       max-width: 1300px;
       width: 100%;
       display: flex;
@@ -2198,7 +2295,7 @@
       gap: var(--space-4);
     }
 
-    section[data-slide="15-data-privacy-preview"] .eyebrow {
+    section[data-slide="16-data-privacy-preview"] .eyebrow {
       font-family: var(--font-body);
       font-size: clamp(1.125rem, 1.1vw, 1.125rem);
       font-weight: 400;
@@ -2208,7 +2305,7 @@
       margin: 0;
     }
 
-    section[data-slide="15-data-privacy-preview"] h1 {
+    section[data-slide="16-data-privacy-preview"] h1 {
       font-family: var(--font-display);
       font-size: clamp(2rem, 2.8vw, 2.75rem);
       font-weight: 900;
@@ -2219,7 +2316,7 @@
       margin: 0;
     }
 
-    section[data-slide="15-data-privacy-preview"] .sub {
+    section[data-slide="16-data-privacy-preview"] .sub {
       font-family: var(--font-body);
       font-size: clamp(1.375rem, 1.35vw, 1.375rem);
       font-weight: 300;
@@ -2229,13 +2326,13 @@
       font-style: italic;
     }
 
-    section[data-slide="15-data-privacy-preview"] .tiers {
+    section[data-slide="16-data-privacy-preview"] .tiers {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: var(--space-4);
     }
 
-    section[data-slide="15-data-privacy-preview"] .tier {
+    section[data-slide="16-data-privacy-preview"] .tier {
       background: rgba(255,255,255,0.07);
       border-top: 3px solid rgba(255,199,0,0.4);
       padding: var(--space-4);
@@ -2244,12 +2341,12 @@
       gap: var(--space-2);
     }
 
-    section[data-slide="15-data-privacy-preview"] .tier-local {
+    section[data-slide="16-data-privacy-preview"] .tier-local {
       border-top-color: var(--uw-accent-teal);
       background: rgba(42,210,201,0.07);
     }
 
-    section[data-slide="15-data-privacy-preview"] .tier-name {
+    section[data-slide="16-data-privacy-preview"] .tier-name {
       font-family: var(--font-display);
       font-size: clamp(1.375rem, 1.4vw, 1.375rem);
       font-weight: 800;
@@ -2259,11 +2356,11 @@
       margin: 0;
     }
 
-    section[data-slide="15-data-privacy-preview"] .tier-local .tier-name {
+    section[data-slide="16-data-privacy-preview"] .tier-local .tier-name {
       color: var(--uw-accent-teal);
     }
 
-    section[data-slide="15-data-privacy-preview"] .tier-eg {
+    section[data-slide="16-data-privacy-preview"] .tier-eg {
       font-family: var(--font-body);
       font-size: clamp(1.125rem, 1.1vw, 1.125rem);
       font-weight: 400;
@@ -2272,7 +2369,7 @@
       margin: 0;
     }
 
-    section[data-slide="15-data-privacy-preview"] .tier-desc {
+    section[data-slide="16-data-privacy-preview"] .tier-desc {
       font-family: var(--font-body);
       font-size: clamp(1.375rem, 1.35vw, 1.375rem);
       font-weight: 400;
@@ -2281,7 +2378,7 @@
       margin: 0;
     }
 
-    section[data-slide="15-data-privacy-preview"] .coda {
+    section[data-slide="16-data-privacy-preview"] .coda {
       font-family: var(--font-body);
       font-size: clamp(1.375rem, 1.35vw, 1.375rem);
       font-weight: 600;
@@ -2293,8 +2390,8 @@
     }
   </style>
 </section>
-<section data-slide="16-four-surfaces"
-         aria-label="Slide 16: Context Durability Spectrum"
+<section data-slide="17-four-surfaces"
+         aria-label="Slide 17: Context Durability Spectrum"
          class="slide">
 
   <div class="content">
@@ -2345,7 +2442,7 @@
   </div>
 
   <style>
-    section[data-slide="16-four-surfaces"] {
+    section[data-slide="17-four-surfaces"] {
       background: var(--uw-spirit-purple);
       padding: var(--space-6) var(--space-10);
       align-items: center;
@@ -2354,7 +2451,7 @@
       overflow: hidden;
     }
 
-    section[data-slide="16-four-surfaces"]::before {
+    section[data-slide="17-four-surfaces"]::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
@@ -2362,7 +2459,7 @@
       background: var(--uw-spirit-gold);
     }
 
-    section[data-slide="16-four-surfaces"] .content {
+    section[data-slide="17-four-surfaces"] .content {
       max-width: 1400px;
       width: 100%;
       display: flex;
@@ -2370,7 +2467,7 @@
       gap: var(--space-5);
     }
 
-    section[data-slide="16-four-surfaces"] h1 {
+    section[data-slide="17-four-surfaces"] h1 {
       font-family: var(--font-display);
       font-size: clamp(2rem, 3vw, 2.75rem);
       font-weight: 900;
@@ -2382,41 +2479,41 @@
     }
 
 
-    section[data-slide="16-four-surfaces"] .spectrum {
+    section[data-slide="17-four-surfaces"] .spectrum {
       display: flex;
       flex-direction: column;
       gap: var(--space-4);
       margin-top: var(--space-2);
     }
 
-    section[data-slide="16-four-surfaces"] .spectrum-bar {
+    section[data-slide="17-four-surfaces"] .spectrum-bar {
       display: flex;
       flex-direction: column;
       gap: var(--space-2);
     }
 
-    section[data-slide="16-four-surfaces"] .spectrum-gradient {
+    section[data-slide="17-four-surfaces"] .spectrum-gradient {
       height: 6px;
       border-radius: 3px;
       background: linear-gradient(to right, var(--uw-spirit-gold), rgba(255, 199, 0, 0.15));
     }
 
-    section[data-slide="16-four-surfaces"] .spectrum-labels {
+    section[data-slide="17-four-surfaces"] .spectrum-labels {
       display: flex;
       justify-content: space-between;
     }
 
-    section[data-slide="16-four-surfaces"] .spectrum-endpoint {
+    section[data-slide="17-four-surfaces"] .spectrum-endpoint {
       display: flex;
       flex-direction: column;
       gap: 2px;
     }
 
-    section[data-slide="16-four-surfaces"] .endpoint-right {
+    section[data-slide="17-four-surfaces"] .endpoint-right {
       text-align: right;
     }
 
-    section[data-slide="16-four-surfaces"] .endpoint-title {
+    section[data-slide="17-four-surfaces"] .endpoint-title {
       font-family: var(--font-display);
       font-size: clamp(1.5rem, 1.5vw, 1.625rem);
       font-weight: 700;
@@ -2425,21 +2522,21 @@
       color: var(--uw-spirit-gold);
     }
 
-    section[data-slide="16-four-surfaces"] .endpoint-tradeoff {
+    section[data-slide="17-four-surfaces"] .endpoint-tradeoff {
       font-family: var(--font-body);
       font-size: clamp(1.5rem, 1.4vw, 1.5rem);
       font-style: italic;
       color: rgba(232, 227, 211, 0.7);
     }
 
-    section[data-slide="16-four-surfaces"] .mechanisms {
+    section[data-slide="17-four-surfaces"] .mechanisms {
       position: relative;
       display: flex;
       gap: var(--space-3);
       justify-content: space-between;
     }
 
-    section[data-slide="16-four-surfaces"] .mechanism {
+    section[data-slide="17-four-surfaces"] .mechanism {
       flex: 1;
       background: rgba(255, 255, 255, 0.07);
       border-top: 3px solid rgba(255, 199, 0, 0.5);
@@ -2449,7 +2546,7 @@
       gap: var(--space-2);
     }
 
-    section[data-slide="16-four-surfaces"] .mechanism-ellipsis {
+    section[data-slide="17-four-surfaces"] .mechanism-ellipsis {
       flex: 0.3;
       background: transparent;
       border-top-color: rgba(255, 199, 0, 0.2);
@@ -2457,7 +2554,7 @@
       justify-content: center;
     }
 
-    section[data-slide="16-four-surfaces"] .mechanism-name {
+    section[data-slide="17-four-surfaces"] .mechanism-name {
       font-family: var(--font-display);
       font-size: clamp(1.5rem, 1.8vw, 1.75rem);
       font-weight: 900;
@@ -2468,12 +2565,12 @@
       margin: 0;
     }
 
-    section[data-slide="16-four-surfaces"] .mechanism-ellipsis .mechanism-name {
+    section[data-slide="17-four-surfaces"] .mechanism-ellipsis .mechanism-name {
       font-size: clamp(1.75rem, 2.2vw, 2.25rem);
       color: rgba(255, 199, 0, 0.5);
     }
 
-    section[data-slide="16-four-surfaces"] .mechanism-desc {
+    section[data-slide="17-four-surfaces"] .mechanism-desc {
       font-family: var(--font-body);
       font-size: clamp(1.5rem, 1.5vw, 1.5rem);
       color: var(--uw-husky-gold-web);
@@ -2482,7 +2579,7 @@
       flex: 1;
     }
 
-    section[data-slide="16-four-surfaces"] .mechanism-file {
+    section[data-slide="17-four-surfaces"] .mechanism-file {
       font-family: var(--font-display-compressed);
       font-size: clamp(1.5rem, 1.4vw, 1.5rem);
       font-weight: 700;
@@ -2493,8 +2590,8 @@
 
   </style>
 </section>
-<section data-slide="17-reproducibility"
-         aria-label="Slide 17: Reproducibility"
+<section data-slide="18-reproducibility"
+         aria-label="Slide 18: Reproducibility"
          class="slide">
 
   <div class="accent-bar"></div>
@@ -2509,7 +2606,7 @@
   </div>
 
   <style>
-    section[data-slide="17-reproducibility"] {
+    section[data-slide="18-reproducibility"] {
       background: var(--uw-white);
       padding: var(--space-8) var(--space-10) var(--space-8) var(--space-12);
       align-items: center;
@@ -2517,14 +2614,14 @@
       overflow: hidden;
     }
 
-    section[data-slide="17-reproducibility"] .accent-bar {
+    section[data-slide="18-reproducibility"] .accent-bar {
       position: absolute;
       top: 0; left: 0; bottom: 0;
       width: 8px;
       background: var(--uw-spirit-gold);
     }
 
-    section[data-slide="17-reproducibility"] .content {
+    section[data-slide="18-reproducibility"] .content {
       max-width: 900px;
       width: 100%;
       display: flex;
@@ -2532,7 +2629,7 @@
       gap: var(--space-5);
     }
 
-    section[data-slide="17-reproducibility"] .eyebrow {
+    section[data-slide="18-reproducibility"] .eyebrow {
       font-family: var(--font-body);
       font-size: clamp(1.5rem, 1.4vw, 1.5rem);
       font-weight: 400;
@@ -2542,7 +2639,7 @@
       margin: 0;
     }
 
-    section[data-slide="17-reproducibility"] h1 {
+    section[data-slide="18-reproducibility"] h1 {
       font-family: var(--font-display);
       font-size: clamp(2rem, 3vw, 3rem);
       font-weight: 900;
@@ -2553,7 +2650,7 @@
       margin: 0;
     }
 
-    section[data-slide="17-reproducibility"] .bullets {
+    section[data-slide="18-reproducibility"] .bullets {
       list-style: none;
       padding: 0;
       margin: 0;
@@ -2562,7 +2659,7 @@
       gap: var(--space-3);
     }
 
-    section[data-slide="17-reproducibility"] .bullets li {
+    section[data-slide="18-reproducibility"] .bullets li {
       font-family: var(--font-body);
       font-size: clamp(1.5rem, 1.6vw, 1.625rem);
       color: var(--uw-gray-90);
@@ -2571,7 +2668,7 @@
       position: relative;
     }
 
-    section[data-slide="17-reproducibility"] .bullets li::before {
+    section[data-slide="18-reproducibility"] .bullets li::before {
       content: '—';
       position: absolute;
       left: 0;
@@ -2579,8 +2676,8 @@
     }
   </style>
 </section>
-<section data-slide="18-week-ahead"
-         aria-label="Slide 18: The Week Ahead"
+<section data-slide="19-week-ahead"
+         aria-label="Slide 19: The Week Ahead"
          class="slide">
 
   <div class="accent-bar-top-purple"></div>
@@ -2620,7 +2717,7 @@
   </div>
 
   <style>
-    section[data-slide="18-week-ahead"] {
+    section[data-slide="19-week-ahead"] {
       background: var(--uw-white);
       padding: var(--space-6) var(--space-10);
       align-items: center;
@@ -2629,14 +2726,14 @@
       overflow: hidden;
     }
 
-    section[data-slide="18-week-ahead"] .accent-bar-top-purple {
+    section[data-slide="19-week-ahead"] .accent-bar-top-purple {
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 8px;
       background: var(--uw-spirit-purple);
     }
 
-    section[data-slide="18-week-ahead"] .content {
+    section[data-slide="19-week-ahead"] .content {
       max-width: 1300px;
       width: 100%;
       display: flex;
@@ -2644,7 +2741,7 @@
       gap: var(--space-5);
     }
 
-    section[data-slide="18-week-ahead"] .eyebrow {
+    section[data-slide="19-week-ahead"] .eyebrow {
       font-family: var(--font-body);
       font-size: clamp(1.125rem, 1.1vw, 1.125rem);
       font-weight: 400;
@@ -2654,7 +2751,7 @@
       margin: 0;
     }
 
-    section[data-slide="18-week-ahead"] h1 {
+    section[data-slide="19-week-ahead"] h1 {
       font-family: var(--font-display);
       font-size: clamp(1.625rem, 2vw, 2rem);
       font-weight: 700;
@@ -2665,58 +2762,58 @@
       margin: 0;
     }
 
-    section[data-slide="18-week-ahead"] .stack {
+    section[data-slide="19-week-ahead"] .stack {
       display: flex;
       flex-direction: column;
       gap: 0;
     }
 
-    section[data-slide="18-week-ahead"] .layer {
+    section[data-slide="19-week-ahead"] .layer {
       border-left: 6px solid transparent;
       padding: var(--space-3) var(--space-4);
       transition: background 0.15s;
     }
 
-    section[data-slide="18-week-ahead"] .layer-inner {
+    section[data-slide="19-week-ahead"] .layer-inner {
       display: grid;
       grid-template-columns: 180px 260px 1fr;
       gap: var(--space-4);
       align-items: center;
     }
 
-    section[data-slide="18-week-ahead"] .layer-current {
+    section[data-slide="19-week-ahead"] .layer-current {
       background: var(--uw-spirit-purple);
       border-left-color: var(--uw-spirit-gold);
     }
 
-    section[data-slide="18-week-ahead"] .layer-current .layer-day {
+    section[data-slide="19-week-ahead"] .layer-current .layer-day {
       color: var(--uw-spirit-gold);
     }
 
-    section[data-slide="18-week-ahead"] .layer-current .layer-name {
+    section[data-slide="19-week-ahead"] .layer-current .layer-name {
       color: var(--uw-white);
     }
 
-    section[data-slide="18-week-ahead"] .layer-current .layer-desc {
+    section[data-slide="19-week-ahead"] .layer-current .layer-desc {
       color: var(--uw-husky-gold-web);
     }
 
-    section[data-slide="18-week-ahead"] .layer-2 {
+    section[data-slide="19-week-ahead"] .layer-2 {
       background: rgba(75, 46, 131, 0.08);
       border-left-color: var(--uw-spirit-purple);
     }
 
-    section[data-slide="18-week-ahead"] .layer-3 {
+    section[data-slide="19-week-ahead"] .layer-3 {
       background: rgba(75, 46, 131, 0.04);
       border-left-color: rgba(75,46,131,0.4);
     }
 
-    section[data-slide="18-week-ahead"] .layer-4 {
+    section[data-slide="19-week-ahead"] .layer-4 {
       background: rgba(75, 46, 131, 0.02);
       border-left-color: rgba(75,46,131,0.2);
     }
 
-    section[data-slide="18-week-ahead"] .layer-day {
+    section[data-slide="19-week-ahead"] .layer-day {
       font-family: var(--font-body);
       font-size: clamp(1.125rem, 1.1vw, 1.125rem);
       font-weight: 400;
@@ -2725,7 +2822,7 @@
       margin: 0;
     }
 
-    section[data-slide="18-week-ahead"] .layer-name {
+    section[data-slide="19-week-ahead"] .layer-name {
       font-family: var(--font-display);
       font-size: clamp(1.375rem, 1.4vw, 1.375rem);
       font-weight: 800;
@@ -2735,7 +2832,7 @@
       margin: 0;
     }
 
-    section[data-slide="18-week-ahead"] .layer-desc {
+    section[data-slide="19-week-ahead"] .layer-desc {
       font-family: var(--font-body);
       font-size: clamp(1.375rem, 1.35vw, 1.375rem);
       font-weight: 400;
@@ -2745,8 +2842,8 @@
     }
   </style>
 </section>
-<section data-slide="19-closing"
-         aria-label="Slide 19: Closing"
+<section data-slide="20-closing"
+         aria-label="Slide 20: Closing"
          class="slide">
 
   <div class="content">
@@ -2772,7 +2869,7 @@
   </div>
 
   <style>
-    section[data-slide="19-closing"] {
+    section[data-slide="20-closing"] {
       background: var(--uw-spirit-purple);
       padding: var(--space-8) var(--space-10);
       align-items: center;
@@ -2781,7 +2878,7 @@
       overflow: hidden;
     }
 
-    section[data-slide="19-closing"]::before {
+    section[data-slide="20-closing"]::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
@@ -2789,7 +2886,7 @@
       background: var(--uw-spirit-gold);
     }
 
-    section[data-slide="19-closing"]::after {
+    section[data-slide="20-closing"]::after {
       content: '';
       position: absolute;
       bottom: 0; left: 0; right: 0;
@@ -2797,7 +2894,7 @@
       background: rgba(255, 199, 0, 0.3);
     }
 
-    section[data-slide="19-closing"] .content {
+    section[data-slide="20-closing"] .content {
       max-width: 1300px;
       width: 100%;
       display: flex;
@@ -2805,7 +2902,7 @@
       gap: var(--space-6);
     }
 
-    section[data-slide="19-closing"] .eyebrow {
+    section[data-slide="20-closing"] .eyebrow {
       font-family: var(--font-body);
       font-size: clamp(1.5rem, 1.4vw, 1.5rem);
       font-weight: 400;
@@ -2815,13 +2912,13 @@
       margin: 0;
     }
 
-    section[data-slide="19-closing"] .principles {
+    section[data-slide="20-closing"] .principles {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: var(--space-5);
     }
 
-    section[data-slide="19-closing"] .principle {
+    section[data-slide="20-closing"] .principle {
       border-top: 3px solid var(--uw-spirit-gold);
       padding-top: var(--space-4);
       display: flex;
@@ -2829,7 +2926,7 @@
       gap: var(--space-3);
     }
 
-    section[data-slide="19-closing"] .principle-name {
+    section[data-slide="20-closing"] .principle-name {
       font-family: var(--font-display);
       font-size: clamp(2rem, 2.4vw, 2.5rem);
       font-weight: 900;
@@ -2840,7 +2937,7 @@
       margin: 0;
     }
 
-    section[data-slide="19-closing"] .principle-desc {
+    section[data-slide="20-closing"] .principle-desc {
       font-family: var(--font-body);
       font-size: clamp(1.5rem, 1.5vw, 1.5rem);
       font-weight: 400;
@@ -2849,7 +2946,7 @@
       margin: 0;
     }
 
-    section[data-slide="19-closing"] .close {
+    section[data-slide="20-closing"] .close {
       display: flex;
       flex-direction: column;
       gap: var(--space-3);
@@ -2857,7 +2954,7 @@
       padding-top: var(--space-4);
     }
 
-    section[data-slide="19-closing"] .close-main {
+    section[data-slide="20-closing"] .close-main {
       font-family: var(--font-display);
       font-size: clamp(1.625rem, 2vw, 2rem);
       font-weight: 700;
@@ -2868,7 +2965,7 @@
       margin: 0;
     }
 
-    section[data-slide="19-closing"] .close-cta {
+    section[data-slide="20-closing"] .close-cta {
       font-family: var(--font-body);
       font-size: clamp(1.5rem, 1.4vw, 1.5rem);
       font-weight: 400;

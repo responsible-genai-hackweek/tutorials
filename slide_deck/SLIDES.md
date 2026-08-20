@@ -81,6 +81,7 @@ Title slide with UW branding. **Edit existing HTML — update text only.**
   - Right panel (Agent): the same "LLM" box at center, surrounded by a visible boundary labeled "Harness". Inside the boundary, small labeled nodes around the LLM: "Files", "Terminal", "Tools", "Memory". Arrows connect the nodes to the LLM, and one arrow exits to the user.
   - The two panels are separated by a vertical divider. The LLM box is visually identical in both panels — the point is that the shell changed, not the core.
   - Style: thin lines, no filled shapes, gold accent on the harness boundary, white labels, consistent with the deck's geometric aesthetic. Built as inline SVG, no external image file needed.
+- Note to self: The diagram shows Files, Terminal, Tools, and Memory inside the harness boundary, which is a simplification worth naming aloud. The harness does not contain those things — it connects the model to them. Files live on your filesystem, the terminal is your actual shell, and external services like databases or APIs exist entirely outside the harness. What the harness does is broker access: when the model decides to read a file, it issues a tool call, the harness intercepts it, executes it against the real filesystem, and returns the result to the model. Think of it as a switchboard, not a container. A concrete example: when the model calls run_command to execute pytest, your machine runs that command in a subprocess — the model never directly touches your environment. The harness routes the call and brings the output back into context.
 
 ## 07-trained-in-vs-prompt
 
@@ -108,7 +109,7 @@ Every tool has all of these six components:
   - Skills — reusable procedures for specific kinds of tasks
   - Every feature in every product maps to one of these. Switching tools is a configuration exercise, not a re-learning exercise
 
-## 08b-agent-as-coworker
+## 09-agent-as-coworker
 
 - Key message: We will regard the agent as a co-worker who helps us review and improve existing code rather than building from scratch.
 - Bullets:
@@ -116,7 +117,7 @@ Every tool has all of these six components:
   - Every output the agent produces requires human judgment. The agent can be confidently wrong, and it will not tell you when it is. Checking what it gives you is not a quality control step — it is the core practice. The next slides name the specific ways agents fail so you can recognize them.
 - Note to self: This slide is a pivot point. The first half of the session built a mental model of the technology. This slide reframes how to use it. The second bullet lands harder if you follow it immediately with the failure modes — the transition should feel natural: "Here is the mindset, and here is what you are watching for."
 
-## 09-diagnosis-slide
+## 10-diagnosis-slide
 
 - Key message: When an agent does something surprising or wrong, the first debugging question is: is this a training problem or a prompt problem?
 - Diagram: Two-level decision tree as inline SVG. Root question branches into two outcomes; each outcome has a second level. No coda text — the tree fills the slide.
@@ -134,7 +135,7 @@ Every tool has all of these six components:
 - Note to self: This slide sets up the "trained-in or prompt?" interactive exercise if we run it. Use the SnowEx example: "The agent picked the wrong table for snow depth — is that a context problem or a training problem? It is a context problem. Monday afternoon's AGENTS.md tutorial teaches you exactly how to fix that."
 - Note to self — "restructure the task": when someone asks what this means, it is a task decomposition move for when more context will not help — the model genuinely cannot do the thing as specified. Concrete examples: if the model struggles to write a complex multi-step analysis in one shot, break it into sequential steps with a separate prompt for each; if it can't reliably produce a specific output format, separate the reasoning step from the formatting step; if it loses track of constraints in a long conversation, scope the task more narrowly so the relevant constraints fit cleanly in a short prompt. The common thread is changing the shape of the problem so it no longer requires the capability the model lacks — not giving it more context, but asking for something different.
 
-## 10-failure-modes
+## 11-failure-modes
 
 - Key message: When agents go wrong, they tend to go wrong in predictable ways. Naming these patterns now gives you vocabulary you will use all week.
 - Bullets:
@@ -148,7 +149,7 @@ Every tool has all of these six components:
   - Scope creep ← RLHF + SFT reward comprehensive, thorough answers. There is no "you did too much" penalty in training, so the model over-delivers by default.
   - Context exhaustion is the exception — this is an architecture limitation (finite context window), not a post-training side effect.
 
-## 11-mapping-exercise
+## 12-mapping-exercise
 
 - Key message: Before we go further, let us understand where everyone in this room is starting from. Take three minutes to fill out this survey on your phone.
 - Bullets:
@@ -157,7 +158,7 @@ Every tool has all of these six components:
   - Your answers will help us and other instructors this week calibrate tutorials to this specific group.
 - Note to self: Project the Google Forms response tab live as results come in. Spend 3–5 minutes after completion reading back patterns and normalizing the range. This is a natural break point at roughly 35 minutes into the session.
 
-## 12-landscape-of-tools
+## 13-landscape-of-tools
 
 - Key message: Five categories of AI coding tools, mapped by integration depth and privacy control. The right choice depends on the constraints of your work — for most researchers with sensitive data, those two axes dominate the decision.
 - Diagram: Scatter plot as inline SVG. Two axes:
@@ -172,7 +173,7 @@ Every tool has all of these six components:
   - Light dashed midpoint grid lines divide the plot into four quadrants. No quadrant labels — let the positions speak.
 - Note to self: Keep this descriptive not prescriptive. The key insight to name aloud is the command-line agents point in the top-right: most people assume high capability means low privacy control, but that is not true if you choose the model hosting yourself.
 
-## 13-five-axes
+## 14-five-axes
 
 - Key message: Five axes for choosing an AI tool for a research task. There is no single best tool — the right choice depends on the constraints of the specific task and the data involved.
 - Bullets:
@@ -183,7 +184,7 @@ Every tool has all of these six components:
   - Privacy: what data can leave your machine? Some research data, code, or context can never go to a vendor. This constraint often dominates the other four.
 - Note to self: Privacy is the axis most relevant to this NASA audience. It sets up the data-privacy slide and connects forward to Thursday's sandboxing tutorial.
 
-## 14-context-window
+## 15-context-window
 
 - Key message: The model sees exactly what the harness puts into its context, and nothing else. The context window is the total amount of text the model can consider at once. Understanding this single concept explains most of the confusing behavior researchers encounter.
 - Bullets:
@@ -196,7 +197,7 @@ Every tool has all of these six components:
   - The context window is a shared budget: system prompt, project memory, conversation history, tool results, the model's reasoning, and the answer it is writing all compete for the same space.
 - Note to self: This is conceptually dense. Let it land. The "shared budget" framing is the key insight that makes all the context engineering tutorials later in the week make sense.
 
-## 15-data-privacy-preview
+## 16-data-privacy-preview
 
 - Key message: When you use a cloud-hosted AI tool, your data leaves your machine. Where it goes and what happens next depends on your access tier. This week's sandboxing and security tutorial on Thursday will cover this in depth.
 - Bullets:
@@ -207,7 +208,7 @@ Every tool has all of these six components:
   - The practical default: match model hosting to data sensitivity. When in doubt, do not send it. A schema description or synthetic sample is often enough.
 - Note to self: Do not go deep here. The point is to name the tiers so people know they exist, and to preview Thursday. One slide, one minute of talk time.
 
-## 16-four-surfaces
+## 17-four-surfaces
 
 **Rebuild this slide.** Replace the fixed four-box grid with a spectrum-oriented layout.
 
@@ -221,7 +222,7 @@ Every tool has all of these six components:
 - Coda text: "These are examples from today's tooling. The specific mechanisms will change, but the spectrum will not."
 - Note to self: This is a preview of what people will learn hands-on in the AGENTS.md and Skills tutorials later today and Tuesday. Name the spectrum concept and illustrate it, don't teach each mechanism. The audience should walk away remembering the tradeoff (always-on costs context budget but is guaranteed present; on-demand is efficient but requires recognition), not a specific count. Say aloud: "These are examples from today's tooling. The specific mechanisms will change, but the spectrum will not."
 
-## 17-reproducibility
+## 18-reproducibility
 
 **Rebuild this slide.** Tighten to the conceptual tension and its resolution. Cut prescriptive how-to bullets — those belong in later tutorials.
 
@@ -232,7 +233,7 @@ Every tool has all of these six components:
   - This means the standard of evidence does not change. Your code, your data pipeline, and your results still need to be reproducible by someone who never saw your chat log.
 - Note to self: This is a framing slide, not a how-to. The specific practices (git workflows, citing models, pinning dependencies) come in later tutorials. The point here is to name the tension so participants are thinking about it from day one.
 
-## 18-week-ahead
+## 19-week-ahead
 
 - Key message: Here is what the rest of this week builds on top of what you just learned.
 - Bullets:
@@ -243,7 +244,7 @@ Every tool has all of these six components:
   - Friday: Synthesis and project showcases.
 - Note to self: Keep this brisk. The point is to show that everything from today connects forward, and to motivate the afternoon session for people deciding whether to stay.
 
-## 19-closing
+## 20-closing
 
 **Rebuild this slide.** Replace the mechanism-focused takeaways with three goal-oriented principles that frame the entire week.
 
