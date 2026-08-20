@@ -919,8 +919,7 @@
 
   <div class="content">
     <div class="header">
-      <p class="slide-title">What the model knows vs. what you tell it</p>
-      <h1>Built-in knowledge <span class="vs">vs.</span> In the prompt.</h1>
+      <h1>What the model knows <span class="vs">vs.</span> what you tell it.</h1>
     </div>
     <div class="columns">
       <div class="col">
@@ -934,7 +933,7 @@
       </div>
       <div class="col-divider"></div>
       <div class="col">
-        <p class="col-label">In the prompt</p>
+        <p class="col-label">Context you provide</p>
         <ul>
           <li><strong>Your data's quirks</strong> — the model has never seen your CSV headers, your variable naming conventions, or your domain vocabulary.</li>
           <li><strong>Your lab's conventions</strong> — style guides, preferred libraries, and project structure exist nowhere in its training data.</li>
@@ -1088,208 +1087,19 @@
     }
   </style>
 </section>
-<section data-slide="08-six-pieces"
-         aria-label="Slide 8: Six Pieces"
-         class="slide">
-
-  <div class="accent-bar-left"></div>
-  <div class="content">
-    <div class="header">
-      <h1>Every AI coding assistant has all of these six components.</h1>
-    </div>
-    <div class="grid">
-
-      <div class="piece">
-        <div class="piece-id">
-          <svg class="icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-            <!-- neural network: 2 input, 1 middle, 2 output nodes -->
-            <circle cx="5" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
-            <circle cx="5" cy="22" r="3" stroke="currentColor" stroke-width="2"/>
-            <circle cx="16" cy="16" r="3" stroke="currentColor" stroke-width="2"/>
-            <circle cx="27" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
-            <circle cx="27" cy="22" r="3" stroke="currentColor" stroke-width="2"/>
-            <line x1="8" y1="10" x2="13" y2="16" stroke="currentColor" stroke-width="1.5"/>
-            <line x1="8" y1="22" x2="13" y2="16" stroke="currentColor" stroke-width="1.5"/>
-            <line x1="19" y1="16" x2="24" y2="10" stroke="currentColor" stroke-width="1.5"/>
-            <line x1="19" y1="16" x2="24" y2="22" stroke="currentColor" stroke-width="1.5"/>
-          </svg>
-          <span class="name">LLM backbone</span>
-        </div>
-        <p class="desc">The language model itself — the reasoning engine that turns prompts into text, code, and plans. Every AI tool you use is built on top of one.</p>
-      </div>
-
-      <div class="piece">
-        <div class="piece-id">
-          <svg class="icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-            <!-- wrench -->
-            <circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="2"/>
-            <circle cx="9" cy="9" r="2" fill="currentColor"/>
-            <line x1="13.5" y1="13.5" x2="26" y2="26" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-            <line x1="23" y1="29" x2="29" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <span class="name">Tool use</span>
-        </div>
-        <p class="desc">The ability to read files, edit them, and run shell commands on your machine. Without tool use the model can only talk; with it the model can act.</p>
-      </div>
-
-      <div class="piece">
-        <div class="piece-id">
-          <svg class="icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-            <!-- circular arrow loop -->
-            <path d="M27 16A11 11 0 1 0 16 27" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <polyline points="12,27 16,27 16,23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span class="name">Agent loop</span>
-        </div>
-        <p class="desc">The software that decides whether to call another tool or return a result to you. It turns a single prompt into a sequence of goal-directed actions.</p>
-      </div>
-
-      <div class="piece">
-        <div class="piece-id">
-          <svg class="icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-            <!-- document with dog-eared corner and text lines -->
-            <path d="M7 3h13l7 7v19H7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-            <path d="M20 3v7h7" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-            <line x1="11" y1="16" x2="21" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <line x1="11" y1="20" x2="21" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <line x1="11" y1="24" x2="17" y2="24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-          <span class="name">Project memory</span>
-        </div>
-        <p class="desc">A file the agent reads on startup so it knows your codebase, conventions, and working style. You write it once; every session starts with that context already loaded.</p>
-      </div>
-
-      <div class="piece">
-        <div class="piece-id">
-          <svg class="icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-            <!-- server rack: three stacked rectangles with status light -->
-            <rect x="3" y="5" width="26" height="6" rx="1.5" stroke="currentColor" stroke-width="2"/>
-            <rect x="3" y="13" width="26" height="6" rx="1.5" stroke="currentColor" stroke-width="2"/>
-            <rect x="3" y="21" width="26" height="6" rx="1.5" stroke="currentColor" stroke-width="2"/>
-            <circle cx="25.5" cy="8" r="1.5" fill="currentColor"/>
-            <circle cx="25.5" cy="16" r="1.5" fill="currentColor"/>
-            <circle cx="25.5" cy="24" r="1.5" fill="currentColor"/>
-          </svg>
-          <span class="name">MCP servers</span>
-        </div>
-        <p class="desc">A standard protocol for connecting external systems — databases, calendars, APIs — directly to an agent. Any service that speaks MCP becomes immediately available to any tool that supports the standard.</p>
-      </div>
-
-      <div class="piece">
-        <div class="piece-id">
-          <svg class="icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-            <!-- lightning bolt -->
-            <path d="M19 3L8 18h11L15 29l14-17H18z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-          </svg>
-          <span class="name">Skills</span>
-        </div>
-        <p class="desc">Reusable procedures the agent can invoke for a specific kind of task. Instead of re-explaining how to deploy or review code each time, you capture that workflow once.</p>
-      </div>
-
-    </div>
-  </div>
-  <style>
-    section[data-slide="08-six-pieces"] {
-      background: var(--uw-white);
-      padding: var(--space-5) var(--space-8) var(--space-5) calc(var(--space-10) + 8px);
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    section[data-slide="08-six-pieces"] .content {
-      max-width: 1400px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-5);
-    }
-
-    section[data-slide="08-six-pieces"] .header {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-2);
-    }
-
-    section[data-slide="08-six-pieces"] h1 {
-      font-family: var(--font-display);
-      font-size: clamp(1.75rem, 2.5vw, 2.75rem);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: -0.02em;
-      line-height: 1.0;
-      color: var(--uw-spirit-purple);
-      margin: 0;
-    }
-
-    section[data-slide="08-six-pieces"] .grid {
-      display: flex;
-      flex-direction: column;
-    }
-
-    section[data-slide="08-six-pieces"] .piece {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: var(--space-6);
-      padding: 12px 0;
-      border-bottom: 1px solid var(--uw-gray-10);
-      align-items: center;
-    }
-
-    section[data-slide="08-six-pieces"] .piece:last-child {
-      border-bottom: none;
-    }
-
-    section[data-slide="08-six-pieces"] .piece-id {
-      display: flex;
-      align-items: center;
-      gap: var(--space-2);
-    }
-
-    section[data-slide="08-six-pieces"] .icon {
-      width: 28px;
-      height: 28px;
-      flex-shrink: 0;
-      color: var(--uw-spirit-purple);
-    }
-
-    section[data-slide="08-six-pieces"] .name {
-      font-family: var(--font-display);
-      font-size: clamp(1.5rem, 1.6vw, 1.75rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: -0.01em;
-      color: var(--uw-spirit-purple);
-      line-height: 1.1;
-    }
-
-    section[data-slide="08-six-pieces"] .desc {
-      font-family: var(--font-body);
-      font-size: clamp(1.5rem, 1.3vw, 1.625rem);
-      font-weight: 400;
-      color: var(--uw-gray-70);
-      line-height: 1.45;
-      margin: 0;
-    }
-  </style>
-</section>
-<section data-slide="09-agent-as-coworker"
-         aria-label="Slide 9: The Agent as Co-worker"
+<section data-slide="08-agent-as-coworker"
+         aria-label="Slide 8: The Agent as a Supervised Assistant"
          class="slide">
 
   <div class="accent-bar"></div>
   <div class="content">
-    <p class="eyebrow">Working with agents</p>
-    <h1>A co-worker who reviews and improves,<br>not a machine that builds from scratch.</h1>
-    <p class="lead">We will regard the agent as a co-worker who helps us review and improve existing code rather than build from scratch. This shapes how we prompt it, what we ask for, and how we evaluate its output.</p>
-    <ul class="bullets">
-      <li>The agent is most useful as a collaborator on existing work: reviewing code for correctness, suggesting improvements, and explaining what something does. It is not a code generator to which you hand a blank slate.</li>
-      <li>Every output the agent produces requires human judgment. The agent can be confidently wrong, and it will not tell you when it is. Checking what it gives you is not a quality control step; it is the core practice. The next slides name the specific ways agents fail so you can recognize them when they happen.</li>
-    </ul>
+    <p class="eyebrow">A shared mental model of working with agents</p>
+    <h1>We regard an agent as an eager assistant<br>that needs our supervision.</h1>
+    <p class="lead">Every output the agent produces requires human judgment. The agent can be confidently wrong, and it will not tell you when it is. Checking what it gives you is not merely a quality control step; it is the core practice.</p>
   </div>
 
   <style>
-    section[data-slide="09-agent-as-coworker"] {
+    section[data-slide="08-agent-as-coworker"] {
       background: var(--uw-white);
       padding: var(--space-8) var(--space-10) var(--space-8) var(--space-12);
       align-items: center;
@@ -1297,14 +1107,14 @@
       overflow: hidden;
     }
 
-    section[data-slide="09-agent-as-coworker"] .accent-bar {
+    section[data-slide="08-agent-as-coworker"] .accent-bar {
       position: absolute;
       top: 0; left: 0; bottom: 0;
       width: 8px;
       background: var(--uw-spirit-gold);
     }
 
-    section[data-slide="09-agent-as-coworker"] .content {
+    section[data-slide="08-agent-as-coworker"] .content {
       max-width: 960px;
       width: 100%;
       display: flex;
@@ -1312,7 +1122,7 @@
       gap: var(--space-5);
     }
 
-    section[data-slide="09-agent-as-coworker"] .eyebrow {
+    section[data-slide="08-agent-as-coworker"] .eyebrow {
       font-family: var(--font-body);
       font-size: clamp(1.125rem, 1.1vw, 1.125rem);
       font-weight: 400;
@@ -1322,7 +1132,7 @@
       margin: 0;
     }
 
-    section[data-slide="09-agent-as-coworker"] h1 {
+    section[data-slide="08-agent-as-coworker"] h1 {
       font-family: var(--font-display);
       font-size: clamp(2.25rem, 3.2vw, 3.25rem);
       font-weight: 900;
@@ -1333,7 +1143,7 @@
       margin: 0;
     }
 
-    section[data-slide="09-agent-as-coworker"] .lead {
+    section[data-slide="08-agent-as-coworker"] .lead {
       font-family: var(--font-body);
       font-size: clamp(1.5rem, 1.5vw, 1.5rem);
       font-weight: 400;
@@ -1344,7 +1154,7 @@
       padding-left: var(--space-4);
     }
 
-    section[data-slide="09-agent-as-coworker"] .bullets {
+    section[data-slide="08-agent-as-coworker"] .bullets {
       list-style: none;
       padding: 0;
       margin: 0;
@@ -1353,7 +1163,7 @@
       gap: var(--space-3);
     }
 
-    section[data-slide="09-agent-as-coworker"] .bullets li {
+    section[data-slide="08-agent-as-coworker"] .bullets li {
       font-family: var(--font-body);
       font-size: clamp(1.5rem, 1.5vw, 1.5rem);
       color: var(--uw-gray-90);
@@ -1362,11 +1172,137 @@
       position: relative;
     }
 
-    section[data-slide="09-agent-as-coworker"] .bullets li::before {
+    section[data-slide="08-agent-as-coworker"] .bullets li::before {
       content: '•';
       position: absolute;
       left: 0;
       color: var(--uw-gray-30);
+    }
+  </style>
+</section>
+<section data-slide="09-failure-modes"
+         aria-label="Slide 9: Failure Modes"
+         class="slide">
+
+  <div class="accent-bar-top-purple"></div>
+  <div class="content">
+    <p class="eyebrow">Failure modes</p>
+    <h1>When agents go wrong, they tend to go wrong in predictable ways.</h1>
+    <div class="modes">
+      <div class="mode">
+        <p class="mode-name">Fabrication <span class="aka">(hallucination)</span></p>
+        <p class="mode-desc">The model produces confident, plausible-sounding output that is factually wrong. This is especially dangerous in scientific contexts because the output often looks like it could be correct.</p>
+      </div>
+      <div class="mode">
+        <p class="mode-name">Sycophancy</p>
+        <p class="mode-desc">The model agrees with your framing rather than pushing back, even when your framing is wrong. This is a systematic side-effect of reinforcement learning training that rewards responses users rate as helpful.</p>
+      </div>
+      <div class="mode">
+        <p class="mode-name">Scope creep</p>
+        <p class="mode-desc">The model does more than you asked — adds type hints, refactors adjacent code, restructures your project. Trained to be maximally helpful, it over-delivers by default.</p>
+      </div>
+      <div class="mode">
+        <p class="mode-name">Context exhaustion</p>
+        <p class="mode-desc">As the conversation grows long and the context window fills up, the model loses track of earlier instructions and makes increasingly confused decisions.</p>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    section[data-slide="09-failure-modes"] {
+      background: var(--uw-white);
+      padding: var(--space-6) var(--space-10);
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section[data-slide="09-failure-modes"] .accent-bar-top-purple {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 8px;
+      background: var(--uw-spirit-purple);
+    }
+
+    section[data-slide="09-failure-modes"] .content {
+      max-width: 1400px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+
+    section[data-slide="09-failure-modes"] .eyebrow {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--uw-gray-70);
+      margin: 0;
+    }
+
+    section[data-slide="09-failure-modes"] h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 2.4vw, 2.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--uw-spirit-purple);
+      margin: 0;
+    }
+
+    section[data-slide="09-failure-modes"] .modes {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-4);
+    }
+
+    section[data-slide="09-failure-modes"] .mode {
+      border-top: 3px solid var(--uw-spirit-purple);
+      padding-top: var(--space-3);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    section[data-slide="09-failure-modes"] .mode-name {
+      font-family: var(--font-display);
+      font-size: clamp(1.375rem, 1.5vw, 1.5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--uw-spirit-purple);
+      margin: 0;
+    }
+
+    section[data-slide="09-failure-modes"] .mode-desc {
+      font-family: var(--font-body);
+      font-size: clamp(1.375rem, 1.35vw, 1.375rem);
+      font-weight: 400;
+      color: var(--uw-gray-70);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    section[data-slide="09-failure-modes"] .aka {
+      font-weight: 400;
+      font-size: 0.75em;
+      opacity: 0.6;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    section[data-slide="09-failure-modes"] .coda {
+      font-family: var(--font-body);
+      font-size: clamp(1.375rem, 1.3vw, 1.375rem);
+      color: var(--uw-gray-70);
+      font-style: italic;
+      margin: 0;
+      border-top: 1px solid var(--uw-gray-10);
+      padding-top: var(--space-3);
     }
   </style>
 </section>
@@ -1422,26 +1358,9 @@
             fill="rgba(232,227,211,0.6)" font-size="16" font-style="italic"
             font-family="'Open Sans',sans-serif">What context is it missing?</text>
 
-      <!-- Four levers -->
-      <text x="68" y="304" fill="rgba(255,199,0,0.75)" font-size="20"
-            font-family="'Open Sans',sans-serif">→</text>
-      <text x="94" y="304" fill="rgba(232,227,211,0.9)" font-size="18"
-            font-family="'Open Sans',sans-serif">Load your data schema into context</text>
-
-      <text x="68" y="344" fill="rgba(255,199,0,0.75)" font-size="20"
-            font-family="'Open Sans',sans-serif">→</text>
-      <text x="94" y="344" fill="rgba(232,227,211,0.9)" font-size="18"
-            font-family="'Open Sans',sans-serif">Add conventions to AGENTS.md</text>
-
-      <text x="68" y="384" fill="rgba(255,199,0,0.75)" font-size="20"
-            font-family="'Open Sans',sans-serif">→</text>
-      <text x="94" y="384" fill="rgba(232,227,211,0.9)" font-size="18"
-            font-family="'Open Sans',sans-serif">Define what "done" looks like</text>
-
-      <text x="68" y="424" fill="rgba(255,199,0,0.75)" font-size="20"
-            font-family="'Open Sans',sans-serif">→</text>
-      <text x="94" y="424" fill="rgba(232,227,211,0.9)" font-size="18"
-            font-family="'Open Sans',sans-serif">Write a skill for this task</text>
+      <!-- Single lever -->
+      <text x="270" y="360" text-anchor="middle" fill="rgba(232,227,211,0.9)" font-size="18"
+            font-family="'Open Sans',sans-serif">Provide additional context to shape agent behavior</text>
 
       <!-- ── TRAINING PROBLEM (right) ───────────────────────────── -->
       <rect x="590" y="156" width="280" height="58" rx="3"
@@ -1528,38 +1447,48 @@
     }
   </style>
 </section>
-<section data-slide="11-failure-modes"
-         aria-label="Slide 11: Failure Modes"
+<section data-slide="11-four-surfaces"
+         aria-label="Slide 11: Context Durability Spectrum"
          class="slide">
 
-  <div class="accent-bar-top-purple"></div>
   <div class="content">
-    <p class="eyebrow">Failure modes</p>
-    <h1>When agents go wrong, they tend to go wrong in predictable ways.</h1>
-    <div class="modes">
-      <div class="mode">
-        <p class="mode-name">Fabrication <span class="aka">(hallucination)</span></p>
-        <p class="mode-desc">The model produces confident, plausible-sounding output that is factually wrong. This is especially dangerous in scientific contexts because the output often looks like it could be correct.</p>
+    <h1>Shaping Agent Behavior</h1>
+
+    <div class="spectrum">
+      <div class="spectrum-bar">
+        <div class="spectrum-gradient"></div>
+        <div class="spectrum-labels">
+          <div class="spectrum-endpoint endpoint-left">
+            <span class="endpoint-title">Always loaded</span>
+            <span class="endpoint-tradeoff">Guaranteed present, but costs context budget</span>
+          </div>
+          <div class="spectrum-endpoint endpoint-right">
+            <span class="endpoint-title">Summoned on demand</span>
+            <span class="endpoint-tradeoff">Efficient, but only loaded when triggered</span>
+          </div>
+        </div>
       </div>
-      <div class="mode">
-        <p class="mode-name">Sycophancy</p>
-        <p class="mode-desc">The model agrees with your framing rather than pushing back, even when your framing is wrong. This is a systematic side-effect of reinforcement learning training that rewards responses users rate as helpful.</p>
-      </div>
-      <div class="mode">
-        <p class="mode-name">Scope creep</p>
-        <p class="mode-desc">The model does more than you asked — adds type hints, refactors adjacent code, restructures your project. Trained to be maximally helpful, it over-delivers by default.</p>
-      </div>
-      <div class="mode">
-        <p class="mode-name">Context exhaustion</p>
-        <p class="mode-desc">As the conversation grows long and the context window fills up, the model loses track of earlier instructions and makes increasingly confused decisions.</p>
+
+      <div class="mechanisms">
+        <div class="mechanism">
+          <p class="mechanism-name">AGENTS.md</p>
+          <p class="mechanism-desc">Project-level context and rules — facts, conventions, and constraints the agent has in hand across every session.</p>
+        </div>
+        <div class="mechanism">
+          <p class="mechanism-name">Agent Skills</p>
+          <p class="mechanism-desc">User or model-invoked procedures for tasks the agent is not familiar with.</p>
+        </div>
+        <div class="mechanism mechanism-ellipsis">
+          <p class="mechanism-name">...</p>
+        </div>
       </div>
     </div>
-    <p class="coda">These are prompt problems or architecture problems, not mysteries. Name them so you can recognize and address them.</p>
+
   </div>
 
   <style>
-    section[data-slide="11-failure-modes"] {
-      background: var(--uw-white);
+    section[data-slide="11-four-surfaces"] {
+      background: var(--uw-spirit-purple);
       padding: var(--space-6) var(--space-10);
       align-items: center;
       justify-content: center;
@@ -1567,14 +1496,15 @@
       overflow: hidden;
     }
 
-    section[data-slide="11-failure-modes"] .accent-bar-top-purple {
+    section[data-slide="11-four-surfaces"]::before {
+      content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 8px;
-      background: var(--uw-spirit-purple);
+      background: var(--uw-spirit-gold);
     }
 
-    section[data-slide="11-failure-modes"] .content {
+    section[data-slide="11-four-surfaces"] .content {
       max-width: 1400px;
       width: 100%;
       display: flex;
@@ -1582,77 +1512,127 @@
       gap: var(--space-5);
     }
 
-    section[data-slide="11-failure-modes"] .eyebrow {
-      font-family: var(--font-body);
-      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
-      font-weight: 400;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--uw-gray-70);
-      margin: 0;
-    }
-
-    section[data-slide="11-failure-modes"] h1 {
+    section[data-slide="11-four-surfaces"] h1 {
       font-family: var(--font-display);
-      font-size: clamp(1.75rem, 2.4vw, 2.5rem);
+      font-size: clamp(2rem, 3vw, 2.75rem);
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: -0.02em;
       line-height: 1.05;
-      color: var(--uw-spirit-purple);
+      color: var(--uw-white);
       margin: 0;
     }
 
-    section[data-slide="11-failure-modes"] .modes {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+
+    section[data-slide="11-four-surfaces"] .spectrum {
+      display: flex;
+      flex-direction: column;
       gap: var(--space-4);
+      margin-top: var(--space-2);
     }
 
-    section[data-slide="11-failure-modes"] .mode {
-      border-top: 3px solid var(--uw-spirit-purple);
-      padding-top: var(--space-3);
+    section[data-slide="11-four-surfaces"] .spectrum-bar {
       display: flex;
       flex-direction: column;
       gap: var(--space-2);
     }
 
-    section[data-slide="11-failure-modes"] .mode-name {
+    section[data-slide="11-four-surfaces"] .spectrum-gradient {
+      height: 6px;
+      border-radius: 3px;
+      background: linear-gradient(to right, var(--uw-spirit-gold), rgba(255, 199, 0, 0.15));
+    }
+
+    section[data-slide="11-four-surfaces"] .spectrum-labels {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    section[data-slide="11-four-surfaces"] .spectrum-endpoint {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    section[data-slide="11-four-surfaces"] .endpoint-right {
+      text-align: right;
+    }
+
+    section[data-slide="11-four-surfaces"] .endpoint-title {
       font-family: var(--font-display);
-      font-size: clamp(1.375rem, 1.5vw, 1.5rem);
-      font-weight: 800;
+      font-size: clamp(1.5rem, 1.5vw, 1.625rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--uw-spirit-gold);
+    }
+
+    section[data-slide="11-four-surfaces"] .endpoint-tradeoff {
+      font-family: var(--font-body);
+      font-size: clamp(1.5rem, 1.4vw, 1.5rem);
+      font-style: italic;
+      color: rgba(232, 227, 211, 0.7);
+    }
+
+    section[data-slide="11-four-surfaces"] .mechanisms {
+      position: relative;
+      display: flex;
+      gap: var(--space-3);
+      justify-content: space-between;
+    }
+
+    section[data-slide="11-four-surfaces"] .mechanism {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.07);
+      border-top: 3px solid rgba(255, 199, 0, 0.5);
+      padding: var(--space-3) var(--space-3);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    section[data-slide="11-four-surfaces"] .mechanism-ellipsis {
+      flex: 0.3;
+      background: transparent;
+      border-top-color: rgba(255, 199, 0, 0.2);
+      align-items: center;
+      justify-content: center;
+    }
+
+    section[data-slide="11-four-surfaces"] .mechanism-name {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 1.8vw, 1.75rem);
+      font-weight: 900;
       text-transform: uppercase;
       letter-spacing: -0.01em;
-      color: var(--uw-spirit-purple);
+      line-height: 1.1;
+      color: var(--uw-white);
       margin: 0;
     }
 
-    section[data-slide="11-failure-modes"] .mode-desc {
+    section[data-slide="11-four-surfaces"] .mechanism-ellipsis .mechanism-name {
+      font-size: clamp(1.75rem, 2.2vw, 2.25rem);
+      color: rgba(255, 199, 0, 0.5);
+    }
+
+    section[data-slide="11-four-surfaces"] .mechanism-desc {
       font-family: var(--font-body);
-      font-size: clamp(1.375rem, 1.35vw, 1.375rem);
-      font-weight: 400;
-      color: var(--uw-gray-70);
-      line-height: 1.55;
+      font-size: clamp(1.5rem, 1.5vw, 1.5rem);
+      color: var(--uw-husky-gold-web);
+      line-height: 1.4;
       margin: 0;
+      flex: 1;
     }
 
-    section[data-slide="11-failure-modes"] .aka {
-      font-weight: 400;
-      font-size: 0.75em;
-      opacity: 0.6;
-      letter-spacing: 0;
-      text-transform: none;
+    section[data-slide="11-four-surfaces"] .mechanism-file {
+      font-family: var(--font-display-compressed);
+      font-size: clamp(1.5rem, 1.4vw, 1.5rem);
+      font-weight: 700;
+      color: var(--uw-spirit-gold);
+      margin: 0;
+      letter-spacing: 0.04em;
     }
 
-    section[data-slide="11-failure-modes"] .coda {
-      font-family: var(--font-body);
-      font-size: clamp(1.375rem, 1.3vw, 1.375rem);
-      color: var(--uw-gray-70);
-      font-style: italic;
-      margin: 0;
-      border-top: 1px solid var(--uw-gray-10);
-      padding-top: var(--space-3);
-    }
   </style>
 </section>
 <section data-slide="12-mapping-exercise"
@@ -1843,107 +1823,92 @@
          aria-label="Slide 13: Landscape of Tools"
          class="slide">
 
-  <div class="accent-bar-top"></div>
+  <div class="accent-bar"></div>
   <div class="content">
     <p class="eyebrow">Landscape of tools</p>
-    <h1>Five categories of AI coding tools — two axes that matter most for research data.</h1>
+    <h1>AI coding tools — what exists and how they differ.</h1>
 
-    <svg class="plot" viewBox="0 0 920 462" fill="none"
-         aria-label="Scatter plot of five AI tool categories by integration depth and privacy control">
-
-      <!-- ── MIDPOINT GRID LINES ────────────────────────────────── -->
-      <line x1="490" y1="28" x2="490" y2="408"
-            stroke="#e6e6e6" stroke-width="1" stroke-dasharray="6 4"/>
-      <line x1="100" y1="218" x2="880" y2="218"
-            stroke="#e6e6e6" stroke-width="1" stroke-dasharray="6 4"/>
-
-      <!-- ── AXES ───────────────────────────────────────────────── -->
-      <!-- X axis -->
-      <line x1="100" y1="408" x2="876" y2="408" stroke="#4b2e83" stroke-width="1.5" opacity="0.5"/>
-      <polygon points="880,408 870,403 870,413" fill="#4b2e83" opacity="0.5"/>
-      <!-- Y axis -->
-      <line x1="100" y1="408" x2="100" y2="32" stroke="#4b2e83" stroke-width="1.5" opacity="0.5"/>
-      <polygon points="100,28 95,38 105,38" fill="#4b2e83" opacity="0.5"/>
-
-      <!-- ── AXIS END LABELS ─────────────────────────────────────── -->
-      <text x="108" y="424" fill="#808080" font-size="14"
-            font-family="'Open Sans',sans-serif">Low</text>
-      <text x="866" y="424" text-anchor="end" fill="#808080" font-size="14"
-            font-family="'Open Sans',sans-serif">High</text>
-      <text x="88" y="404" text-anchor="end" fill="#808080" font-size="14"
-            font-family="'Open Sans',sans-serif">Low</text>
-      <text x="88" y="42" text-anchor="end" fill="#808080" font-size="14"
-            font-family="'Open Sans',sans-serif">High</text>
-
-      <!-- ── AXIS TITLES ────────────────────────────────────────── -->
-      <!-- X title -->
-      <text x="490" y="444" text-anchor="middle" fill="#4b2e83" font-size="16" font-weight="700"
-            font-family="'Encode Sans',sans-serif" letter-spacing="0.06em">INTEGRATION DEPTH</text>
-
-      <!-- Y title (rotated) -->
-      <text transform="rotate(-90 28 218)" x="28" y="218" text-anchor="middle"
-            fill="#4b2e83" font-size="16" font-weight="700"
-            font-family="'Encode Sans',sans-serif" letter-spacing="0.06em">PRIVACY CEILING</text>
-
-      <!-- ── PLOTTED POINTS ─────────────────────────────────────── -->
-
-      <!-- 1. Web-based assistants: norm(14, 14) → svg(209, 350) -->
-      <circle cx="209" cy="350" r="8" fill="#4b2e83" opacity="0.8"/>
-      <!-- label: below-right -->
-      <text x="222" y="368" fill="#4b2e83" font-size="16" font-weight="700"
-            font-family="'Encode Sans',sans-serif">Web-based assistants</text>
-      <text x="222" y="386" fill="#808080" font-size="14" font-style="italic"
-            font-family="'Open Sans',sans-serif">ChatGPT, Claude.ai, Gemini</text>
-
-      <!-- 2. IDE-native tools: norm(78, 22) → svg(708, 318) -->
-      <circle cx="708" cy="318" r="8" fill="#4b2e83" opacity="0.8"/>
-      <!-- label: above, centered -->
-      <text x="708" y="296" text-anchor="middle" fill="#4b2e83" font-size="16" font-weight="700"
-            font-family="'Encode Sans',sans-serif">IDE-native tools</text>
-      <text x="708" y="312" text-anchor="middle" fill="#808080" font-size="14" font-style="italic"
-            font-family="'Open Sans',sans-serif">GitHub Copilot</text>
-
-      <!-- 3. AI-native IDEs: norm(50, 30) → svg(490, 285) -->
-      <circle cx="490" cy="285" r="8" fill="#4b2e83" opacity="0.8"/>
-      <!-- label: below, centered, shifted right to avoid grid line -->
-      <text x="506" y="305" fill="#4b2e83" font-size="16" font-weight="700"
-            font-family="'Encode Sans',sans-serif">AI-native IDEs</text>
-      <text x="506" y="321" fill="#808080" font-size="14" font-style="italic"
-            font-family="'Open Sans',sans-serif">Cursor, Windsurf</text>
-
-      <!-- 4. Open-source: norm(26, 82) → svg(303, 72) -->
-      <circle cx="303" cy="72" r="8" fill="#4b2e83" opacity="0.8"/>
-      <!-- label: below-right -->
-      <text x="316" y="90" fill="#4b2e83" font-size="16" font-weight="700"
-            font-family="'Encode Sans',sans-serif">Open-source options</text>
-      <text x="316" y="107" fill="#808080" font-size="14" font-style="italic"
-            font-family="'Open Sans',sans-serif">Aider, OpenCode</text>
-
-      <!-- 5. Command-line agents: norm(86, 74) → svg(771, 104) -->
-      <!-- gold marker — non-obvious top-right position worth calling out -->
-      <circle cx="771" cy="104" r="9" fill="#ffc700"/>
-      <circle cx="771" cy="104" r="9" stroke="#4b2e83" stroke-width="1.5" fill="none"/>
-      <!-- label: above-left -->
-      <text x="758" y="82" text-anchor="end" fill="#4b2e83" font-size="16" font-weight="700"
-            font-family="'Encode Sans',sans-serif">Command-line agents</text>
-      <text x="758" y="98" text-anchor="end" fill="#808080" font-size="14" font-style="italic"
-            font-family="'Open Sans',sans-serif">Claude Code</text>
-
-    </svg>
+    <table class="tools-table" role="table">
+      <thead>
+        <tr>
+          <th scope="col">Tool</th>
+          <th scope="col">Form</th>
+          <th scope="col">Models</th>
+          <th scope="col">Notable trait</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/github-copilot.svg" alt="" class="tool-logo" aria-hidden="true">
+            GitHub Copilot</div></td>
+          <td>IDE extension</td>
+          <td>Multi-provider</td>
+          <td>Already in your editor — zero friction if your institution has a license</td>
+        </tr>
+        <tr>
+          <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/cursor.svg" alt="" class="tool-logo" aria-hidden="true">
+            Cursor</div></td>
+          <td>Forked IDE</td>
+          <td>Multi-provider</td>
+          <td>Purpose-built for agentic multi-file editing; stronger autonomous code changes than Copilot</td>
+        </tr>
+        <tr>
+          <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/cline.svg" alt="" class="tool-logo" aria-hidden="true">
+            Cline</div></td>
+          <td>IDE extension</td>
+          <td>Bring your own API</td>
+          <td>Same editor comfort as Cursor but you supply the key — full control over model and spend</td>
+        </tr>
+        <tr>
+          <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/claude-code.svg" alt="" class="tool-logo" aria-hidden="true">
+            Claude Code</div></td>
+          <td>CLI</td>
+          <td>Anthropic</td>
+          <td>Leaves the editor entirely; best for long autonomous runs and complex multi-step workflows</td>
+        </tr>
+        <tr>
+          <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/openai-codex.svg" alt="" class="tool-logo" aria-hidden="true">
+            OpenAI Codex</div></td>
+          <td>CLI</td>
+          <td>OpenAI</td>
+          <td>OpenAI-native CLI alternative; useful if your institution already has OpenAI rather than Anthropic credits</td>
+        </tr>
+        <tr>
+          <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/crush.svg" alt="" class="tool-logo" aria-hidden="true">
+            Crush</div></td>
+          <td>CLI</td>
+          <td>Bring your own</td>
+          <td>Fully self-hostable and open-source; data stays on your machine by architecture, not policy</td>
+        </tr>
+        <tr class="row-archived">
+          <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/opencode.svg" alt="" class="tool-logo" aria-hidden="true">
+            OpenCode <span class="badge">archived</span></div></td>
+          <td>CLI</td>
+          <td>Bring your own</td>
+          <td>Predecessor to Crush; widely cited in tutorials and documentation — included for reference</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <style>
     section[data-slide="13-landscape-of-tools"] {
       background: var(--uw-white);
-      padding: var(--space-6) var(--space-10);
+      padding: var(--space-5) var(--space-10) var(--space-5) calc(var(--space-10) + 8px);
       align-items: center;
-      justify-content: center;
       position: relative;
       overflow: hidden;
     }
 
+    section[data-slide="13-landscape-of-tools"] .accent-bar {
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 8px;
+      background: var(--uw-spirit-gold);
+    }
+
     section[data-slide="13-landscape-of-tools"] .content {
-      max-width: 1300px;
+      max-width: 1400px;
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -1952,7 +1917,7 @@
 
     section[data-slide="13-landscape-of-tools"] .eyebrow {
       font-family: var(--font-body);
-      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-size: clamp(1rem, 1vw, 1rem);
       font-weight: 400;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -1962,7 +1927,7 @@
 
     section[data-slide="13-landscape-of-tools"] h1 {
       font-family: var(--font-display);
-      font-size: clamp(1.625rem, 2vw, 2rem);
+      font-size: clamp(1.5rem, 2vw, 2rem);
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: -0.02em;
@@ -1971,8 +1936,76 @@
       margin: 0;
     }
 
-    section[data-slide="13-landscape-of-tools"] .plot {
+    section[data-slide="13-landscape-of-tools"] .tools-table {
       width: 100%;
+      border-collapse: collapse;
+    }
+
+    section[data-slide="13-landscape-of-tools"] .tools-table th {
+      font-family: var(--font-display);
+      font-size: clamp(0.875rem, 0.9vw, 0.9rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--uw-spirit-purple);
+      text-align: left;
+      padding: var(--space-2) var(--space-3);
+      border-bottom: 2px solid var(--uw-spirit-purple);
+    }
+
+    section[data-slide="13-landscape-of-tools"] .tools-table td {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      color: var(--uw-gray-90);
+      padding: var(--space-2) var(--space-3);
+      border-bottom: 1px solid var(--uw-gray-10);
+      vertical-align: middle;
+      line-height: 1.4;
+    }
+
+    section[data-slide="13-landscape-of-tools"] .tools-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    section[data-slide="13-landscape-of-tools"] .tools-table tbody tr:hover td {
+      background: rgba(75, 46, 131, 0.04);
+    }
+
+    section[data-slide="13-landscape-of-tools"] .tool-name {
+      font-weight: 600;
+      color: var(--uw-spirit-purple);
+      white-space: nowrap;
+    }
+
+    section[data-slide="13-landscape-of-tools"] .tool-name-inner {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    section[data-slide="13-landscape-of-tools"] .tool-logo {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      object-fit: contain;
+    }
+
+    section[data-slide="13-landscape-of-tools"] .row-archived td {
+      opacity: 0.55;
+    }
+
+    section[data-slide="13-landscape-of-tools"] .badge {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--uw-gray-50);
+      border: 1px solid var(--uw-gray-30);
+      border-radius: 3px;
+      padding: 1px 5px;
+      margin-left: 4px;
+      vertical-align: middle;
     }
   </style>
 </section>
@@ -2390,208 +2423,8 @@
     }
   </style>
 </section>
-<section data-slide="17-four-surfaces"
-         aria-label="Slide 17: Context Durability Spectrum"
-         class="slide">
-
-  <div class="content">
-    <h1>Shaping Agent Behavior</h1>
-
-    <div class="spectrum">
-      <div class="spectrum-bar">
-        <div class="spectrum-gradient"></div>
-        <div class="spectrum-labels">
-          <div class="spectrum-endpoint endpoint-left">
-            <span class="endpoint-title">Always loaded</span>
-            <span class="endpoint-tradeoff">Guaranteed present, but costs context budget</span>
-          </div>
-          <div class="spectrum-endpoint endpoint-right">
-            <span class="endpoint-title">Summoned on demand</span>
-            <span class="endpoint-tradeoff">Efficient, but only loaded when triggered</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="mechanisms">
-        <div class="mechanism" style="--position: 8%">
-          <p class="mechanism-name">Context<br>documents</p>
-          <p class="mechanism-desc">Facts and conventions the agent has in hand every session.</p>
-          <p class="mechanism-file">AGENTS.md</p>
-        </div>
-        <div class="mechanism" style="--position: 33%">
-          <p class="mechanism-name">Rules</p>
-          <p class="mechanism-desc">Path-scoped constraints that fire when specific files are touched.</p>
-          <p class="mechanism-file">.claude/</p>
-        </div>
-        <div class="mechanism" style="--position: 58%">
-          <p class="mechanism-name">Skills</p>
-          <p class="mechanism-desc">Task-triggered procedures the agent picks up when the work matches.</p>
-          <p class="mechanism-file">skills/</p>
-        </div>
-        <div class="mechanism" style="--position: 83%">
-          <p class="mechanism-name">Custom<br>agents</p>
-          <p class="mechanism-desc">Distinct personas invoked for focused, narrower jobs.</p>
-          <p class="mechanism-file">agents/</p>
-        </div>
-        <div class="mechanism mechanism-ellipsis" style="--position: 97%">
-          <p class="mechanism-name">...</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <style>
-    section[data-slide="17-four-surfaces"] {
-      background: var(--uw-spirit-purple);
-      padding: var(--space-6) var(--space-10);
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    section[data-slide="17-four-surfaces"]::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 8px;
-      background: var(--uw-spirit-gold);
-    }
-
-    section[data-slide="17-four-surfaces"] .content {
-      max-width: 1400px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-5);
-    }
-
-    section[data-slide="17-four-surfaces"] h1 {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 3vw, 2.75rem);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: -0.02em;
-      line-height: 1.05;
-      color: var(--uw-white);
-      margin: 0;
-    }
-
-
-    section[data-slide="17-four-surfaces"] .spectrum {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-4);
-      margin-top: var(--space-2);
-    }
-
-    section[data-slide="17-four-surfaces"] .spectrum-bar {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-2);
-    }
-
-    section[data-slide="17-four-surfaces"] .spectrum-gradient {
-      height: 6px;
-      border-radius: 3px;
-      background: linear-gradient(to right, var(--uw-spirit-gold), rgba(255, 199, 0, 0.15));
-    }
-
-    section[data-slide="17-four-surfaces"] .spectrum-labels {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    section[data-slide="17-four-surfaces"] .spectrum-endpoint {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    section[data-slide="17-four-surfaces"] .endpoint-right {
-      text-align: right;
-    }
-
-    section[data-slide="17-four-surfaces"] .endpoint-title {
-      font-family: var(--font-display);
-      font-size: clamp(1.5rem, 1.5vw, 1.625rem);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--uw-spirit-gold);
-    }
-
-    section[data-slide="17-four-surfaces"] .endpoint-tradeoff {
-      font-family: var(--font-body);
-      font-size: clamp(1.5rem, 1.4vw, 1.5rem);
-      font-style: italic;
-      color: rgba(232, 227, 211, 0.7);
-    }
-
-    section[data-slide="17-four-surfaces"] .mechanisms {
-      position: relative;
-      display: flex;
-      gap: var(--space-3);
-      justify-content: space-between;
-    }
-
-    section[data-slide="17-four-surfaces"] .mechanism {
-      flex: 1;
-      background: rgba(255, 255, 255, 0.07);
-      border-top: 3px solid rgba(255, 199, 0, 0.5);
-      padding: var(--space-3) var(--space-3);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-2);
-    }
-
-    section[data-slide="17-four-surfaces"] .mechanism-ellipsis {
-      flex: 0.3;
-      background: transparent;
-      border-top-color: rgba(255, 199, 0, 0.2);
-      align-items: center;
-      justify-content: center;
-    }
-
-    section[data-slide="17-four-surfaces"] .mechanism-name {
-      font-family: var(--font-display);
-      font-size: clamp(1.5rem, 1.8vw, 1.75rem);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: -0.01em;
-      line-height: 1.1;
-      color: var(--uw-white);
-      margin: 0;
-    }
-
-    section[data-slide="17-four-surfaces"] .mechanism-ellipsis .mechanism-name {
-      font-size: clamp(1.75rem, 2.2vw, 2.25rem);
-      color: rgba(255, 199, 0, 0.5);
-    }
-
-    section[data-slide="17-four-surfaces"] .mechanism-desc {
-      font-family: var(--font-body);
-      font-size: clamp(1.5rem, 1.5vw, 1.5rem);
-      color: var(--uw-husky-gold-web);
-      line-height: 1.4;
-      margin: 0;
-      flex: 1;
-    }
-
-    section[data-slide="17-four-surfaces"] .mechanism-file {
-      font-family: var(--font-display-compressed);
-      font-size: clamp(1.5rem, 1.4vw, 1.5rem);
-      font-weight: 700;
-      color: var(--uw-spirit-gold);
-      margin: 0;
-      letter-spacing: 0.04em;
-    }
-
-  </style>
-</section>
-<section data-slide="18-reproducibility"
-         aria-label="Slide 18: Reproducibility"
+<section data-slide="17-reproducibility"
+         aria-label="Slide 17: Reproducibility"
          class="slide">
 
   <div class="accent-bar"></div>
@@ -2606,7 +2439,7 @@
   </div>
 
   <style>
-    section[data-slide="18-reproducibility"] {
+    section[data-slide="17-reproducibility"] {
       background: var(--uw-white);
       padding: var(--space-8) var(--space-10) var(--space-8) var(--space-12);
       align-items: center;
@@ -2614,14 +2447,14 @@
       overflow: hidden;
     }
 
-    section[data-slide="18-reproducibility"] .accent-bar {
+    section[data-slide="17-reproducibility"] .accent-bar {
       position: absolute;
       top: 0; left: 0; bottom: 0;
       width: 8px;
       background: var(--uw-spirit-gold);
     }
 
-    section[data-slide="18-reproducibility"] .content {
+    section[data-slide="17-reproducibility"] .content {
       max-width: 900px;
       width: 100%;
       display: flex;
@@ -2629,7 +2462,7 @@
       gap: var(--space-5);
     }
 
-    section[data-slide="18-reproducibility"] .eyebrow {
+    section[data-slide="17-reproducibility"] .eyebrow {
       font-family: var(--font-body);
       font-size: clamp(1.5rem, 1.4vw, 1.5rem);
       font-weight: 400;
@@ -2639,7 +2472,7 @@
       margin: 0;
     }
 
-    section[data-slide="18-reproducibility"] h1 {
+    section[data-slide="17-reproducibility"] h1 {
       font-family: var(--font-display);
       font-size: clamp(2rem, 3vw, 3rem);
       font-weight: 900;
@@ -2650,7 +2483,7 @@
       margin: 0;
     }
 
-    section[data-slide="18-reproducibility"] .bullets {
+    section[data-slide="17-reproducibility"] .bullets {
       list-style: none;
       padding: 0;
       margin: 0;
@@ -2659,7 +2492,7 @@
       gap: var(--space-3);
     }
 
-    section[data-slide="18-reproducibility"] .bullets li {
+    section[data-slide="17-reproducibility"] .bullets li {
       font-family: var(--font-body);
       font-size: clamp(1.5rem, 1.6vw, 1.625rem);
       color: var(--uw-gray-90);
@@ -2668,7 +2501,7 @@
       position: relative;
     }
 
-    section[data-slide="18-reproducibility"] .bullets li::before {
+    section[data-slide="17-reproducibility"] .bullets li::before {
       content: '—';
       position: absolute;
       left: 0;
@@ -2676,8 +2509,8 @@
     }
   </style>
 </section>
-<section data-slide="19-week-ahead"
-         aria-label="Slide 19: The Week Ahead"
+<section data-slide="18-week-ahead"
+         aria-label="Slide 18: The Week Ahead"
          class="slide">
 
   <div class="accent-bar-top-purple"></div>
@@ -2717,7 +2550,7 @@
   </div>
 
   <style>
-    section[data-slide="19-week-ahead"] {
+    section[data-slide="18-week-ahead"] {
       background: var(--uw-white);
       padding: var(--space-6) var(--space-10);
       align-items: center;
@@ -2726,14 +2559,14 @@
       overflow: hidden;
     }
 
-    section[data-slide="19-week-ahead"] .accent-bar-top-purple {
+    section[data-slide="18-week-ahead"] .accent-bar-top-purple {
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 8px;
       background: var(--uw-spirit-purple);
     }
 
-    section[data-slide="19-week-ahead"] .content {
+    section[data-slide="18-week-ahead"] .content {
       max-width: 1300px;
       width: 100%;
       display: flex;
@@ -2741,7 +2574,7 @@
       gap: var(--space-5);
     }
 
-    section[data-slide="19-week-ahead"] .eyebrow {
+    section[data-slide="18-week-ahead"] .eyebrow {
       font-family: var(--font-body);
       font-size: clamp(1.125rem, 1.1vw, 1.125rem);
       font-weight: 400;
@@ -2751,7 +2584,7 @@
       margin: 0;
     }
 
-    section[data-slide="19-week-ahead"] h1 {
+    section[data-slide="18-week-ahead"] h1 {
       font-family: var(--font-display);
       font-size: clamp(1.625rem, 2vw, 2rem);
       font-weight: 700;
@@ -2762,58 +2595,58 @@
       margin: 0;
     }
 
-    section[data-slide="19-week-ahead"] .stack {
+    section[data-slide="18-week-ahead"] .stack {
       display: flex;
       flex-direction: column;
       gap: 0;
     }
 
-    section[data-slide="19-week-ahead"] .layer {
+    section[data-slide="18-week-ahead"] .layer {
       border-left: 6px solid transparent;
       padding: var(--space-3) var(--space-4);
       transition: background 0.15s;
     }
 
-    section[data-slide="19-week-ahead"] .layer-inner {
+    section[data-slide="18-week-ahead"] .layer-inner {
       display: grid;
       grid-template-columns: 180px 260px 1fr;
       gap: var(--space-4);
       align-items: center;
     }
 
-    section[data-slide="19-week-ahead"] .layer-current {
+    section[data-slide="18-week-ahead"] .layer-current {
       background: var(--uw-spirit-purple);
       border-left-color: var(--uw-spirit-gold);
     }
 
-    section[data-slide="19-week-ahead"] .layer-current .layer-day {
+    section[data-slide="18-week-ahead"] .layer-current .layer-day {
       color: var(--uw-spirit-gold);
     }
 
-    section[data-slide="19-week-ahead"] .layer-current .layer-name {
+    section[data-slide="18-week-ahead"] .layer-current .layer-name {
       color: var(--uw-white);
     }
 
-    section[data-slide="19-week-ahead"] .layer-current .layer-desc {
+    section[data-slide="18-week-ahead"] .layer-current .layer-desc {
       color: var(--uw-husky-gold-web);
     }
 
-    section[data-slide="19-week-ahead"] .layer-2 {
+    section[data-slide="18-week-ahead"] .layer-2 {
       background: rgba(75, 46, 131, 0.08);
       border-left-color: var(--uw-spirit-purple);
     }
 
-    section[data-slide="19-week-ahead"] .layer-3 {
+    section[data-slide="18-week-ahead"] .layer-3 {
       background: rgba(75, 46, 131, 0.04);
       border-left-color: rgba(75,46,131,0.4);
     }
 
-    section[data-slide="19-week-ahead"] .layer-4 {
+    section[data-slide="18-week-ahead"] .layer-4 {
       background: rgba(75, 46, 131, 0.02);
       border-left-color: rgba(75,46,131,0.2);
     }
 
-    section[data-slide="19-week-ahead"] .layer-day {
+    section[data-slide="18-week-ahead"] .layer-day {
       font-family: var(--font-body);
       font-size: clamp(1.125rem, 1.1vw, 1.125rem);
       font-weight: 400;
@@ -2822,7 +2655,7 @@
       margin: 0;
     }
 
-    section[data-slide="19-week-ahead"] .layer-name {
+    section[data-slide="18-week-ahead"] .layer-name {
       font-family: var(--font-display);
       font-size: clamp(1.375rem, 1.4vw, 1.375rem);
       font-weight: 800;
@@ -2832,7 +2665,7 @@
       margin: 0;
     }
 
-    section[data-slide="19-week-ahead"] .layer-desc {
+    section[data-slide="18-week-ahead"] .layer-desc {
       font-family: var(--font-body);
       font-size: clamp(1.375rem, 1.35vw, 1.375rem);
       font-weight: 400;
@@ -2842,8 +2675,8 @@
     }
   </style>
 </section>
-<section data-slide="20-closing"
-         aria-label="Slide 20: Closing"
+<section data-slide="19-closing"
+         aria-label="Slide 19: Closing"
          class="slide">
 
   <div class="content">
@@ -2869,7 +2702,7 @@
   </div>
 
   <style>
-    section[data-slide="20-closing"] {
+    section[data-slide="19-closing"] {
       background: var(--uw-spirit-purple);
       padding: var(--space-8) var(--space-10);
       align-items: center;
@@ -2878,7 +2711,7 @@
       overflow: hidden;
     }
 
-    section[data-slide="20-closing"]::before {
+    section[data-slide="19-closing"]::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
@@ -2886,7 +2719,7 @@
       background: var(--uw-spirit-gold);
     }
 
-    section[data-slide="20-closing"]::after {
+    section[data-slide="19-closing"]::after {
       content: '';
       position: absolute;
       bottom: 0; left: 0; right: 0;
@@ -2894,7 +2727,7 @@
       background: rgba(255, 199, 0, 0.3);
     }
 
-    section[data-slide="20-closing"] .content {
+    section[data-slide="19-closing"] .content {
       max-width: 1300px;
       width: 100%;
       display: flex;
@@ -2902,7 +2735,7 @@
       gap: var(--space-6);
     }
 
-    section[data-slide="20-closing"] .eyebrow {
+    section[data-slide="19-closing"] .eyebrow {
       font-family: var(--font-body);
       font-size: clamp(1.5rem, 1.4vw, 1.5rem);
       font-weight: 400;
@@ -2912,13 +2745,13 @@
       margin: 0;
     }
 
-    section[data-slide="20-closing"] .principles {
+    section[data-slide="19-closing"] .principles {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: var(--space-5);
     }
 
-    section[data-slide="20-closing"] .principle {
+    section[data-slide="19-closing"] .principle {
       border-top: 3px solid var(--uw-spirit-gold);
       padding-top: var(--space-4);
       display: flex;
@@ -2926,7 +2759,7 @@
       gap: var(--space-3);
     }
 
-    section[data-slide="20-closing"] .principle-name {
+    section[data-slide="19-closing"] .principle-name {
       font-family: var(--font-display);
       font-size: clamp(2rem, 2.4vw, 2.5rem);
       font-weight: 900;
@@ -2937,7 +2770,7 @@
       margin: 0;
     }
 
-    section[data-slide="20-closing"] .principle-desc {
+    section[data-slide="19-closing"] .principle-desc {
       font-family: var(--font-body);
       font-size: clamp(1.5rem, 1.5vw, 1.5rem);
       font-weight: 400;
@@ -2946,7 +2779,7 @@
       margin: 0;
     }
 
-    section[data-slide="20-closing"] .close {
+    section[data-slide="19-closing"] .close {
       display: flex;
       flex-direction: column;
       gap: var(--space-3);
@@ -2954,7 +2787,7 @@
       padding-top: var(--space-4);
     }
 
-    section[data-slide="20-closing"] .close-main {
+    section[data-slide="19-closing"] .close-main {
       font-family: var(--font-display);
       font-size: clamp(1.625rem, 2vw, 2rem);
       font-weight: 700;
@@ -2965,7 +2798,7 @@
       margin: 0;
     }
 
-    section[data-slide="20-closing"] .close-cta {
+    section[data-slide="19-closing"] .close-cta {
       font-family: var(--font-body);
       font-size: clamp(1.5rem, 1.4vw, 1.5rem);
       font-weight: 400;

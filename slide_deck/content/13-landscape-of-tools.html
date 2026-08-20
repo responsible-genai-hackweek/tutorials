@@ -2,107 +2,92 @@
          aria-label="Slide 13: Landscape of Tools"
          class="slide">
 
-  <div class="accent-bar-top"></div>
+  <div class="accent-bar"></div>
   <div class="content">
     <p class="eyebrow">Landscape of tools</p>
-    <h1>Five categories of AI coding tools — two axes that matter most for research data.</h1>
+    <h1>AI coding tools — what exists and how they differ.</h1>
 
-    <svg class="plot" viewBox="0 0 920 462" fill="none"
-         aria-label="Scatter plot of five AI tool categories by integration depth and privacy control">
-
-      <!-- ── MIDPOINT GRID LINES ────────────────────────────────── -->
-      <line x1="490" y1="28" x2="490" y2="408"
-            stroke="#e6e6e6" stroke-width="1" stroke-dasharray="6 4"/>
-      <line x1="100" y1="218" x2="880" y2="218"
-            stroke="#e6e6e6" stroke-width="1" stroke-dasharray="6 4"/>
-
-      <!-- ── AXES ───────────────────────────────────────────────── -->
-      <!-- X axis -->
-      <line x1="100" y1="408" x2="876" y2="408" stroke="#4b2e83" stroke-width="1.5" opacity="0.5"/>
-      <polygon points="880,408 870,403 870,413" fill="#4b2e83" opacity="0.5"/>
-      <!-- Y axis -->
-      <line x1="100" y1="408" x2="100" y2="32" stroke="#4b2e83" stroke-width="1.5" opacity="0.5"/>
-      <polygon points="100,28 95,38 105,38" fill="#4b2e83" opacity="0.5"/>
-
-      <!-- ── AXIS END LABELS ─────────────────────────────────────── -->
-      <text x="108" y="424" fill="#808080" font-size="14"
-            font-family="'Open Sans',sans-serif">Low</text>
-      <text x="866" y="424" text-anchor="end" fill="#808080" font-size="14"
-            font-family="'Open Sans',sans-serif">High</text>
-      <text x="88" y="404" text-anchor="end" fill="#808080" font-size="14"
-            font-family="'Open Sans',sans-serif">Low</text>
-      <text x="88" y="42" text-anchor="end" fill="#808080" font-size="14"
-            font-family="'Open Sans',sans-serif">High</text>
-
-      <!-- ── AXIS TITLES ────────────────────────────────────────── -->
-      <!-- X title -->
-      <text x="490" y="444" text-anchor="middle" fill="#4b2e83" font-size="16" font-weight="700"
-            font-family="'Encode Sans',sans-serif" letter-spacing="0.06em">INTEGRATION DEPTH</text>
-
-      <!-- Y title (rotated) -->
-      <text transform="rotate(-90 28 218)" x="28" y="218" text-anchor="middle"
-            fill="#4b2e83" font-size="16" font-weight="700"
-            font-family="'Encode Sans',sans-serif" letter-spacing="0.06em">PRIVACY CEILING</text>
-
-      <!-- ── PLOTTED POINTS ─────────────────────────────────────── -->
-
-      <!-- 1. Web-based assistants: norm(14, 14) → svg(209, 350) -->
-      <circle cx="209" cy="350" r="8" fill="#4b2e83" opacity="0.8"/>
-      <!-- label: below-right -->
-      <text x="222" y="368" fill="#4b2e83" font-size="16" font-weight="700"
-            font-family="'Encode Sans',sans-serif">Web-based assistants</text>
-      <text x="222" y="386" fill="#808080" font-size="14" font-style="italic"
-            font-family="'Open Sans',sans-serif">ChatGPT, Claude.ai, Gemini</text>
-
-      <!-- 2. IDE-native tools: norm(78, 22) → svg(708, 318) -->
-      <circle cx="708" cy="318" r="8" fill="#4b2e83" opacity="0.8"/>
-      <!-- label: above, centered -->
-      <text x="708" y="296" text-anchor="middle" fill="#4b2e83" font-size="16" font-weight="700"
-            font-family="'Encode Sans',sans-serif">IDE-native tools</text>
-      <text x="708" y="312" text-anchor="middle" fill="#808080" font-size="14" font-style="italic"
-            font-family="'Open Sans',sans-serif">GitHub Copilot</text>
-
-      <!-- 3. AI-native IDEs: norm(50, 30) → svg(490, 285) -->
-      <circle cx="490" cy="285" r="8" fill="#4b2e83" opacity="0.8"/>
-      <!-- label: below, centered, shifted right to avoid grid line -->
-      <text x="506" y="305" fill="#4b2e83" font-size="16" font-weight="700"
-            font-family="'Encode Sans',sans-serif">AI-native IDEs</text>
-      <text x="506" y="321" fill="#808080" font-size="14" font-style="italic"
-            font-family="'Open Sans',sans-serif">Cursor, Windsurf</text>
-
-      <!-- 4. Open-source: norm(26, 82) → svg(303, 72) -->
-      <circle cx="303" cy="72" r="8" fill="#4b2e83" opacity="0.8"/>
-      <!-- label: below-right -->
-      <text x="316" y="90" fill="#4b2e83" font-size="16" font-weight="700"
-            font-family="'Encode Sans',sans-serif">Open-source options</text>
-      <text x="316" y="107" fill="#808080" font-size="14" font-style="italic"
-            font-family="'Open Sans',sans-serif">Aider, OpenCode</text>
-
-      <!-- 5. Command-line agents: norm(86, 74) → svg(771, 104) -->
-      <!-- gold marker — non-obvious top-right position worth calling out -->
-      <circle cx="771" cy="104" r="9" fill="#ffc700"/>
-      <circle cx="771" cy="104" r="9" stroke="#4b2e83" stroke-width="1.5" fill="none"/>
-      <!-- label: above-left -->
-      <text x="758" y="82" text-anchor="end" fill="#4b2e83" font-size="16" font-weight="700"
-            font-family="'Encode Sans',sans-serif">Command-line agents</text>
-      <text x="758" y="98" text-anchor="end" fill="#808080" font-size="14" font-style="italic"
-            font-family="'Open Sans',sans-serif">Claude Code</text>
-
-    </svg>
+    <table class="tools-table" role="table">
+      <thead>
+        <tr>
+          <th scope="col">Tool</th>
+          <th scope="col">Form</th>
+          <th scope="col">Models</th>
+          <th scope="col">Notable trait</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/github-copilot.svg" alt="" class="tool-logo" aria-hidden="true">
+            GitHub Copilot</div></td>
+          <td>IDE extension</td>
+          <td>Multi-provider</td>
+          <td>Already in your editor — zero friction if your institution has a license</td>
+        </tr>
+        <tr>
+          <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/cursor.svg" alt="" class="tool-logo" aria-hidden="true">
+            Cursor</div></td>
+          <td>Forked IDE</td>
+          <td>Multi-provider</td>
+          <td>Purpose-built for agentic multi-file editing; stronger autonomous code changes than Copilot</td>
+        </tr>
+        <tr>
+          <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/cline.svg" alt="" class="tool-logo" aria-hidden="true">
+            Cline</div></td>
+          <td>IDE extension</td>
+          <td>Bring your own API</td>
+          <td>Same editor comfort as Cursor but you supply the key — full control over model and spend</td>
+        </tr>
+        <tr>
+          <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/claude-code.svg" alt="" class="tool-logo" aria-hidden="true">
+            Claude Code</div></td>
+          <td>CLI</td>
+          <td>Anthropic</td>
+          <td>Leaves the editor entirely; best for long autonomous runs and complex multi-step workflows</td>
+        </tr>
+        <tr>
+          <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/openai-codex.svg" alt="" class="tool-logo" aria-hidden="true">
+            OpenAI Codex</div></td>
+          <td>CLI</td>
+          <td>OpenAI</td>
+          <td>OpenAI-native CLI alternative; useful if your institution already has OpenAI rather than Anthropic credits</td>
+        </tr>
+        <tr>
+          <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/crush.svg" alt="" class="tool-logo" aria-hidden="true">
+            Crush</div></td>
+          <td>CLI</td>
+          <td>Bring your own</td>
+          <td>Fully self-hostable and open-source; data stays on your machine by architecture, not policy</td>
+        </tr>
+        <tr class="row-archived">
+          <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/opencode.svg" alt="" class="tool-logo" aria-hidden="true">
+            OpenCode <span class="badge">archived</span></div></td>
+          <td>CLI</td>
+          <td>Bring your own</td>
+          <td>Predecessor to Crush; widely cited in tutorials and documentation — included for reference</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <style>
     section[data-slide="13-landscape-of-tools"] {
       background: var(--uw-white);
-      padding: var(--space-6) var(--space-10);
+      padding: var(--space-5) var(--space-10) var(--space-5) calc(var(--space-10) + 8px);
       align-items: center;
-      justify-content: center;
       position: relative;
       overflow: hidden;
     }
 
+    section[data-slide="13-landscape-of-tools"] .accent-bar {
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 8px;
+      background: var(--uw-spirit-gold);
+    }
+
     section[data-slide="13-landscape-of-tools"] .content {
-      max-width: 1300px;
+      max-width: 1400px;
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -111,7 +96,7 @@
 
     section[data-slide="13-landscape-of-tools"] .eyebrow {
       font-family: var(--font-body);
-      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-size: clamp(1rem, 1vw, 1rem);
       font-weight: 400;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -121,7 +106,7 @@
 
     section[data-slide="13-landscape-of-tools"] h1 {
       font-family: var(--font-display);
-      font-size: clamp(1.625rem, 2vw, 2rem);
+      font-size: clamp(1.5rem, 2vw, 2rem);
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: -0.02em;
@@ -130,8 +115,76 @@
       margin: 0;
     }
 
-    section[data-slide="13-landscape-of-tools"] .plot {
+    section[data-slide="13-landscape-of-tools"] .tools-table {
       width: 100%;
+      border-collapse: collapse;
+    }
+
+    section[data-slide="13-landscape-of-tools"] .tools-table th {
+      font-family: var(--font-display);
+      font-size: clamp(0.875rem, 0.9vw, 0.9rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--uw-spirit-purple);
+      text-align: left;
+      padding: var(--space-2) var(--space-3);
+      border-bottom: 2px solid var(--uw-spirit-purple);
+    }
+
+    section[data-slide="13-landscape-of-tools"] .tools-table td {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      color: var(--uw-gray-90);
+      padding: var(--space-2) var(--space-3);
+      border-bottom: 1px solid var(--uw-gray-10);
+      vertical-align: middle;
+      line-height: 1.4;
+    }
+
+    section[data-slide="13-landscape-of-tools"] .tools-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    section[data-slide="13-landscape-of-tools"] .tools-table tbody tr:hover td {
+      background: rgba(75, 46, 131, 0.04);
+    }
+
+    section[data-slide="13-landscape-of-tools"] .tool-name {
+      font-weight: 600;
+      color: var(--uw-spirit-purple);
+      white-space: nowrap;
+    }
+
+    section[data-slide="13-landscape-of-tools"] .tool-name-inner {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    section[data-slide="13-landscape-of-tools"] .tool-logo {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      object-fit: contain;
+    }
+
+    section[data-slide="13-landscape-of-tools"] .row-archived td {
+      opacity: 0.55;
+    }
+
+    section[data-slide="13-landscape-of-tools"] .badge {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--uw-gray-50);
+      border: 1px solid var(--uw-gray-30);
+      border-radius: 3px;
+      padding: 1px 5px;
+      margin-left: 4px;
+      vertical-align: middle;
     }
   </style>
 </section>

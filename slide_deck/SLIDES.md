@@ -25,6 +25,7 @@ Co-instructors: Anthony Arendt, Anshul Tambay
 
 ---
 
+
 ## 01-title
 
 Title slide with UW branding. **Edit existing HTML — update text only.**
@@ -95,27 +96,26 @@ Title slide with UW branding. **Edit existing HTML — update text only.**
 - Note to self: Ground this with a concrete example. "If you ask an agent to query snow depth observations from a database it has never seen, it will guess at table names and column conventions — confidently and incorrectly. That is a prompt problem. The model knows SQL; it does not know your schema. Giving it that schema is context engineering."
 Render as two-column layout with the phrase as headline.
 
-## 08-six-pieces
+## 08-agent-as-coworker
 
-**Keep existing HTML as-is.** No changes needed.
-
-Every tool has all of these six components:
+- Key message: We will regard the agent as a co-worker or an eager assistent that we supervise.
 - Bullets:
-  - LLM backbone — the language model itself; the thing generating text
-  - Tool use — the ability to read files, edit them, run commands
-  - Agent loop — the software that lets it decide whether to call another tool or finish
-  - Project memory — a file the agent reads on startup so it knows about your codebase
-  - MCP servers — a standard way to plug in external things like databases, calendars, APIs
-  - Skills — reusable procedures for specific kinds of tasks
-  - Every feature in every product maps to one of these. Switching tools is a configuration exercise, not a re-learning exercise
-
-## 09-agent-as-coworker
-
-- Key message: We will regard the agent as a co-worker who helps us review and improve existing code rather than building from scratch.
-- Bullets:
-  - The agent is most useful as a collaborator on existing work — reviewing code for correctness, suggesting improvements, and explaining what something does. It is not a code generator you hand a blank slate.
-  - Every output the agent produces requires human judgment. The agent can be confidently wrong, and it will not tell you when it is. Checking what it gives you is not a quality control step — it is the core practice. The next slides name the specific ways agents fail so you can recognize them.
+  - Every output the agent produces requires human judgment. The agent can be confidently wrong, and it will not tell you when it is. Checking what it gives you is not a merely a quality control step, but it is the core practice. 
 - Note to self: This slide is a pivot point. The first half of the session built a mental model of the technology. This slide reframes how to use it. The second bullet lands harder if you follow it immediately with the failure modes — the transition should feel natural: "Here is the mindset, and here is what you are watching for."
+
+## 09-failure-modes
+
+- Key message: When agents go wrong, they tend to go wrong in predictable ways. Naming these patterns now gives you vocabulary you will use all week.
+- Bullets:
+  - Fabrication (hallucination): the model produces confident, plausible-sounding output that is factually wrong. This is especially dangerous in scientific contexts because the output often looks like it could be correct. "Fabrication" is preferred over "hallucination" because it describes what actually happens without anthropomorphizing the model.
+  - Sycophancy: the model agrees with your framing rather than pushing back, even when your framing is wrong. This is a systematic side-effect of RLHF training that rewards responses users rate as helpful.
+  - Scope creep: the model does more than you asked — adds type hints, refactors adjacent code, restructures your project. Trained to be maximally helpful, it over-delivers by default.
+  - Context exhaustion: as the conversation grows long and the context window fills up, the model loses track of earlier instructions and makes increasingly confused decisions.
+- Note to self: These are all prompt problems or architecture problems, not mysteries. The point is to name them so participants can recognize them in their project work this week. Connect back to slide 7 (post-training): these failure modes are the predictable cost of the training that makes agents useful.
+  - Fabrication ← SFT teaches the model to always produce a complete, helpful-looking answer. It learns the shape of a good response without learning to say "I don't know." So it fabricates confidently when it lacks specific knowledge.
+  - Sycophancy ← RLHF rewards responses humans rate highly. Humans rate agreeable responses higher. That reward signal systematically biases toward agreement even when the user's framing is wrong.
+  - Scope creep ← RLHF + SFT reward comprehensive, thorough answers. There is no "you did too much" penalty in training, so the model over-delivers by default.
+  - Context exhaustion is the exception — this is an architecture limitation (finite context window), not a post-training side effect.
 
 ## 10-diagnosis-slide
 
@@ -135,19 +135,19 @@ Every tool has all of these six components:
 - Note to self: This slide sets up the "trained-in or prompt?" interactive exercise if we run it. Use the SnowEx example: "The agent picked the wrong table for snow depth — is that a context problem or a training problem? It is a context problem. Monday afternoon's AGENTS.md tutorial teaches you exactly how to fix that."
 - Note to self — "restructure the task": when someone asks what this means, it is a task decomposition move for when more context will not help — the model genuinely cannot do the thing as specified. Concrete examples: if the model struggles to write a complex multi-step analysis in one shot, break it into sequential steps with a separate prompt for each; if it can't reliably produce a specific output format, separate the reasoning step from the formatting step; if it loses track of constraints in a long conversation, scope the task more narrowly so the relevant constraints fit cleanly in a short prompt. The common thread is changing the shape of the problem so it no longer requires the capability the model lacks — not giving it more context, but asking for something different.
 
-## 11-failure-modes
+## 11-four-surfaces
 
-- Key message: When agents go wrong, they tend to go wrong in predictable ways. Naming these patterns now gives you vocabulary you will use all week.
-- Bullets:
-  - Fabrication (hallucination): the model produces confident, plausible-sounding output that is factually wrong. This is especially dangerous in scientific contexts because the output often looks like it could be correct. "Fabrication" is preferred over "hallucination" because it describes what actually happens without anthropomorphizing the model.
-  - Sycophancy: the model agrees with your framing rather than pushing back, even when your framing is wrong. This is a systematic side-effect of RLHF training that rewards responses users rate as helpful.
-  - Scope creep: the model does more than you asked — adds type hints, refactors adjacent code, restructures your project. Trained to be maximally helpful, it over-delivers by default.
-  - Context exhaustion: as the conversation grows long and the context window fills up, the model loses track of earlier instructions and makes increasingly confused decisions.
-- Note to self: These are all prompt problems or architecture problems, not mysteries. The point is to name them so participants can recognize them in their project work this week. Connect back to slide 7 (post-training): these failure modes are the predictable cost of the training that makes agents useful.
-  - Fabrication ← SFT teaches the model to always produce a complete, helpful-looking answer. It learns the shape of a good response without learning to say "I don't know." So it fabricates confidently when it lacks specific knowledge.
-  - Sycophancy ← RLHF rewards responses humans rate highly. Humans rate agreeable responses higher. That reward signal systematically biases toward agreement even when the user's framing is wrong.
-  - Scope creep ← RLHF + SFT reward comprehensive, thorough answers. There is no "you did too much" penalty in training, so the model over-delivers by default.
-  - Context exhaustion is the exception — this is an architecture limitation (finite context window), not a post-training side effect.
+**Rebuild this slide.** Replace the fixed four-box grid with a spectrum-oriented layout.
+
+- Key message: Context durability is a spectrum. Current tools give you several mechanisms along it — from files the agent reads every session to procedures it invokes only when the task matches. The mechanisms vary by tool and will evolve, but the underlying tradeoff between always-on and on-demand is durable.
+- Layout: A horizontal spectrum/gradient spanning the slide, anchored by "Always loaded" on the left and "Summoned on demand" on the right. Example mechanisms are positioned along the spectrum as illustrative points, not as an exhaustive numbered list.
+  - Left end (always loaded): Context documents — facts and conventions the agent has in hand every session.
+  - Middle-left: Rules — path-scoped constraints that fire when specific files are touched.
+  - Middle-right: Skills — task-triggered procedures the agent picks up when the work matches.
+  - Right end (on demand): Custom agents — distinct personas invoked for focused, narrower jobs.
+- A trailing "..." or visual fade at the right edge signals that the list is not exhaustive.
+- Coda text: "These are examples from today's tooling. The specific mechanisms will change, but the spectrum will not."
+- Note to self: This is a preview of what people will learn hands-on in the AGENTS.md and Skills tutorials later today and Tuesday. Name the spectrum concept and illustrate it, don't teach each mechanism. The audience should walk away remembering the tradeoff (always-on costs context budget but is guaranteed present; on-demand is efficient but requires recognition), not a specific count. Say aloud: "These are examples from today's tooling. The specific mechanisms will change, but the spectrum will not."
 
 ## 12-mapping-exercise
 
@@ -208,21 +208,7 @@ Every tool has all of these six components:
   - The practical default: match model hosting to data sensitivity. When in doubt, do not send it. A schema description or synthetic sample is often enough.
 - Note to self: Do not go deep here. The point is to name the tiers so people know they exist, and to preview Thursday. One slide, one minute of talk time.
 
-## 17-four-surfaces
-
-**Rebuild this slide.** Replace the fixed four-box grid with a spectrum-oriented layout.
-
-- Key message: Context durability is a spectrum. Current tools give you several mechanisms along it — from files the agent reads every session to procedures it invokes only when the task matches. The mechanisms vary by tool and will evolve, but the underlying tradeoff between always-on and on-demand is durable.
-- Layout: A horizontal spectrum/gradient spanning the slide, anchored by "Always loaded" on the left and "Summoned on demand" on the right. Example mechanisms are positioned along the spectrum as illustrative points, not as an exhaustive numbered list.
-  - Left end (always loaded): Context documents — facts and conventions the agent has in hand every session.
-  - Middle-left: Rules — path-scoped constraints that fire when specific files are touched.
-  - Middle-right: Skills — task-triggered procedures the agent picks up when the work matches.
-  - Right end (on demand): Custom agents — distinct personas invoked for focused, narrower jobs.
-- A trailing "..." or visual fade at the right edge signals that the list is not exhaustive.
-- Coda text: "These are examples from today's tooling. The specific mechanisms will change, but the spectrum will not."
-- Note to self: This is a preview of what people will learn hands-on in the AGENTS.md and Skills tutorials later today and Tuesday. Name the spectrum concept and illustrate it, don't teach each mechanism. The audience should walk away remembering the tradeoff (always-on costs context budget but is guaranteed present; on-demand is efficient but requires recognition), not a specific count. Say aloud: "These are examples from today's tooling. The specific mechanisms will change, but the spectrum will not."
-
-## 18-reproducibility
+## 17-reproducibility
 
 **Rebuild this slide.** Tighten to the conceptual tension and its resolution. Cut prescriptive how-to bullets — those belong in later tutorials.
 
@@ -233,7 +219,7 @@ Every tool has all of these six components:
   - This means the standard of evidence does not change. Your code, your data pipeline, and your results still need to be reproducible by someone who never saw your chat log.
 - Note to self: This is a framing slide, not a how-to. The specific practices (git workflows, citing models, pinning dependencies) come in later tutorials. The point here is to name the tension so participants are thinking about it from day one.
 
-## 19-week-ahead
+## 18-week-ahead
 
 - Key message: Here is what the rest of this week builds on top of what you just learned.
 - Bullets:
@@ -244,7 +230,7 @@ Every tool has all of these six components:
   - Friday: Synthesis and project showcases.
 - Note to self: Keep this brisk. The point is to show that everything from today connects forward, and to motivate the afternoon session for people deciding whether to stay.
 
-## 20-closing
+## 19-closing
 
 **Rebuild this slide.** Replace the mechanism-focused takeaways with three goal-oriented principles that frame the entire week.
 
@@ -255,5 +241,7 @@ Every tool has all of these six components:
   - Secure — Your data has constraints that do not bend for convenience. Match model hosting to data sensitivity. Thursday makes this practical.
 - Closing line: "You do not need to pick a tool today. You need to know what to demand from any tool tomorrow."
 - Note to self: End with questions. If the mapping exercise surfaced anything surprising, reference it here. The three principles are also the framing for the responsible AI discussion on Wednesday — name that connection aloud.
+
+---
 
 ---
