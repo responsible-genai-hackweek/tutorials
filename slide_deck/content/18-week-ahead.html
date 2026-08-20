@@ -1,0 +1,166 @@
+<section data-slide="18-week-ahead"
+         aria-label="Slide 18: The Week Ahead"
+         class="slide">
+
+  <div class="accent-bar-top-purple"></div>
+  <div class="content">
+    <p class="eyebrow">The week ahead</p>
+    <h1>Each tutorial this week adds a layer of capability, and each layer requires the one below it.</h1>
+    <div class="stack">
+      <div class="layer layer-current">
+        <div class="layer-inner">
+          <p class="layer-day">Monday AM — this tutorial</p>
+          <p class="layer-name">Landscape of Coding Agents</p>
+          <p class="layer-desc">The shared mental model: LLMs, agent anatomy, context, failure modes.</p>
+        </div>
+      </div>
+      <div class="layer layer-2">
+        <div class="layer-inner">
+          <p class="layer-day">Monday PM</p>
+          <p class="layer-name">Context Engineering</p>
+          <p class="layer-desc">Writing AGENTS.md for a real scientific codebase. Building skills that encode your procedures.</p>
+        </div>
+      </div>
+      <div class="layer layer-3">
+        <div class="layer-inner">
+          <p class="layer-day">Tuesday</p>
+          <p class="layer-name">MCP Servers &amp; Workflow Patterns</p>
+          <p class="layer-desc">Giving agents structured access to real systems. Research / Plan / Implement as a discipline.</p>
+        </div>
+      </div>
+      <div class="layer layer-4">
+        <div class="layer-inner">
+          <p class="layer-day">Thursday</p>
+          <p class="layer-name">Sandboxing, Security &amp; Validation</p>
+          <p class="layer-desc">Constraining what capable agents can do. Knowing that the output is correct.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    section[data-slide="18-week-ahead"] {
+      background: var(--uw-white);
+      padding: var(--space-6) var(--space-10);
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section[data-slide="18-week-ahead"] .accent-bar-top-purple {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 8px;
+      background: var(--uw-spirit-purple);
+    }
+
+    section[data-slide="18-week-ahead"] .content {
+      max-width: 1300px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+
+    section[data-slide="18-week-ahead"] .eyebrow {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--uw-gray-70);
+      margin: 0;
+    }
+
+    section[data-slide="18-week-ahead"] h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.625rem, 2vw, 2rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+      color: var(--uw-spirit-purple);
+      margin: 0;
+    }
+
+    section[data-slide="18-week-ahead"] .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    section[data-slide="18-week-ahead"] .layer {
+      border-left: 6px solid transparent;
+      padding: var(--space-3) var(--space-4);
+      transition: background 0.15s;
+    }
+
+    section[data-slide="18-week-ahead"] .layer-inner {
+      display: grid;
+      grid-template-columns: 180px 260px 1fr;
+      gap: var(--space-4);
+      align-items: center;
+    }
+
+    section[data-slide="18-week-ahead"] .layer-current {
+      background: var(--uw-spirit-purple);
+      border-left-color: var(--uw-spirit-gold);
+    }
+
+    section[data-slide="18-week-ahead"] .layer-current .layer-day {
+      color: var(--uw-spirit-gold);
+    }
+
+    section[data-slide="18-week-ahead"] .layer-current .layer-name {
+      color: var(--uw-white);
+    }
+
+    section[data-slide="18-week-ahead"] .layer-current .layer-desc {
+      color: var(--uw-husky-gold-web);
+    }
+
+    section[data-slide="18-week-ahead"] .layer-2 {
+      background: rgba(75, 46, 131, 0.08);
+      border-left-color: var(--uw-spirit-purple);
+    }
+
+    section[data-slide="18-week-ahead"] .layer-3 {
+      background: rgba(75, 46, 131, 0.04);
+      border-left-color: rgba(75,46,131,0.4);
+    }
+
+    section[data-slide="18-week-ahead"] .layer-4 {
+      background: rgba(75, 46, 131, 0.02);
+      border-left-color: rgba(75,46,131,0.2);
+    }
+
+    section[data-slide="18-week-ahead"] .layer-day {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      color: var(--uw-gray-70);
+      font-style: italic;
+      margin: 0;
+    }
+
+    section[data-slide="18-week-ahead"] .layer-name {
+      font-family: var(--font-display);
+      font-size: clamp(1.375rem, 1.4vw, 1.375rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--uw-spirit-purple);
+      margin: 0;
+    }
+
+    section[data-slide="18-week-ahead"] .layer-desc {
+      font-family: var(--font-body);
+      font-size: clamp(1.375rem, 1.35vw, 1.375rem);
+      font-weight: 400;
+      color: var(--uw-gray-70);
+      line-height: 1.5;
+      margin: 0;
+    }
+  </style>
+</section>
