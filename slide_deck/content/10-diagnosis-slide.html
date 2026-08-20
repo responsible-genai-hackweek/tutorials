@@ -1,0 +1,158 @@
+<section data-slide="10-diagnosis-slide"
+         aria-label="Slide 10: Diagnosing Agent Problems"
+         class="slide">
+
+  <div class="accent-bar-top"></div>
+  <div class="content">
+    <p class="eyebrow">Diagnosing agent problems</p>
+
+    <svg class="tree" viewBox="0 0 1000 450" fill="none"
+         aria-label="Decision tree: context problem vs training problem">
+
+      <!-- ── ROOT QUESTION ─────────────────────────────────────── -->
+      <rect x="210" y="14" width="580" height="72" rx="4"
+            stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+      <text x="500" y="44" text-anchor="middle"
+            fill="white" font-size="21"
+            font-family="'Open Sans',sans-serif">Does the agent seem unaware of</text>
+      <text x="500" y="70" text-anchor="middle"
+            fill="white" font-size="21"
+            font-family="'Open Sans',sans-serif">something specific to your work?</text>
+
+      <!-- ── TRUNK + SPLIT ──────────────────────────────────────── -->
+      <line x1="500" y1="86" x2="500" y2="114" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+      <line x1="270" y1="114" x2="730" y2="114" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+      <line x1="270" y1="114" x2="270" y2="152" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+      <line x1="730" y1="114" x2="730" y2="152" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+      <polygon points="270,156 264,144 276,144" fill="rgba(255,255,255,0.35)"/>
+      <polygon points="730,156 724,144 736,144" fill="rgba(255,255,255,0.35)"/>
+      <!-- YES / NO labels -->
+      <text x="370" y="108" text-anchor="middle"
+            fill="#ffc700" font-size="18" font-weight="700"
+            font-family="'Encode Sans',sans-serif" letter-spacing="0.08em">YES</text>
+      <text x="634" y="108" text-anchor="middle"
+            fill="#ffc700" font-size="18" font-weight="700"
+            font-family="'Encode Sans',sans-serif" letter-spacing="0.08em">NO</text>
+
+      <!-- ── CONTEXT PROBLEM (left — gold, emphasized) ─────────── -->
+      <rect x="130" y="156" width="280" height="58" rx="3"
+            stroke="#ffc700" stroke-width="2"/>
+      <text x="270" y="191" text-anchor="middle"
+            fill="white" font-size="21" font-weight="700"
+            font-family="'Encode Sans',sans-serif" letter-spacing="0.04em">CONTEXT PROBLEM</text>
+
+      <!-- connector to levers -->
+      <line x1="270" y1="214" x2="270" y2="248" stroke="rgba(255,199,0,0.4)" stroke-width="1.5"/>
+      <polygon points="270,252 264,240 276,240" fill="rgba(255,199,0,0.4)"/>
+
+      <!-- Sub-label -->
+      <text x="270" y="270" text-anchor="middle"
+            fill="rgba(232,227,211,0.6)" font-size="16" font-style="italic"
+            font-family="'Open Sans',sans-serif">What context is it missing?</text>
+
+      <!-- Four levers -->
+      <text x="68" y="304" fill="rgba(255,199,0,0.75)" font-size="20"
+            font-family="'Open Sans',sans-serif">→</text>
+      <text x="94" y="304" fill="rgba(232,227,211,0.9)" font-size="18"
+            font-family="'Open Sans',sans-serif">Load your data schema into context</text>
+
+      <text x="68" y="344" fill="rgba(255,199,0,0.75)" font-size="20"
+            font-family="'Open Sans',sans-serif">→</text>
+      <text x="94" y="344" fill="rgba(232,227,211,0.9)" font-size="18"
+            font-family="'Open Sans',sans-serif">Add conventions to AGENTS.md</text>
+
+      <text x="68" y="384" fill="rgba(255,199,0,0.75)" font-size="20"
+            font-family="'Open Sans',sans-serif">→</text>
+      <text x="94" y="384" fill="rgba(232,227,211,0.9)" font-size="18"
+            font-family="'Open Sans',sans-serif">Define what "done" looks like</text>
+
+      <text x="68" y="424" fill="rgba(255,199,0,0.75)" font-size="20"
+            font-family="'Open Sans',sans-serif">→</text>
+      <text x="94" y="424" fill="rgba(232,227,211,0.9)" font-size="18"
+            font-family="'Open Sans',sans-serif">Write a skill for this task</text>
+
+      <!-- ── TRAINING PROBLEM (right) ───────────────────────────── -->
+      <rect x="590" y="156" width="280" height="58" rx="3"
+            stroke="rgba(255,255,255,0.55)" stroke-width="1.5"/>
+      <text x="730" y="191" text-anchor="middle"
+            fill="white" font-size="21" font-weight="700"
+            font-family="'Encode Sans',sans-serif" letter-spacing="0.04em">TRAINING PROBLEM</text>
+
+      <!-- connector to sub-question -->
+      <line x1="730" y1="214" x2="730" y2="252" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+      <polygon points="730,256 724,244 736,244" fill="rgba(255,255,255,0.35)"/>
+
+      <!-- Sub-question -->
+      <rect x="588" y="256" width="284" height="60" rx="3"
+            stroke="rgba(255,255,255,0.3)" stroke-width="1.25" stroke-dasharray="5 3"/>
+      <text x="730" y="281" text-anchor="middle"
+            fill="rgba(232,227,211,0.8)" font-size="18"
+            font-family="'Open Sans',sans-serif">Can I restructure</text>
+      <text x="730" y="303" text-anchor="middle"
+            fill="rgba(232,227,211,0.8)" font-size="18"
+            font-family="'Open Sans',sans-serif">the task?</text>
+
+      <!-- sub-branch split -->
+      <line x1="730" y1="316" x2="730" y2="336" stroke="rgba(255,255,255,0.3)" stroke-width="1.25"/>
+      <line x1="630" y1="336" x2="830" y2="336" stroke="rgba(255,255,255,0.3)" stroke-width="1.25"/>
+      <line x1="630" y1="336" x2="630" y2="360" stroke="rgba(255,255,255,0.3)" stroke-width="1.25"/>
+      <line x1="830" y1="336" x2="830" y2="360" stroke="rgba(255,255,255,0.3)" stroke-width="1.25"/>
+      <polygon points="630,364 624,352 636,352" fill="rgba(255,255,255,0.3)"/>
+      <polygon points="830,364 824,352 836,352" fill="rgba(255,255,255,0.3)"/>
+      <text x="678" y="331" text-anchor="middle"
+            fill="rgba(255,199,0,0.6)" font-size="15"
+            font-family="'Encode Sans',sans-serif" letter-spacing="0.06em">YES</text>
+      <text x="782" y="331" text-anchor="middle"
+            fill="rgba(255,199,0,0.6)" font-size="15"
+            font-family="'Encode Sans',sans-serif" letter-spacing="0.06em">NO</text>
+
+      <!-- Leaf: Restructure -->
+      <rect x="550" y="364" width="160" height="48" rx="3"
+            stroke="rgba(255,255,255,0.4)" stroke-width="1.25"/>
+      <text x="630" y="393" text-anchor="middle"
+            fill="rgba(232,227,211,0.85)" font-size="17"
+            font-family="'Open Sans',sans-serif">Restructure</text>
+
+      <!-- Leaf: Switch models -->
+      <rect x="750" y="364" width="160" height="48" rx="3"
+            stroke="rgba(255,255,255,0.4)" stroke-width="1.25"/>
+      <text x="830" y="393" text-anchor="middle"
+            fill="rgba(232,227,211,0.85)" font-size="17"
+            font-family="'Open Sans',sans-serif">Switch models</text>
+
+    </svg>
+  </div>
+
+  <style>
+    section[data-slide="10-diagnosis-slide"] {
+      background: var(--uw-spirit-purple);
+      padding: var(--space-6) var(--space-10);
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section[data-slide="10-diagnosis-slide"] .content {
+      max-width: 1300px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    section[data-slide="10-diagnosis-slide"] .eyebrow {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--uw-spirit-gold);
+      margin: 0;
+    }
+
+    section[data-slide="10-diagnosis-slide"] .tree {
+      width: 100%;
+    }
+  </style>
+</section>

@@ -1,0 +1,97 @@
+<section data-slide="09-agent-as-coworker"
+         aria-label="Slide 9: The Agent as Co-worker"
+         class="slide">
+
+  <div class="accent-bar"></div>
+  <div class="content">
+    <p class="eyebrow">Working with agents</p>
+    <h1>A co-worker who reviews and improves,<br>not a machine that builds from scratch.</h1>
+    <p class="lead">We will regard the agent as a co-worker who helps us review and improve existing code rather than build from scratch. This shapes how we prompt it, what we ask for, and how we evaluate its output.</p>
+    <ul class="bullets">
+      <li>The agent is most useful as a collaborator on existing work: reviewing code for correctness, suggesting improvements, and explaining what something does. It is not a code generator to which you hand a blank slate.</li>
+      <li>Every output the agent produces requires human judgment. The agent can be confidently wrong, and it will not tell you when it is. Checking what it gives you is not a quality control step; it is the core practice. The next slides name the specific ways agents fail so you can recognize them when they happen.</li>
+    </ul>
+  </div>
+
+  <style>
+    section[data-slide="09-agent-as-coworker"] {
+      background: var(--uw-white);
+      padding: var(--space-8) var(--space-10) var(--space-8) var(--space-12);
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section[data-slide="09-agent-as-coworker"] .accent-bar {
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 8px;
+      background: var(--uw-spirit-gold);
+    }
+
+    section[data-slide="09-agent-as-coworker"] .content {
+      max-width: 960px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+
+    section[data-slide="09-agent-as-coworker"] .eyebrow {
+      font-family: var(--font-body);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--uw-gray-70);
+      margin: 0;
+    }
+
+    section[data-slide="09-agent-as-coworker"] h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 3.2vw, 3.25rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.0;
+      color: var(--uw-spirit-purple);
+      margin: 0;
+    }
+
+    section[data-slide="09-agent-as-coworker"] .lead {
+      font-family: var(--font-body);
+      font-size: clamp(1.5rem, 1.5vw, 1.5rem);
+      font-weight: 400;
+      color: var(--uw-gray-70);
+      line-height: 1.6;
+      margin: 0;
+      border-left: 4px solid var(--uw-spirit-gold);
+      padding-left: var(--space-4);
+    }
+
+    section[data-slide="09-agent-as-coworker"] .bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    section[data-slide="09-agent-as-coworker"] .bullets li {
+      font-family: var(--font-body);
+      font-size: clamp(1.5rem, 1.5vw, 1.5rem);
+      color: var(--uw-gray-90);
+      line-height: 1.5;
+      padding-left: 2rem;
+      position: relative;
+    }
+
+    section[data-slide="09-agent-as-coworker"] .bullets li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--uw-gray-30);
+    }
+  </style>
+</section>
