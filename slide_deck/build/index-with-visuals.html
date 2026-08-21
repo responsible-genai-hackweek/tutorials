@@ -204,9 +204,18 @@
     <h1>Landscape of<br>Coding Agents</h1>
     <p class="context">An orientation to the technology underneath AI coding tools</p>
     <div class="meta">
-      <span class="presenters">Anthony Arendt · Anshul Tambay · Don Setiawan</span>
-      <span class="date">August 18, 2026</span>
+      <div class="presenter-list">
+        <span class="presenter">Anthony Arendt &middot; <em>eScience Institute</em></span>
+        <span class="presenter">Anshul Tambay · Don Setiawan &middot; <em>Scientific Software Engineering Center</em></span>
+        <span class="presenter">Jason Gilman &middot; <em>Element84</em></span>
+      </div>
+      <span class="date">August 24, 2026</span>
     </div>
+  </div>
+
+  <div class="logo-bar">
+    <img src="../assets/images/escience-logo.png" alt="eScience Institute" class="logo logo-escience">
+    <img src="../assets/images/SSEC-logo.png" alt="Scientific Software Engineering Center" class="logo logo-ssec">
   </div>
 
   <style>
@@ -225,14 +234,6 @@
       top: 0; left: 0; right: 0;
       height: 8px;
       background: var(--uw-spirit-gold);
-    }
-
-    section[data-slide="01-title"]::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 3px;
-      background: rgba(255, 199, 0, 0.3);
     }
 
     section[data-slide="01-title"] .title-layout {
@@ -273,15 +274,28 @@
     section[data-slide="01-title"] .meta {
       display: flex;
       flex-direction: column;
-      gap: var(--space-2);
+      gap: var(--space-3);
       align-items: center;
     }
 
-    section[data-slide="01-title"] .presenters {
+    section[data-slide="01-title"] .presenter-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      align-items: center;
+    }
+
+    section[data-slide="01-title"] .presenter {
       font-family: var(--font-body);
-      font-size: clamp(1.5rem, 1.6vw, 1.625rem);
+      font-size: clamp(1.25rem, 1.4vw, 1.5rem);
       font-weight: 600;
       color: var(--uw-white);
+    }
+
+    section[data-slide="01-title"] .presenter em {
+      font-style: normal;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.75);
     }
 
     section[data-slide="01-title"] .date {
@@ -289,6 +303,33 @@
       font-size: clamp(1.375rem, 1.4vw, 1.375rem);
       font-weight: 400;
       color: var(--uw-spirit-gold);
+    }
+
+    section[data-slide="01-title"] .logo-bar {
+      position: absolute;
+      bottom: var(--space-6);
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-10);
+      padding: 0 var(--space-10);
+    }
+
+    section[data-slide="01-title"] .logo {
+      height: clamp(5rem, 7vw, 8rem);
+      width: auto;
+      opacity: 0.9;
+    }
+
+    section[data-slide="01-title"] .logo-escience {
+      filter: brightness(0) invert(1);
+    }
+
+    section[data-slide="01-title"] .logo-ssec {
+      filter: invert(1);
+      mix-blend-mode: screen;
     }
   </style>
 </section>
