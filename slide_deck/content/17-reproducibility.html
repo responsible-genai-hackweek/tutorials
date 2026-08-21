@@ -3,23 +3,107 @@
          class="slide">
 
   <div class="accent-bar"></div>
-  <div class="content">
+
+  <div class="header">
     <p class="eyebrow">Reproducibility</p>
-    <h1>The conversation is scaffolding.<br>The artifact is the science.</h1>
-    <ul class="bullets">
-      <li>LLMs are stochastic. You will get different outputs from the same prompt on different days. This is a real tension with scientific reproducibility.</li>
-      <li>The resolution is to separate the process from the product. The conversation that generated the code is not the scientific record. The versioned artifact is.</li>
-      <li>This means the standard of evidence does not change. Your code, your data pipeline, and your results still need to be reproducible by someone who never saw your chat log.</li>
-    </ul>
+    <h1>Know what to keep:<br>the science lives in the artifact stack.</h1>
+  </div>
+
+  <div class="diagram-row">
+    <svg class="diagram" viewBox="0 0 1100 270" fill="none"
+         aria-label="Contrast diagram: ephemeral conversation on the left versus layered artifact stack on the right">
+
+      <!-- ── LEFT: THE CONVERSATION ─────────────────────────────── -->
+      <text x="127" y="16" text-anchor="middle"
+            font-family="'Encode Sans',sans-serif" font-size="16" font-weight="700"
+            letter-spacing="0.10em" fill="rgba(0,0,0,0.28)">THE CONVERSATION</text>
+
+      <rect x="10" y="26" width="234" height="200" rx="8"
+            stroke="rgba(0,0,0,0.10)" stroke-width="1.5" fill="rgba(0,0,0,0.02)"/>
+
+      <!-- Incoming bubble 1 -->
+      <rect x="22" y="46" width="150" height="28" rx="14" fill="rgba(0,0,0,0.07)"/>
+      <rect x="34" y="56" width="90" height="4" rx="2" fill="rgba(0,0,0,0.13)"/>
+      <rect x="34" y="64" width="60" height="4" rx="2" fill="rgba(0,0,0,0.08)"/>
+
+      <!-- Outgoing bubble -->
+      <rect x="64" y="92" width="150" height="28" rx="14" fill="rgba(75,46,131,0.09)"/>
+      <rect x="76" y="102" width="75" height="4" rx="2" fill="rgba(75,46,131,0.18)"/>
+      <rect x="76" y="110" width="100" height="4" rx="2" fill="rgba(75,46,131,0.12)"/>
+
+      <!-- Incoming bubble 2 -->
+      <rect x="22" y="152" width="120" height="28" rx="14" fill="rgba(0,0,0,0.07)"/>
+      <rect x="34" y="162" width="65" height="4" rx="2" fill="rgba(0,0,0,0.13)"/>
+      <rect x="34" y="170" width="45" height="4" rx="2" fill="rgba(0,0,0,0.08)"/>
+
+      <text x="127" y="246" text-anchor="middle"
+            font-family="'Open Sans',sans-serif" font-size="14" font-style="italic"
+            fill="rgba(0,0,0,0.28)">ephemeral · stochastic</text>
+
+      <!-- ── CENTER DIVIDER ──────────────────────────────────────── -->
+      <line x1="265" y1="12" x2="265" y2="258"
+            stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
+      <text x="265" y="142" text-anchor="middle"
+            font-family="'Encode Sans',sans-serif" font-size="40" font-weight="700"
+            fill="#ffc700">≠</text>
+
+      <!-- ── RIGHT: THE ARTIFACT STACK ─────────────────────────── -->
+      <text x="685" y="16" text-anchor="middle"
+            font-family="'Encode Sans',sans-serif" font-size="16" font-weight="700"
+            letter-spacing="0.10em" fill="#4b2e83">THE ARTIFACT STACK</text>
+
+      <!-- Tier 1: Research Plan -->
+      <rect x="282" y="26" width="806" height="40" rx="3"
+            fill="rgba(75,46,131,0.05)" stroke="rgba(75,46,131,0.14)" stroke-width="1"/>
+      <text x="296" y="52" font-family="'Encode Sans',sans-serif" font-size="16" font-weight="700"
+            fill="rgba(75,46,131,0.60)">Research Plan</text>
+      <text x="518" y="52" font-family="'Open Sans',sans-serif" font-size="14" font-weight="600"
+            fill="#2d2d2d">versioned spec doc — design intent before code is written</text>
+
+      <!-- Tier 2: Context Files -->
+      <rect x="282" y="74" width="806" height="40" rx="3"
+            fill="rgba(75,46,131,0.09)" stroke="rgba(75,46,131,0.20)" stroke-width="1"/>
+      <text x="296" y="100" font-family="'Encode Sans',sans-serif" font-size="16" font-weight="700"
+            fill="rgba(75,46,131,0.72)">Context Files</text>
+      <text x="518" y="100" font-family="'Open Sans',sans-serif" font-size="14" font-weight="600"
+            fill="#2d2d2d">AGENTS.md, skills — conventions that shaped agent behavior</text>
+
+      <!-- Tier 3: Environment Spec -->
+      <rect x="282" y="122" width="806" height="40" rx="3"
+            fill="rgba(75,46,131,0.14)" stroke="rgba(75,46,131,0.28)" stroke-width="1"/>
+      <text x="296" y="148" font-family="'Encode Sans',sans-serif" font-size="16" font-weight="700"
+            fill="rgba(75,46,131,0.84)">Environment Spec</text>
+      <text x="518" y="148" font-family="'Open Sans',sans-serif" font-size="14" font-weight="600"
+            fill="#2d2d2d">pixi.toml, lock file — exact pinned dependencies</text>
+
+      <!-- Tier 4: Code & Notebooks -->
+      <rect x="282" y="170" width="806" height="40" rx="3"
+            fill="rgba(75,46,131,0.21)" stroke="rgba(75,46,131,0.38)" stroke-width="1"/>
+      <text x="296" y="196" font-family="'Encode Sans',sans-serif" font-size="16" font-weight="700"
+            fill="#4b2e83">Code &amp; Notebooks</text>
+      <text x="518" y="196" font-family="'Open Sans',sans-serif" font-size="14" font-weight="600"
+            fill="#2d2d2d">git-versioned, runnable — the analysis itself</text>
+
+      <!-- Tier 5: Data Provenance -->
+      <rect x="282" y="218" width="806" height="40" rx="3"
+            fill="rgba(75,46,131,0.30)" stroke="rgba(75,46,131,0.52)" stroke-width="1"/>
+      <text x="296" y="244" font-family="'Encode Sans',sans-serif" font-size="16" font-weight="700"
+            fill="#4b2e83">Data Provenance</text>
+      <text x="518" y="244" font-family="'Open Sans',sans-serif" font-size="14" font-weight="600"
+            fill="#2d2d2d">dataset DOI, version identifier, access date, checksum</text>
+
+    </svg>
   </div>
 
   <style>
     section[data-slide="17-reproducibility"] {
       background: var(--uw-white);
-      padding: var(--space-8) var(--space-10) var(--space-8) var(--space-12);
-      align-items: center;
+      padding: var(--space-7) var(--space-10) var(--space-6) var(--space-12);
+      flex-direction: column;
+      justify-content: flex-start;
       position: relative;
       overflow: hidden;
+      gap: var(--space-5);
     }
 
     section[data-slide="17-reproducibility"] .accent-bar {
@@ -29,17 +113,15 @@
       background: var(--uw-spirit-gold);
     }
 
-    section[data-slide="17-reproducibility"] .content {
-      max-width: 900px;
-      width: 100%;
+    section[data-slide="17-reproducibility"] .header {
       display: flex;
       flex-direction: column;
-      gap: var(--space-5);
+      gap: var(--space-3);
     }
 
     section[data-slide="17-reproducibility"] .eyebrow {
       font-family: var(--font-body);
-      font-size: clamp(1.5rem, 1.4vw, 1.5rem);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
       font-weight: 400;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -58,29 +140,14 @@
       margin: 0;
     }
 
-    section[data-slide="17-reproducibility"] .bullets {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    section[data-slide="17-reproducibility"] .diagram-row {
+      flex: 1;
       display: flex;
-      flex-direction: column;
-      gap: var(--space-3);
+      align-items: center;
     }
 
-    section[data-slide="17-reproducibility"] .bullets li {
-      font-family: var(--font-body);
-      font-size: clamp(1.5rem, 1.6vw, 1.625rem);
-      color: var(--uw-gray-90);
-      line-height: 1.5;
-      padding-left: 2rem;
-      position: relative;
-    }
-
-    section[data-slide="17-reproducibility"] .bullets li::before {
-      content: '—';
-      position: absolute;
-      left: 0;
-      color: var(--uw-gray-30);
+    section[data-slide="17-reproducibility"] .diagram {
+      width: 100%;
     }
   </style>
 </section>

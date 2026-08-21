@@ -1496,9 +1496,16 @@
             fill="rgba(232,227,211,0.6)" font-size="16" font-style="italic"
             font-family="'Open Sans',sans-serif">What context is it missing?</text>
 
-      <!-- Single lever -->
-      <text x="270" y="360" text-anchor="middle" fill="rgba(232,227,211,0.9)" font-size="18"
-            font-family="'Open Sans',sans-serif">Provide additional context to shape agent behavior</text>
+      <!-- connector to leaf -->
+      <line x1="270" y1="278" x2="270" y2="344" stroke="rgba(255,199,0,0.4)" stroke-width="1.5"/>
+      <polygon points="270,348 264,336 276,336" fill="rgba(255,199,0,0.4)"/>
+
+      <!-- Leaf: Provide Additional Context -->
+      <rect x="130" y="350" width="280" height="48" rx="3"
+            stroke="rgba(255,199,0,0.5)" stroke-width="1.25"/>
+      <text x="270" y="379" text-anchor="middle"
+            fill="rgba(232,227,211,0.9)" font-size="17"
+            font-family="'Open Sans',sans-serif">Provide Additional Context</text>
 
       <!-- ── TRAINING PROBLEM (right) ───────────────────────────── -->
       <rect x="590" y="156" width="280" height="58" rx="3"
@@ -2428,23 +2435,107 @@
          class="slide">
 
   <div class="accent-bar"></div>
-  <div class="content">
+
+  <div class="header">
     <p class="eyebrow">Reproducibility</p>
-    <h1>The conversation is scaffolding.<br>The artifact is the science.</h1>
-    <ul class="bullets">
-      <li>LLMs are stochastic. You will get different outputs from the same prompt on different days. This is a real tension with scientific reproducibility.</li>
-      <li>The resolution is to separate the process from the product. The conversation that generated the code is not the scientific record. The versioned artifact is.</li>
-      <li>This means the standard of evidence does not change. Your code, your data pipeline, and your results still need to be reproducible by someone who never saw your chat log.</li>
-    </ul>
+    <h1>Know what to keep:<br>the science lives in the artifact stack.</h1>
+  </div>
+
+  <div class="diagram-row">
+    <svg class="diagram" viewBox="0 0 1100 270" fill="none"
+         aria-label="Contrast diagram: ephemeral conversation on the left versus layered artifact stack on the right">
+
+      <!-- ── LEFT: THE CONVERSATION ─────────────────────────────── -->
+      <text x="127" y="16" text-anchor="middle"
+            font-family="'Encode Sans',sans-serif" font-size="16" font-weight="700"
+            letter-spacing="0.10em" fill="rgba(0,0,0,0.28)">THE CONVERSATION</text>
+
+      <rect x="10" y="26" width="234" height="200" rx="8"
+            stroke="rgba(0,0,0,0.10)" stroke-width="1.5" fill="rgba(0,0,0,0.02)"/>
+
+      <!-- Incoming bubble 1 -->
+      <rect x="22" y="46" width="150" height="28" rx="14" fill="rgba(0,0,0,0.07)"/>
+      <rect x="34" y="56" width="90" height="4" rx="2" fill="rgba(0,0,0,0.13)"/>
+      <rect x="34" y="64" width="60" height="4" rx="2" fill="rgba(0,0,0,0.08)"/>
+
+      <!-- Outgoing bubble -->
+      <rect x="64" y="92" width="150" height="28" rx="14" fill="rgba(75,46,131,0.09)"/>
+      <rect x="76" y="102" width="75" height="4" rx="2" fill="rgba(75,46,131,0.18)"/>
+      <rect x="76" y="110" width="100" height="4" rx="2" fill="rgba(75,46,131,0.12)"/>
+
+      <!-- Incoming bubble 2 -->
+      <rect x="22" y="152" width="120" height="28" rx="14" fill="rgba(0,0,0,0.07)"/>
+      <rect x="34" y="162" width="65" height="4" rx="2" fill="rgba(0,0,0,0.13)"/>
+      <rect x="34" y="170" width="45" height="4" rx="2" fill="rgba(0,0,0,0.08)"/>
+
+      <text x="127" y="246" text-anchor="middle"
+            font-family="'Open Sans',sans-serif" font-size="14" font-style="italic"
+            fill="rgba(0,0,0,0.28)">ephemeral · stochastic</text>
+
+      <!-- ── CENTER DIVIDER ──────────────────────────────────────── -->
+      <line x1="265" y1="12" x2="265" y2="258"
+            stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
+      <text x="265" y="142" text-anchor="middle"
+            font-family="'Encode Sans',sans-serif" font-size="40" font-weight="700"
+            fill="#ffc700">≠</text>
+
+      <!-- ── RIGHT: THE ARTIFACT STACK ─────────────────────────── -->
+      <text x="685" y="16" text-anchor="middle"
+            font-family="'Encode Sans',sans-serif" font-size="16" font-weight="700"
+            letter-spacing="0.10em" fill="#4b2e83">THE ARTIFACT STACK</text>
+
+      <!-- Tier 1: Research Plan -->
+      <rect x="282" y="26" width="806" height="40" rx="3"
+            fill="rgba(75,46,131,0.05)" stroke="rgba(75,46,131,0.14)" stroke-width="1"/>
+      <text x="296" y="52" font-family="'Encode Sans',sans-serif" font-size="16" font-weight="700"
+            fill="rgba(75,46,131,0.60)">Research Plan</text>
+      <text x="518" y="52" font-family="'Open Sans',sans-serif" font-size="14" font-weight="600"
+            fill="#2d2d2d">versioned spec doc — design intent before code is written</text>
+
+      <!-- Tier 2: Context Files -->
+      <rect x="282" y="74" width="806" height="40" rx="3"
+            fill="rgba(75,46,131,0.09)" stroke="rgba(75,46,131,0.20)" stroke-width="1"/>
+      <text x="296" y="100" font-family="'Encode Sans',sans-serif" font-size="16" font-weight="700"
+            fill="rgba(75,46,131,0.72)">Context Files</text>
+      <text x="518" y="100" font-family="'Open Sans',sans-serif" font-size="14" font-weight="600"
+            fill="#2d2d2d">AGENTS.md, skills — conventions that shaped agent behavior</text>
+
+      <!-- Tier 3: Environment Spec -->
+      <rect x="282" y="122" width="806" height="40" rx="3"
+            fill="rgba(75,46,131,0.14)" stroke="rgba(75,46,131,0.28)" stroke-width="1"/>
+      <text x="296" y="148" font-family="'Encode Sans',sans-serif" font-size="16" font-weight="700"
+            fill="rgba(75,46,131,0.84)">Environment Spec</text>
+      <text x="518" y="148" font-family="'Open Sans',sans-serif" font-size="14" font-weight="600"
+            fill="#2d2d2d">pixi.toml, lock file — exact pinned dependencies</text>
+
+      <!-- Tier 4: Code & Notebooks -->
+      <rect x="282" y="170" width="806" height="40" rx="3"
+            fill="rgba(75,46,131,0.21)" stroke="rgba(75,46,131,0.38)" stroke-width="1"/>
+      <text x="296" y="196" font-family="'Encode Sans',sans-serif" font-size="16" font-weight="700"
+            fill="#4b2e83">Code &amp; Notebooks</text>
+      <text x="518" y="196" font-family="'Open Sans',sans-serif" font-size="14" font-weight="600"
+            fill="#2d2d2d">git-versioned, runnable — the analysis itself</text>
+
+      <!-- Tier 5: Data Provenance -->
+      <rect x="282" y="218" width="806" height="40" rx="3"
+            fill="rgba(75,46,131,0.30)" stroke="rgba(75,46,131,0.52)" stroke-width="1"/>
+      <text x="296" y="244" font-family="'Encode Sans',sans-serif" font-size="16" font-weight="700"
+            fill="#4b2e83">Data Provenance</text>
+      <text x="518" y="244" font-family="'Open Sans',sans-serif" font-size="14" font-weight="600"
+            fill="#2d2d2d">dataset DOI, version identifier, access date, checksum</text>
+
+    </svg>
   </div>
 
   <style>
     section[data-slide="17-reproducibility"] {
       background: var(--uw-white);
-      padding: var(--space-8) var(--space-10) var(--space-8) var(--space-12);
-      align-items: center;
+      padding: var(--space-7) var(--space-10) var(--space-6) var(--space-12);
+      flex-direction: column;
+      justify-content: flex-start;
       position: relative;
       overflow: hidden;
+      gap: var(--space-5);
     }
 
     section[data-slide="17-reproducibility"] .accent-bar {
@@ -2454,17 +2545,15 @@
       background: var(--uw-spirit-gold);
     }
 
-    section[data-slide="17-reproducibility"] .content {
-      max-width: 900px;
-      width: 100%;
+    section[data-slide="17-reproducibility"] .header {
       display: flex;
       flex-direction: column;
-      gap: var(--space-5);
+      gap: var(--space-3);
     }
 
     section[data-slide="17-reproducibility"] .eyebrow {
       font-family: var(--font-body);
-      font-size: clamp(1.5rem, 1.4vw, 1.5rem);
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
       font-weight: 400;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -2483,33 +2572,153 @@
       margin: 0;
     }
 
-    section[data-slide="17-reproducibility"] .bullets {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    section[data-slide="17-reproducibility"] .diagram-row {
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    section[data-slide="17-reproducibility"] .diagram {
+      width: 100%;
+    }
+  </style>
+</section>
+<section data-slide="18-git-workflows"
+         aria-label="Slide 18: Git Workflows"
+         class="slide">
+
+  <div class="accent-bar"></div>
+
+  <div class="header">
+    <p class="eyebrow">Git Workflows</p>
+    <h1>Git workflows: essential when working with coding agents.</h1>
+  </div>
+
+  <div class="diagram-row">
+    <svg class="diagram" viewBox="0 0 950 315" fill="none"
+         aria-label="Vertical flow diagram: commit baseline, agent runs, review, commit with attestation — repeat">
+
+      <!-- ── CONNECTOR LINE ─────────────────────────────────────── -->
+      <line x1="20" y1="43" x2="20" y2="251"
+            stroke="rgba(75,46,131,0.20)" stroke-width="1.5" stroke-dasharray="5 3"/>
+
+      <!-- ── ARROWS ─────────────────────────────────────────────── -->
+      <polygon points="20,79 14,67 26,67" fill="rgba(75,46,131,0.30)"/>
+      <polygon points="20,149 14,137 26,137" fill="rgba(75,46,131,0.30)"/>
+      <polygon points="20,219 14,207 26,207" fill="rgba(75,46,131,0.30)"/>
+
+      <!-- ── ROW 1: YOU — commit baseline ──────────────────────── -->
+      <rect x="35" y="24" width="150" height="38" rx="19"
+            fill="rgba(75,46,131,0.10)" stroke="#4b2e83" stroke-width="1.5"/>
+      <text x="110" y="48" text-anchor="middle"
+            font-family="'Encode Sans',sans-serif" font-size="17" font-weight="700"
+            fill="#4b2e83">YOU</text>
+      <text x="205" y="38" font-family="'Encode Sans',sans-serif" font-size="19" font-weight="700"
+            fill="#4b2e83">Commit: establish a clean baseline</text>
+      <text x="205" y="60" font-family="'Open Sans',sans-serif" font-size="15"
+            fill="rgba(0,0,0,0.45)">before the agent starts, so you have a safe rollback point</text>
+
+      <!-- ── ROW 2: AGENT — runs ────────────────────────────────── -->
+      <rect x="35" y="94" width="150" height="38" rx="19"
+            fill="#4b2e83"/>
+      <text x="110" y="118" text-anchor="middle"
+            font-family="'Encode Sans',sans-serif" font-size="17" font-weight="700"
+            fill="white">AGENT</text>
+      <text x="205" y="108" font-family="'Encode Sans',sans-serif" font-size="19" font-weight="700"
+            fill="#4b2e83">Agent runs</text>
+      <text x="205" y="130" font-family="'Open Sans',sans-serif" font-size="15"
+            fill="rgba(0,0,0,0.45)">large changes, fast, confident — and potentially wrong</text>
+
+      <!-- ── ROW 3: YOU — review ────────────────────────────────── -->
+      <rect x="35" y="164" width="150" height="38" rx="19"
+            fill="rgba(75,46,131,0.10)" stroke="#4b2e83" stroke-width="1.5"/>
+      <text x="110" y="188" text-anchor="middle"
+            font-family="'Encode Sans',sans-serif" font-size="17" font-weight="700"
+            fill="#4b2e83">YOU</text>
+      <text x="205" y="178" font-family="'Encode Sans',sans-serif" font-size="19" font-weight="700"
+            fill="#4b2e83">Review every change</text>
+      <text x="205" y="200" font-family="'Open Sans',sans-serif" font-size="15"
+            fill="rgba(0,0,0,0.45)">read the diff — do not accept output you have not checked</text>
+
+      <!-- ── ROW 4: YOU — commit with attestation ───────────────── -->
+      <rect x="35" y="232" width="150" height="38" rx="19"
+            fill="rgba(75,46,131,0.10)" stroke="#4b2e83" stroke-width="1.5"/>
+      <text x="110" y="256" text-anchor="middle"
+            font-family="'Encode Sans',sans-serif" font-size="17" font-weight="700"
+            fill="#4b2e83">YOU</text>
+      <text x="205" y="246" font-family="'Encode Sans',sans-serif" font-size="19" font-weight="700"
+            fill="#4b2e83">Commit: your message is the attestation</text>
+      <!-- Commit message example -->
+      <rect x="205" y="253" width="735" height="28" rx="3"
+            fill="rgba(75,46,131,0.06)" stroke="rgba(75,46,131,0.18)" stroke-width="1"/>
+      <text x="216" y="272" font-family="'Courier New',monospace" font-size="14"
+            fill="#4b2e83">refactor snow depth aggregation to use xarray DataArray</text>
+
+      <!-- ── REPEAT NOTE ─────────────────────────────────────────── -->
+      <text x="475" y="305" text-anchor="middle"
+            font-family="'Open Sans',sans-serif" font-size="17" font-style="italic"
+            fill="#b7a57a">↻ repeat for each agent task</text>
+
+    </svg>
+  </div>
+
+  <style>
+    section[data-slide="18-git-workflows"] {
+      background: var(--uw-white);
+      padding: var(--space-7) var(--space-10) var(--space-6) var(--space-12);
+      flex-direction: column;
+      justify-content: flex-start;
+      position: relative;
+      overflow: hidden;
+      gap: var(--space-5);
+    }
+
+    section[data-slide="18-git-workflows"] .accent-bar {
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 8px;
+      background: var(--uw-spirit-gold);
+    }
+
+    section[data-slide="18-git-workflows"] .header {
       display: flex;
       flex-direction: column;
       gap: var(--space-3);
     }
 
-    section[data-slide="17-reproducibility"] .bullets li {
+    section[data-slide="18-git-workflows"] .eyebrow {
       font-family: var(--font-body);
-      font-size: clamp(1.5rem, 1.6vw, 1.625rem);
-      color: var(--uw-gray-90);
-      line-height: 1.5;
-      padding-left: 2rem;
-      position: relative;
+      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--uw-gray-70);
+      margin: 0;
     }
 
-    section[data-slide="17-reproducibility"] .bullets li::before {
-      content: '—';
-      position: absolute;
-      left: 0;
-      color: var(--uw-gray-30);
+    section[data-slide="18-git-workflows"] h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--uw-spirit-purple);
+      margin: 0;
+    }
+
+    section[data-slide="18-git-workflows"] .diagram-row {
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    section[data-slide="18-git-workflows"] .diagram {
+      width: 100%;
     }
   </style>
 </section>
-<section data-slide="18-week-ahead"
+<section data-slide="19-week-ahead"
          aria-label="Slide 18: The Week Ahead"
          class="slide">
 
@@ -2536,13 +2745,20 @@
         <div class="layer-inner">
           <p class="layer-day">Tuesday</p>
           <p class="layer-name">MCP Servers &amp; Workflow Patterns</p>
-          <p class="layer-desc">Giving agents structured access to real systems. Research / Plan / Implement as a discipline.</p>
+          <p class="layer-desc">Giving agents structured access to real systems. Separating deliberation from execution so design choices become reviewable artifacts before code is written.</p>
         </div>
       </div>
       <div class="layer layer-4">
         <div class="layer-inner">
+          <p class="layer-day">Wednesday</p>
+          <p class="layer-name">GenAI-ready Data</p>
+          <p class="layer-desc">Connecting agents to NASA Earthdata sources. Making data discoverable and queryable by language models.</p>
+        </div>
+      </div>
+      <div class="layer layer-5">
+        <div class="layer-inner">
           <p class="layer-day">Thursday</p>
-          <p class="layer-name">Sandboxing, Security &amp; Validation</p>
+          <p class="layer-name">Sandboxing, Security, Validation &amp; Metrics</p>
           <p class="layer-desc">Constraining what capable agents can do. Knowing that the output is correct.</p>
         </div>
       </div>
@@ -2550,7 +2766,7 @@
   </div>
 
   <style>
-    section[data-slide="18-week-ahead"] {
+    section[data-slide="19-week-ahead"] {
       background: var(--uw-white);
       padding: var(--space-6) var(--space-10);
       align-items: center;
@@ -2559,14 +2775,14 @@
       overflow: hidden;
     }
 
-    section[data-slide="18-week-ahead"] .accent-bar-top-purple {
+    section[data-slide="19-week-ahead"] .accent-bar-top-purple {
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 8px;
       background: var(--uw-spirit-purple);
     }
 
-    section[data-slide="18-week-ahead"] .content {
+    section[data-slide="19-week-ahead"] .content {
       max-width: 1300px;
       width: 100%;
       display: flex;
@@ -2574,7 +2790,7 @@
       gap: var(--space-5);
     }
 
-    section[data-slide="18-week-ahead"] .eyebrow {
+    section[data-slide="19-week-ahead"] .eyebrow {
       font-family: var(--font-body);
       font-size: clamp(1.125rem, 1.1vw, 1.125rem);
       font-weight: 400;
@@ -2584,7 +2800,7 @@
       margin: 0;
     }
 
-    section[data-slide="18-week-ahead"] h1 {
+    section[data-slide="19-week-ahead"] h1 {
       font-family: var(--font-display);
       font-size: clamp(1.625rem, 2vw, 2rem);
       font-weight: 700;
@@ -2595,58 +2811,63 @@
       margin: 0;
     }
 
-    section[data-slide="18-week-ahead"] .stack {
+    section[data-slide="19-week-ahead"] .stack {
       display: flex;
       flex-direction: column;
       gap: 0;
     }
 
-    section[data-slide="18-week-ahead"] .layer {
+    section[data-slide="19-week-ahead"] .layer {
       border-left: 6px solid transparent;
       padding: var(--space-3) var(--space-4);
       transition: background 0.15s;
     }
 
-    section[data-slide="18-week-ahead"] .layer-inner {
+    section[data-slide="19-week-ahead"] .layer-inner {
       display: grid;
       grid-template-columns: 180px 260px 1fr;
       gap: var(--space-4);
       align-items: center;
     }
 
-    section[data-slide="18-week-ahead"] .layer-current {
+    section[data-slide="19-week-ahead"] .layer-current {
       background: var(--uw-spirit-purple);
       border-left-color: var(--uw-spirit-gold);
     }
 
-    section[data-slide="18-week-ahead"] .layer-current .layer-day {
+    section[data-slide="19-week-ahead"] .layer-current .layer-day {
       color: var(--uw-spirit-gold);
     }
 
-    section[data-slide="18-week-ahead"] .layer-current .layer-name {
+    section[data-slide="19-week-ahead"] .layer-current .layer-name {
       color: var(--uw-white);
     }
 
-    section[data-slide="18-week-ahead"] .layer-current .layer-desc {
+    section[data-slide="19-week-ahead"] .layer-current .layer-desc {
       color: var(--uw-husky-gold-web);
     }
 
-    section[data-slide="18-week-ahead"] .layer-2 {
+    section[data-slide="19-week-ahead"] .layer-2 {
       background: rgba(75, 46, 131, 0.08);
       border-left-color: var(--uw-spirit-purple);
     }
 
-    section[data-slide="18-week-ahead"] .layer-3 {
+    section[data-slide="19-week-ahead"] .layer-3 {
       background: rgba(75, 46, 131, 0.04);
       border-left-color: rgba(75,46,131,0.4);
     }
 
-    section[data-slide="18-week-ahead"] .layer-4 {
+    section[data-slide="19-week-ahead"] .layer-4 {
       background: rgba(75, 46, 131, 0.02);
       border-left-color: rgba(75,46,131,0.2);
     }
 
-    section[data-slide="18-week-ahead"] .layer-day {
+    section[data-slide="19-week-ahead"] .layer-5 {
+      background: rgba(75, 46, 131, 0.01);
+      border-left-color: rgba(75,46,131,0.1);
+    }
+
+    section[data-slide="19-week-ahead"] .layer-day {
       font-family: var(--font-body);
       font-size: clamp(1.125rem, 1.1vw, 1.125rem);
       font-weight: 400;
@@ -2655,7 +2876,7 @@
       margin: 0;
     }
 
-    section[data-slide="18-week-ahead"] .layer-name {
+    section[data-slide="19-week-ahead"] .layer-name {
       font-family: var(--font-display);
       font-size: clamp(1.375rem, 1.4vw, 1.375rem);
       font-weight: 800;
@@ -2665,7 +2886,7 @@
       margin: 0;
     }
 
-    section[data-slide="18-week-ahead"] .layer-desc {
+    section[data-slide="19-week-ahead"] .layer-desc {
       font-family: var(--font-body);
       font-size: clamp(1.375rem, 1.35vw, 1.375rem);
       font-weight: 400;
@@ -2675,7 +2896,7 @@
     }
   </style>
 </section>
-<section data-slide="19-closing"
+<section data-slide="20-closing"
          aria-label="Slide 19: Closing"
          class="slide">
 
@@ -2695,14 +2916,10 @@
         <p class="principle-desc">Your data has constraints that do not bend for convenience. Match model hosting to data sensitivity. Thursday makes this practical.</p>
       </div>
     </div>
-    <div class="close">
-      <p class="close-main">You do not need to pick a tool today. You need to know what to demand from any tool tomorrow.</p>
-      <p class="close-cta">Questions welcome now. We will be available all week.</p>
-    </div>
   </div>
 
   <style>
-    section[data-slide="19-closing"] {
+    section[data-slide="20-closing"] {
       background: var(--uw-spirit-purple);
       padding: var(--space-8) var(--space-10);
       align-items: center;
@@ -2711,7 +2928,7 @@
       overflow: hidden;
     }
 
-    section[data-slide="19-closing"]::before {
+    section[data-slide="20-closing"]::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
@@ -2719,7 +2936,7 @@
       background: var(--uw-spirit-gold);
     }
 
-    section[data-slide="19-closing"]::after {
+    section[data-slide="20-closing"]::after {
       content: '';
       position: absolute;
       bottom: 0; left: 0; right: 0;
@@ -2727,7 +2944,7 @@
       background: rgba(255, 199, 0, 0.3);
     }
 
-    section[data-slide="19-closing"] .content {
+    section[data-slide="20-closing"] .content {
       max-width: 1300px;
       width: 100%;
       display: flex;
@@ -2735,7 +2952,7 @@
       gap: var(--space-6);
     }
 
-    section[data-slide="19-closing"] .eyebrow {
+    section[data-slide="20-closing"] .eyebrow {
       font-family: var(--font-body);
       font-size: clamp(1.5rem, 1.4vw, 1.5rem);
       font-weight: 400;
@@ -2745,13 +2962,13 @@
       margin: 0;
     }
 
-    section[data-slide="19-closing"] .principles {
+    section[data-slide="20-closing"] .principles {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: var(--space-5);
     }
 
-    section[data-slide="19-closing"] .principle {
+    section[data-slide="20-closing"] .principle {
       border-top: 3px solid var(--uw-spirit-gold);
       padding-top: var(--space-4);
       display: flex;
@@ -2759,7 +2976,7 @@
       gap: var(--space-3);
     }
 
-    section[data-slide="19-closing"] .principle-name {
+    section[data-slide="20-closing"] .principle-name {
       font-family: var(--font-display);
       font-size: clamp(2rem, 2.4vw, 2.5rem);
       font-weight: 900;
@@ -2770,7 +2987,7 @@
       margin: 0;
     }
 
-    section[data-slide="19-closing"] .principle-desc {
+    section[data-slide="20-closing"] .principle-desc {
       font-family: var(--font-body);
       font-size: clamp(1.5rem, 1.5vw, 1.5rem);
       font-weight: 400;
@@ -2779,7 +2996,7 @@
       margin: 0;
     }
 
-    section[data-slide="19-closing"] .close {
+    section[data-slide="20-closing"] .close {
       display: flex;
       flex-direction: column;
       gap: var(--space-3);
@@ -2787,7 +3004,7 @@
       padding-top: var(--space-4);
     }
 
-    section[data-slide="19-closing"] .close-main {
+    section[data-slide="20-closing"] .close-main {
       font-family: var(--font-display);
       font-size: clamp(1.625rem, 2vw, 2rem);
       font-weight: 700;
@@ -2798,7 +3015,7 @@
       margin: 0;
     }
 
-    section[data-slide="19-closing"] .close-cta {
+    section[data-slide="20-closing"] .close-cta {
       font-family: var(--font-body);
       font-size: clamp(1.5rem, 1.4vw, 1.5rem);
       font-weight: 400;

@@ -31,10 +31,13 @@ Co-instructors: Anthony Arendt, Anshul Tambay
 
 Title slide with UW branding. **Edit existing HTML — update text only.**
 
-- Presenter names: Anthony Arendt, Anshul Tambay, Don Setiawan
-- Date: August 18, 2026
+- Presenter names: 
+  - Anthony Arendt: eScience Insitute
+  - Anshul Tambay, Don Setiawan: Scientific Software Engineering Center
+  - Jason Gilman: Element84
+- Date: August 24, 2026
 - Session title: Landscape of Coding Agents
-- NASA Responsible GenAI HACK Week, CryoCloud
+- NASA Responsible GenAI hackweek, CryoCloud
 
 ## 02-framing
 
@@ -211,16 +214,26 @@ Render as two-column layout with the phrase as headline.
 
 ## 17-reproducibility
 
-**Rebuild this slide.** Tighten to the conceptual tension and its resolution. Cut prescriptive how-to bullets — those belong in later tutorials.
+- Key message: Know what to keep — the science lives in the artifact stack.
+- Layout: Two-zone. Top ~40%: eyebrow and headline only. Bottom ~60%: full-width SVG diagram — ephemeral conversation on the left, layered artifact stack on the right.
+- Note to self: LLMs are stochastic. You will get different outputs from the same prompt on different days. This is a real tension with scientific reproducibility.
+- Note to self: The resolution is to separate the process from the product. The conversation that generated the code is not the scientific record. The versioned artifact is.
+- Note to self: The standard of evidence does not change. Your code, your data pipeline, and your results still need to be reproducible by someone who never saw your chat log.
+- Note to self: The artifact stack has layers — name them aloud when walking through the diagram: research plan / spec doc → context files (AGENTS.md, skills) → environment spec (pixi.toml, lock file) → code and notebooks → data provenance (dataset DOI, version, checksum). The chat log sits outside this stack entirely. It is scaffolding, not record.
+- Note to self: This is a framing slide, not a how-to. The specific practices (git workflows, citing models, pinning dependencies) come in later tutorials. The point is to name the tension so participants are thinking about it from day one.
 
-- Key message: The conversation is scaffolding. The artifact is the science.
-- Bullets:
-  - LLMs are stochastic. You will get different outputs from the same prompt on different days. This is a real tension with scientific reproducibility.
-  - The resolution is to separate the process from the product. The conversation that generated the code is not the scientific record. The versioned artifact is.
-  - This means the standard of evidence does not change. Your code, your data pipeline, and your results still need to be reproducible by someone who never saw your chat log.
-- Note to self: This is a framing slide, not a how-to. The specific practices (git workflows, citing models, pinning dependencies) come in later tutorials. The point here is to name the tension so participants are thinking about it from day one.
+## 18-git-workflows
 
-## 18-week-ahead
+- Key message: The agent moves fast. Git is what makes that safe.
+- Layout: Two-zone. Top ~35%: eyebrow and headline. Bottom ~65%: full-width SVG git graph with three gold callout annotations.
+- Note to self: Git was always best practice, but with AI-assisted coding it becomes load-bearing. Without it you cannot audit what the agent did, roll back a confident mistake, or explain your analysis to a reviewer.
+- Note to self: Three practices shown in the diagram — walk through them left to right:
+  1. Set context first — commit your AGENTS.md and context files before starting an agent session. This anchors the history.
+  2. Try on a branch — run the agent's suggestion on a branch, verify it, then merge. This makes accepting the agent's output a recoverable decision, not an irreversible one.
+  3. Tag what you publish — the version cited in a paper must be pinned and findable by someone with no access to your chat history.
+- Note to self: The commit message is the audit trail. "Agent rewrote data ingestion pipeline" is a meaningful scientific record entry. A diff with no message is not.
+
+## 19-week-ahead
 
 - Key message: Here is what the rest of this week builds on top of what you just learned.
 - Bullets:
@@ -231,7 +244,7 @@ Render as two-column layout with the phrase as headline.
   - Friday: Synthesis and project showcases.
 - Note to self: Keep this brisk. The point is to show that everything from today connects forward, and to motivate the afternoon session for people deciding whether to stay.
 
-## 19-closing
+## 20-closing
 
 **Rebuild this slide.** Replace the mechanism-focused takeaways with three goal-oriented principles that frame the entire week.
 

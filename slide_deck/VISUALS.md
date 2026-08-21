@@ -34,7 +34,8 @@ Diagrams sourced from Jason Gilman (Element 84) must carry visible attribution o
 # Per-slide additions
 
 ## 01-title
-No additions.
+- **Source:** assets/images/escience-logo.png, assets/images/SSEC-logo.png
+- **Description:** place institutional logos for eScience and SSEC across the bottom of the slide, big enough to be visible in a slide presentation.
 
 ## 02-framing
 No additions.
@@ -92,7 +93,10 @@ No additions.
 ## 17-reproducibility
 No additions.
 
-## 18-week-ahead
+## 18-git-workflows
+No additions. The inline SVG git graph serves as the primary visual.
+
+## 19-week-ahead
 - **Diagram:** A vertical or horizontal "building-up" arc showing the week's tutorials as stacked layers, each building on the one below it. The structure should convey that each tutorial adds a layer of capability, and each layer requires the one before it.
 - **Suggested layout:** Bottom-to-top stack or left-to-right progression:
   - Foundation: Landscape of Coding Agents (Monday AM — this tutorial)
@@ -103,7 +107,7 @@ No additions.
   - Layer 6: Verification & Reproducibility — knowing it is correct (Thursday)
 - **Design notes:** This is not a schedule list — it is a dependency diagram. Each layer should visually rest on the one below it. Use the UW brand palette to distinguish layers. Keep text minimal (just the layer name). The point is to show participants that skipping a layer means the ones above it do not work.
 
-## 19-closing
+## 20-closing
 No additions.
 
 ---
