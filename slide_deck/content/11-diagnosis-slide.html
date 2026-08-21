@@ -1,5 +1,5 @@
-<section data-slide="09-diagnosis-slide"
-         aria-label="Slide 9: Diagnosing Agent Problems"
+<section data-slide="11-diagnosis-slide"
+         aria-label="Slide 11: Diagnosing Agent Problems"
          class="slide">
 
   <div class="accent-bar-top"></div>
@@ -47,29 +47,19 @@
 
       <!-- Sub-label -->
       <text x="270" y="270" text-anchor="middle"
-            fill="rgba(232,227,211,0.6)" font-size="16" font-style="italic"
+            fill="rgba(232,227,211,0.85)" font-size="16" font-style="italic"
             font-family="'Open Sans',sans-serif">What context is it missing?</text>
 
-      <!-- Four levers -->
-      <text x="68" y="304" fill="rgba(255,199,0,0.75)" font-size="20"
-            font-family="'Open Sans',sans-serif">→</text>
-      <text x="94" y="304" fill="rgba(232,227,211,0.9)" font-size="18"
-            font-family="'Open Sans',sans-serif">Load your data schema into context</text>
+      <!-- connector to leaf -->
+      <line x1="270" y1="278" x2="270" y2="344" stroke="rgba(255,199,0,0.4)" stroke-width="1.5"/>
+      <polygon points="270,348 264,336 276,336" fill="rgba(255,199,0,0.4)"/>
 
-      <text x="68" y="344" fill="rgba(255,199,0,0.75)" font-size="20"
-            font-family="'Open Sans',sans-serif">→</text>
-      <text x="94" y="344" fill="rgba(232,227,211,0.9)" font-size="18"
-            font-family="'Open Sans',sans-serif">Add conventions to AGENTS.md</text>
-
-      <text x="68" y="384" fill="rgba(255,199,0,0.75)" font-size="20"
-            font-family="'Open Sans',sans-serif">→</text>
-      <text x="94" y="384" fill="rgba(232,227,211,0.9)" font-size="18"
-            font-family="'Open Sans',sans-serif">Define what "done" looks like</text>
-
-      <text x="68" y="424" fill="rgba(255,199,0,0.75)" font-size="20"
-            font-family="'Open Sans',sans-serif">→</text>
-      <text x="94" y="424" fill="rgba(232,227,211,0.9)" font-size="18"
-            font-family="'Open Sans',sans-serif">Write a skill for this task</text>
+      <!-- Leaf: Provide Additional Context -->
+      <rect x="130" y="350" width="280" height="48" rx="3"
+            stroke="rgba(255,199,0,0.5)" stroke-width="1.25"/>
+      <text x="270" y="379" text-anchor="middle"
+            fill="rgba(232,227,211,0.9)" font-size="17"
+            font-family="'Open Sans',sans-serif">Provide Additional Context</text>
 
       <!-- ── TRAINING PROBLEM (right) ───────────────────────────── -->
       <rect x="590" y="156" width="280" height="58" rx="3"
@@ -124,7 +114,7 @@
   </div>
 
   <style>
-    section[data-slide="09-diagnosis-slide"] {
+    section[data-slide="11-diagnosis-slide"] {
       background: var(--uw-spirit-purple);
       padding: var(--space-6) var(--space-10);
       align-items: center;
@@ -133,7 +123,7 @@
       overflow: hidden;
     }
 
-    section[data-slide="09-diagnosis-slide"] .content {
+    section[data-slide="11-diagnosis-slide"] .content {
       max-width: 1300px;
       width: 100%;
       display: flex;
@@ -141,7 +131,7 @@
       gap: var(--space-4);
     }
 
-    section[data-slide="09-diagnosis-slide"] .eyebrow {
+    section[data-slide="11-diagnosis-slide"] .eyebrow {
       font-family: var(--font-body);
       font-size: clamp(1.125rem, 1.1vw, 1.125rem);
       font-weight: 400;
@@ -151,7 +141,7 @@
       margin: 0;
     }
 
-    section[data-slide="09-diagnosis-slide"] .tree {
+    section[data-slide="11-diagnosis-slide"] .tree {
       width: 100%;
     }
   </style>

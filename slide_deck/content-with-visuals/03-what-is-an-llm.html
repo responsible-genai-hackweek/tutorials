@@ -7,11 +7,11 @@
   <div class="text-section">
     <p class="eyebrow">Large Language Models</p>
     <h1>A prediction machine,<br>not a knowledge base.</h1>
-    <p class="lead">A large language model is a statistical model that predicts the next chunk of text given the text that came before it. At each step the model picks a likely next token — roughly three-quarters of a word — given everything that came before. This is all it does. Every capability you observe emerges from this one mechanism.</p>
+    <p class="lead">A large language model is a statistical model that predicts the next chunk of text given the text that came before it. At each step the model picks a likely next token (roughly three-quarters of a word) given everything that came before.</p>
     <ul class="bullets">
-      <li>The model works in tokens. Everything about the model — context limits, cost, speed — is measured in tokens.</li>
+      <li>The model works in tokens. Everything about the model such as context limits, cost, speed is measured in tokens.</li>
       <li>Randomness in this process is why you get different answers to the same question, and why the model can sound confident while being wrong.</li>
-      <li>The model has no memory, no internet access, and no special knowledge unless that information is placed into its context window.</li>
+      <li>The model has no memory, no internet access, and no knowledge beyond what it was trained on.</li>
     </ul>
   </div>
 
@@ -128,7 +128,7 @@
     }
 
     section[data-slide="03-what-is-an-llm"] .bullets li::before {
-      content: '—';
+      content: '•';
       position: absolute;
       left: 0;
       color: var(--uw-gray-30);

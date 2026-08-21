@@ -1,5 +1,5 @@
-<section data-slide="16-four-surfaces"
-         aria-label="Slide 16: Context Durability Spectrum"
+<section data-slide="12-four-surfaces"
+         aria-label="Slide 12: Context Durability Spectrum"
          class="slide">
 
   <div class="content">
@@ -21,27 +21,15 @@
       </div>
 
       <div class="mechanisms">
-        <div class="mechanism" style="--position: 8%">
-          <p class="mechanism-name">Context<br>documents</p>
-          <p class="mechanism-desc">Facts and conventions the agent has in hand every session.</p>
-          <p class="mechanism-file">AGENTS.md</p>
+        <div class="mechanism">
+          <p class="mechanism-name">AGENTS.md</p>
+          <p class="mechanism-desc">Project-level context and rules — facts, conventions, and constraints the agent has in hand across every session.</p>
         </div>
-        <div class="mechanism" style="--position: 33%">
-          <p class="mechanism-name">Rules</p>
-          <p class="mechanism-desc">Path-scoped constraints that fire when specific files are touched.</p>
-          <p class="mechanism-file">.claude/</p>
+        <div class="mechanism">
+          <p class="mechanism-name">Agent Skills</p>
+          <p class="mechanism-desc">User or model-invoked procedures for tasks the agent is not familiar with.</p>
         </div>
-        <div class="mechanism" style="--position: 58%">
-          <p class="mechanism-name">Skills</p>
-          <p class="mechanism-desc">Task-triggered procedures the agent picks up when the work matches.</p>
-          <p class="mechanism-file">skills/</p>
-        </div>
-        <div class="mechanism" style="--position: 83%">
-          <p class="mechanism-name">Custom<br>agents</p>
-          <p class="mechanism-desc">Distinct personas invoked for focused, narrower jobs.</p>
-          <p class="mechanism-file">agents/</p>
-        </div>
-        <div class="mechanism mechanism-ellipsis" style="--position: 97%">
+        <div class="mechanism mechanism-ellipsis">
           <p class="mechanism-name">...</p>
         </div>
       </div>
@@ -50,7 +38,7 @@
   </div>
 
   <style>
-    section[data-slide="16-four-surfaces"] {
+    section[data-slide="12-four-surfaces"] {
       background: var(--uw-spirit-purple);
       padding: var(--space-6) var(--space-10);
       align-items: center;
@@ -59,7 +47,7 @@
       overflow: hidden;
     }
 
-    section[data-slide="16-four-surfaces"]::before {
+    section[data-slide="12-four-surfaces"]::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
@@ -67,7 +55,7 @@
       background: var(--uw-spirit-gold);
     }
 
-    section[data-slide="16-four-surfaces"] .content {
+    section[data-slide="12-four-surfaces"] .content {
       max-width: 1400px;
       width: 100%;
       display: flex;
@@ -75,7 +63,7 @@
       gap: var(--space-5);
     }
 
-    section[data-slide="16-four-surfaces"] h1 {
+    section[data-slide="12-four-surfaces"] h1 {
       font-family: var(--font-display);
       font-size: clamp(2rem, 3vw, 2.75rem);
       font-weight: 900;
@@ -87,41 +75,41 @@
     }
 
 
-    section[data-slide="16-four-surfaces"] .spectrum {
+    section[data-slide="12-four-surfaces"] .spectrum {
       display: flex;
       flex-direction: column;
       gap: var(--space-4);
       margin-top: var(--space-2);
     }
 
-    section[data-slide="16-four-surfaces"] .spectrum-bar {
+    section[data-slide="12-four-surfaces"] .spectrum-bar {
       display: flex;
       flex-direction: column;
       gap: var(--space-2);
     }
 
-    section[data-slide="16-four-surfaces"] .spectrum-gradient {
+    section[data-slide="12-four-surfaces"] .spectrum-gradient {
       height: 6px;
       border-radius: 3px;
       background: linear-gradient(to right, var(--uw-spirit-gold), rgba(255, 199, 0, 0.15));
     }
 
-    section[data-slide="16-four-surfaces"] .spectrum-labels {
+    section[data-slide="12-four-surfaces"] .spectrum-labels {
       display: flex;
       justify-content: space-between;
     }
 
-    section[data-slide="16-four-surfaces"] .spectrum-endpoint {
+    section[data-slide="12-four-surfaces"] .spectrum-endpoint {
       display: flex;
       flex-direction: column;
       gap: 2px;
     }
 
-    section[data-slide="16-four-surfaces"] .endpoint-right {
+    section[data-slide="12-four-surfaces"] .endpoint-right {
       text-align: right;
     }
 
-    section[data-slide="16-four-surfaces"] .endpoint-title {
+    section[data-slide="12-four-surfaces"] .endpoint-title {
       font-family: var(--font-display);
       font-size: clamp(1.5rem, 1.5vw, 1.625rem);
       font-weight: 700;
@@ -130,21 +118,21 @@
       color: var(--uw-spirit-gold);
     }
 
-    section[data-slide="16-four-surfaces"] .endpoint-tradeoff {
+    section[data-slide="12-four-surfaces"] .endpoint-tradeoff {
       font-family: var(--font-body);
       font-size: clamp(1.5rem, 1.4vw, 1.5rem);
       font-style: italic;
       color: rgba(232, 227, 211, 0.7);
     }
 
-    section[data-slide="16-four-surfaces"] .mechanisms {
+    section[data-slide="12-four-surfaces"] .mechanisms {
       position: relative;
       display: flex;
       gap: var(--space-3);
       justify-content: space-between;
     }
 
-    section[data-slide="16-four-surfaces"] .mechanism {
+    section[data-slide="12-four-surfaces"] .mechanism {
       flex: 1;
       background: rgba(255, 255, 255, 0.07);
       border-top: 3px solid rgba(255, 199, 0, 0.5);
@@ -154,7 +142,7 @@
       gap: var(--space-2);
     }
 
-    section[data-slide="16-four-surfaces"] .mechanism-ellipsis {
+    section[data-slide="12-four-surfaces"] .mechanism-ellipsis {
       flex: 0.3;
       background: transparent;
       border-top-color: rgba(255, 199, 0, 0.2);
@@ -162,7 +150,7 @@
       justify-content: center;
     }
 
-    section[data-slide="16-four-surfaces"] .mechanism-name {
+    section[data-slide="12-four-surfaces"] .mechanism-name {
       font-family: var(--font-display);
       font-size: clamp(1.5rem, 1.8vw, 1.75rem);
       font-weight: 900;
@@ -173,12 +161,12 @@
       margin: 0;
     }
 
-    section[data-slide="16-four-surfaces"] .mechanism-ellipsis .mechanism-name {
+    section[data-slide="12-four-surfaces"] .mechanism-ellipsis .mechanism-name {
       font-size: clamp(1.75rem, 2.2vw, 2.25rem);
       color: rgba(255, 199, 0, 0.5);
     }
 
-    section[data-slide="16-four-surfaces"] .mechanism-desc {
+    section[data-slide="12-four-surfaces"] .mechanism-desc {
       font-family: var(--font-body);
       font-size: clamp(1.5rem, 1.5vw, 1.5rem);
       color: var(--uw-husky-gold-web);
@@ -187,7 +175,7 @@
       flex: 1;
     }
 
-    section[data-slide="16-four-surfaces"] .mechanism-file {
+    section[data-slide="12-four-surfaces"] .mechanism-file {
       font-family: var(--font-display-compressed);
       font-size: clamp(1.5rem, 1.4vw, 1.5rem);
       font-weight: 700;

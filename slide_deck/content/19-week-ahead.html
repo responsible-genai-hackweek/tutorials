@@ -1,5 +1,5 @@
-<section data-slide="18-week-ahead"
-         aria-label="Slide 18: The Week Ahead"
+<section data-slide="19-week-ahead"
+         aria-label="Slide 19: The Week Ahead"
          class="slide">
 
   <div class="accent-bar-top-purple"></div>
@@ -25,13 +25,20 @@
         <div class="layer-inner">
           <p class="layer-day">Tuesday</p>
           <p class="layer-name">MCP Servers &amp; Workflow Patterns</p>
-          <p class="layer-desc">Giving agents structured access to real systems. Research / Plan / Implement as a discipline.</p>
+          <p class="layer-desc">Giving agents structured access to real systems. Separating deliberation from execution so design choices become reviewable artifacts before code is written.</p>
         </div>
       </div>
       <div class="layer layer-4">
         <div class="layer-inner">
+          <p class="layer-day">Wednesday</p>
+          <p class="layer-name">GenAI-ready Data</p>
+          <p class="layer-desc">Connecting agents to NASA Earthdata sources. Making data discoverable and queryable by language models.</p>
+        </div>
+      </div>
+      <div class="layer layer-5">
+        <div class="layer-inner">
           <p class="layer-day">Thursday</p>
-          <p class="layer-name">Sandboxing, Security &amp; Validation</p>
+          <p class="layer-name">Sandboxing, Security, Validation &amp; Metrics</p>
           <p class="layer-desc">Constraining what capable agents can do. Knowing that the output is correct.</p>
         </div>
       </div>
@@ -39,7 +46,7 @@
   </div>
 
   <style>
-    section[data-slide="18-week-ahead"] {
+    section[data-slide="19-week-ahead"] {
       background: var(--uw-white);
       padding: var(--space-6) var(--space-10);
       align-items: center;
@@ -48,14 +55,14 @@
       overflow: hidden;
     }
 
-    section[data-slide="18-week-ahead"] .accent-bar-top-purple {
+    section[data-slide="19-week-ahead"] .accent-bar-top-purple {
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 8px;
       background: var(--uw-spirit-purple);
     }
 
-    section[data-slide="18-week-ahead"] .content {
+    section[data-slide="19-week-ahead"] .content {
       max-width: 1300px;
       width: 100%;
       display: flex;
@@ -63,7 +70,7 @@
       gap: var(--space-5);
     }
 
-    section[data-slide="18-week-ahead"] .eyebrow {
+    section[data-slide="19-week-ahead"] .eyebrow {
       font-family: var(--font-body);
       font-size: clamp(1.125rem, 1.1vw, 1.125rem);
       font-weight: 400;
@@ -73,7 +80,7 @@
       margin: 0;
     }
 
-    section[data-slide="18-week-ahead"] h1 {
+    section[data-slide="19-week-ahead"] h1 {
       font-family: var(--font-display);
       font-size: clamp(1.625rem, 2vw, 2rem);
       font-weight: 700;
@@ -84,58 +91,63 @@
       margin: 0;
     }
 
-    section[data-slide="18-week-ahead"] .stack {
+    section[data-slide="19-week-ahead"] .stack {
       display: flex;
       flex-direction: column;
       gap: 0;
     }
 
-    section[data-slide="18-week-ahead"] .layer {
+    section[data-slide="19-week-ahead"] .layer {
       border-left: 6px solid transparent;
       padding: var(--space-3) var(--space-4);
       transition: background 0.15s;
     }
 
-    section[data-slide="18-week-ahead"] .layer-inner {
+    section[data-slide="19-week-ahead"] .layer-inner {
       display: grid;
       grid-template-columns: 180px 260px 1fr;
       gap: var(--space-4);
       align-items: center;
     }
 
-    section[data-slide="18-week-ahead"] .layer-current {
+    section[data-slide="19-week-ahead"] .layer-current {
       background: var(--uw-spirit-purple);
       border-left-color: var(--uw-spirit-gold);
     }
 
-    section[data-slide="18-week-ahead"] .layer-current .layer-day {
+    section[data-slide="19-week-ahead"] .layer-current .layer-day {
       color: var(--uw-spirit-gold);
     }
 
-    section[data-slide="18-week-ahead"] .layer-current .layer-name {
+    section[data-slide="19-week-ahead"] .layer-current .layer-name {
       color: var(--uw-white);
     }
 
-    section[data-slide="18-week-ahead"] .layer-current .layer-desc {
+    section[data-slide="19-week-ahead"] .layer-current .layer-desc {
       color: var(--uw-husky-gold-web);
     }
 
-    section[data-slide="18-week-ahead"] .layer-2 {
+    section[data-slide="19-week-ahead"] .layer-2 {
       background: rgba(75, 46, 131, 0.08);
       border-left-color: var(--uw-spirit-purple);
     }
 
-    section[data-slide="18-week-ahead"] .layer-3 {
+    section[data-slide="19-week-ahead"] .layer-3 {
       background: rgba(75, 46, 131, 0.04);
       border-left-color: rgba(75,46,131,0.4);
     }
 
-    section[data-slide="18-week-ahead"] .layer-4 {
+    section[data-slide="19-week-ahead"] .layer-4 {
       background: rgba(75, 46, 131, 0.02);
       border-left-color: rgba(75,46,131,0.2);
     }
 
-    section[data-slide="18-week-ahead"] .layer-day {
+    section[data-slide="19-week-ahead"] .layer-5 {
+      background: rgba(75, 46, 131, 0.01);
+      border-left-color: rgba(75,46,131,0.1);
+    }
+
+    section[data-slide="19-week-ahead"] .layer-day {
       font-family: var(--font-body);
       font-size: clamp(1.125rem, 1.1vw, 1.125rem);
       font-weight: 400;
@@ -144,7 +156,7 @@
       margin: 0;
     }
 
-    section[data-slide="18-week-ahead"] .layer-name {
+    section[data-slide="19-week-ahead"] .layer-name {
       font-family: var(--font-display);
       font-size: clamp(1.375rem, 1.4vw, 1.375rem);
       font-weight: 800;
@@ -154,7 +166,7 @@
       margin: 0;
     }
 
-    section[data-slide="18-week-ahead"] .layer-desc {
+    section[data-slide="19-week-ahead"] .layer-desc {
       font-family: var(--font-body);
       font-size: clamp(1.375rem, 1.35vw, 1.375rem);
       font-weight: 400;

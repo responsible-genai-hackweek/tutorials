@@ -26,6 +26,8 @@ This directory contains slides for "Landscape of Coding Agents," a 90-minute tut
 1. **First pass:** Use `SLIDES.md` to generate slides in `content/`. Typography, layout, color, and accent only — no images or decorative icons.
 2. **Second pass:** Use `VISUALS.md` to generate enhanced versions in `content-with-visuals/`. This pass is additive; do not modify first-pass files.
 
+**Before editing any slide**, check whether a file exists in `content-with-visuals/` for that slide. If it does, edit that file — `build-visuals.sh` uses it in preference to `content/`. Only edit `content/<slide>.html` if no corresponding file exists in `content-with-visuals/`.
+
 ## Design standards
 
 All slides must follow the `uw-slides` plugin conventions in Claude Code. When in doubt about design decisions, consult that plugin for authoritative guidance on color tokens, typography, layout patterns, and logo usage.
