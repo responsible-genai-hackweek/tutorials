@@ -26,6 +26,7 @@ Co-instructors: Anthony Arendt, Anshul Tambay
 ---
 
 
+
 ## 01-title
 
 Title slide with UW branding. **Edit existing HTML — update text only.**
@@ -96,14 +97,27 @@ Title slide with UW branding. **Edit existing HTML — update text only.**
 - Note to self: Ground this with a concrete example. "If you ask an agent to query snow depth observations from a database it has never seen, it will guess at table names and column conventions — confidently and incorrectly. That is a prompt problem. The model knows SQL; it does not know your schema. Giving it that schema is context engineering."
 Render as two-column layout with the phrase as headline.
 
-## 08-agent-as-coworker
+## 08-context-window
+
+- Key message: The model sees exactly what the harness puts into its context, and nothing else. The context window is the total amount of text the model can consider at once. Understanding this single concept explains most of the confusing behavior researchers encounter.
+- Bullets:
+  - The model has no access to your filesystem, your data, or your project unless the harness explicitly loads it into the context. This is why context engineering matters — it is the only way information reaches the model.
+  - Modern context windows range from roughly 100,000 tokens to 1 million tokens (roughly 75,000 to 750,000 words).
+  - Every turn of a conversation, the entire history is re-sent to the model. This explains three things:
+  - First, cost scales with conversation length. A twenty-turn conversation costs more per turn than turn one.
+  - Second, models have no memory between conversations. What looks like memory is the harness reloading context. Close the window, and the model has no idea who you are.
+  - Third, context windows fill up. When they do, models get confused, forget instructions, or fail in unexpected ways.
+  - The context window is a shared budget: system prompt, project memory, conversation history, tool results, the model's reasoning, and the answer it is writing all compete for the same space.
+- Note to self: This is conceptually dense. Let it land. The "shared budget" framing is the key insight that makes all the context engineering tutorials later in the week make sense.
+
+## 09-agent-as-coworker
 
 - Key message: We will regard the agent as a co-worker or an eager assistent that we supervise.
 - Bullets:
   - Every output the agent produces requires human judgment. The agent can be confidently wrong, and it will not tell you when it is. Checking what it gives you is not a merely a quality control step, but it is the core practice. 
 - Note to self: This slide is a pivot point. The first half of the session built a mental model of the technology. This slide reframes how to use it. The second bullet lands harder if you follow it immediately with the failure modes — the transition should feel natural: "Here is the mindset, and here is what you are watching for."
 
-## 09-failure-modes
+## 10-failure-modes
 
 - Key message: When agents go wrong, they tend to go wrong in predictable ways. Naming these patterns now gives you vocabulary you will use all week.
 - Bullets:
@@ -117,7 +131,7 @@ Render as two-column layout with the phrase as headline.
   - Scope creep ← RLHF + SFT reward comprehensive, thorough answers. There is no "you did too much" penalty in training, so the model over-delivers by default.
   - Context exhaustion is the exception — this is an architecture limitation (finite context window), not a post-training side effect.
 
-## 10-diagnosis-slide
+## 11-diagnosis-slide
 
 - Key message: When an agent does something surprising or wrong, the first debugging question is: is this a training problem or a prompt problem?
 - Diagram: Two-level decision tree as inline SVG. Root question branches into two outcomes; each outcome has a second level. No coda text — the tree fills the slide.
@@ -135,7 +149,7 @@ Render as two-column layout with the phrase as headline.
 - Note to self: This slide sets up the "trained-in or prompt?" interactive exercise if we run it. Use the SnowEx example: "The agent picked the wrong table for snow depth — is that a context problem or a training problem? It is a context problem. Monday afternoon's AGENTS.md tutorial teaches you exactly how to fix that."
 - Note to self — "restructure the task": when someone asks what this means, it is a task decomposition move for when more context will not help — the model genuinely cannot do the thing as specified. Concrete examples: if the model struggles to write a complex multi-step analysis in one shot, break it into sequential steps with a separate prompt for each; if it can't reliably produce a specific output format, separate the reasoning step from the formatting step; if it loses track of constraints in a long conversation, scope the task more narrowly so the relevant constraints fit cleanly in a short prompt. The common thread is changing the shape of the problem so it no longer requires the capability the model lacks — not giving it more context, but asking for something different.
 
-## 11-four-surfaces
+## 12-four-surfaces
 
 **Rebuild this slide.** Replace the fixed four-box grid with a spectrum-oriented layout.
 
@@ -149,7 +163,7 @@ Render as two-column layout with the phrase as headline.
 - Coda text: "These are examples from today's tooling. The specific mechanisms will change, but the spectrum will not."
 - Note to self: This is a preview of what people will learn hands-on in the AGENTS.md and Skills tutorials later today and Tuesday. Name the spectrum concept and illustrate it, don't teach each mechanism. The audience should walk away remembering the tradeoff (always-on costs context budget but is guaranteed present; on-demand is efficient but requires recognition), not a specific count. Say aloud: "These are examples from today's tooling. The specific mechanisms will change, but the spectrum will not."
 
-## 12-mapping-exercise
+## 13-mapping-exercise
 
 - Key message: Before we go further, let us understand where everyone in this room is starting from. Take three minutes to fill out this survey on your phone.
 - Bullets:
@@ -158,7 +172,7 @@ Render as two-column layout with the phrase as headline.
   - Your answers will help us and other instructors this week calibrate tutorials to this specific group.
 - Note to self: Project the Google Forms response tab live as results come in. Spend 3–5 minutes after completion reading back patterns and normalizing the range. This is a natural break point at roughly 35 minutes into the session.
 
-## 13-landscape-of-tools
+## 14-landscape-of-tools
 
 - Key message: Five categories of AI coding tools, mapped by integration depth and privacy control. The right choice depends on the constraints of your work — for most researchers with sensitive data, those two axes dominate the decision.
 - Diagram: Scatter plot as inline SVG. Two axes:
@@ -173,7 +187,7 @@ Render as two-column layout with the phrase as headline.
   - Light dashed midpoint grid lines divide the plot into four quadrants. No quadrant labels — let the positions speak.
 - Note to self: Keep this descriptive not prescriptive. The key insight to name aloud is the command-line agents point in the top-right: most people assume high capability means low privacy control, but that is not true if you choose the model hosting yourself.
 
-## 14-five-axes
+## 15-five-axes
 
 - Key message: Five axes for choosing an AI tool for a research task. There is no single best tool — the right choice depends on the constraints of the specific task and the data involved.
 - Bullets:
@@ -183,19 +197,6 @@ Render as two-column layout with the phrase as headline.
   - Model hosting: where the model runs. Vendor cloud (fastest, most capable, least private), institution's cloud (institutional control), your own hardware (maximum control).
   - Privacy: what data can leave your machine? Some research data, code, or context can never go to a vendor. This constraint often dominates the other four.
 - Note to self: Privacy is the axis most relevant to this NASA audience. It sets up the data-privacy slide and connects forward to Thursday's sandboxing tutorial.
-
-## 15-context-window
-
-- Key message: The model sees exactly what the harness puts into its context, and nothing else. The context window is the total amount of text the model can consider at once. Understanding this single concept explains most of the confusing behavior researchers encounter.
-- Bullets:
-  - The model has no access to your filesystem, your data, or your project unless the harness explicitly loads it into the context. This is why context engineering matters — it is the only way information reaches the model.
-  - Modern context windows range from roughly 100,000 tokens to 1 million tokens (roughly 75,000 to 750,000 words).
-  - Every turn of a conversation, the entire history is re-sent to the model. This explains three things:
-  - First, cost scales with conversation length. A twenty-turn conversation costs more per turn than turn one.
-  - Second, models have no memory between conversations. What looks like memory is the harness reloading context. Close the window, and the model has no idea who you are.
-  - Third, context windows fill up. When they do, models get confused, forget instructions, or fail in unexpected ways.
-  - The context window is a shared budget: system prompt, project memory, conversation history, tool results, the model's reasoning, and the answer it is writing all compete for the same space.
-- Note to self: This is conceptually dense. Let it land. The "shared budget" framing is the key insight that makes all the context engineering tutorials later in the week make sense.
 
 ## 16-data-privacy-preview
 
@@ -241,6 +242,8 @@ Render as two-column layout with the phrase as headline.
   - Secure — Your data has constraints that do not bend for convenience. Match model hosting to data sensitivity. Thursday makes this practical.
 - Closing line: "You do not need to pick a tool today. You need to know what to demand from any tool tomorrow."
 - Note to self: End with questions. If the mapping exercise surfaced anything surprising, reference it here. The three principles are also the framing for the responsible AI discussion on Wednesday — name that connection aloud.
+
+---
 
 ---
 
