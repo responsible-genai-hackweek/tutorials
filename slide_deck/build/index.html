@@ -204,9 +204,18 @@
     <h1>Landscape of<br>Coding Agents</h1>
     <p class="context">An orientation to the technology underneath AI coding tools</p>
     <div class="meta">
-      <span class="presenters">Anthony Arendt · Anshul Tambay · Don Setiawan</span>
-      <span class="date">August 18, 2026</span>
+      <div class="presenter-list">
+        <span class="presenter">Anthony Arendt &middot; <em>eScience Institute</em></span>
+        <span class="presenter">Anshul Tambay · Don Setiawan &middot; <em>Scientific Software Engineering Center</em></span>
+        <span class="presenter">Jason Gilman &middot; <em>Element84</em></span>
+      </div>
+      <span class="date">August 24, 2026</span>
     </div>
+  </div>
+
+  <div class="logo-bar">
+    <img src="../assets/images/escience-logo.png" alt="eScience Institute" class="logo logo-escience">
+    <img src="../assets/images/SSEC-logo.png" alt="Scientific Software Engineering Center" class="logo logo-ssec">
   </div>
 
   <style>
@@ -225,14 +234,6 @@
       top: 0; left: 0; right: 0;
       height: 8px;
       background: var(--uw-spirit-gold);
-    }
-
-    section[data-slide="01-title"]::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 3px;
-      background: rgba(255, 199, 0, 0.3);
     }
 
     section[data-slide="01-title"] .title-layout {
@@ -273,15 +274,28 @@
     section[data-slide="01-title"] .meta {
       display: flex;
       flex-direction: column;
-      gap: var(--space-2);
+      gap: var(--space-3);
       align-items: center;
     }
 
-    section[data-slide="01-title"] .presenters {
+    section[data-slide="01-title"] .presenter-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      align-items: center;
+    }
+
+    section[data-slide="01-title"] .presenter {
       font-family: var(--font-body);
-      font-size: clamp(1.5rem, 1.6vw, 1.625rem);
+      font-size: clamp(1.25rem, 1.4vw, 1.5rem);
       font-weight: 600;
       color: var(--uw-white);
+    }
+
+    section[data-slide="01-title"] .presenter em {
+      font-style: normal;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.75);
     }
 
     section[data-slide="01-title"] .date {
@@ -289,6 +303,33 @@
       font-size: clamp(1.375rem, 1.4vw, 1.375rem);
       font-weight: 400;
       color: var(--uw-spirit-gold);
+    }
+
+    section[data-slide="01-title"] .logo-bar {
+      position: absolute;
+      bottom: var(--space-6);
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-10);
+      padding: 0 var(--space-10);
+    }
+
+    section[data-slide="01-title"] .logo {
+      height: clamp(5rem, 7vw, 8rem);
+      width: auto;
+      opacity: 0.9;
+    }
+
+    section[data-slide="01-title"] .logo-escience {
+      filter: brightness(0) invert(1);
+    }
+
+    section[data-slide="01-title"] .logo-ssec {
+      filter: invert(1);
+      mix-blend-mode: screen;
     }
   </style>
 </section>
@@ -445,7 +486,7 @@
 
     section[data-slide="03-what-is-an-llm"] .bullets li {
       font-family: var(--font-body);
-      font-size: clamp(1.5rem, 1.5vw, 1.5rem);
+      font-size: clamp(1.5rem, 1.7vw, 1.75rem);
       color: var(--uw-gray-90);
       line-height: 1.5;
       padding-left: 2rem;
@@ -671,7 +712,7 @@
         <svg class="panel-svg" viewBox="0 0 260 230" fill="none" aria-hidden="true">
           <!-- "user message" label -->
           <text x="130" y="18" text-anchor="middle"
-                fill="rgba(232,227,211,0.55)" font-size="16"
+                fill="rgba(232,227,211,0.85)" font-size="16"
                 font-family="'Open Sans',sans-serif">user message</text>
           <!-- Arrow in -->
           <line x1="130" y1="24" x2="130" y2="72" stroke="#ffc700" stroke-width="2" stroke-dasharray="5 4"/>
@@ -686,7 +727,7 @@
           <polygon points="130,194 123,182 137,182" fill="#ffc700"/>
           <!-- "response" label -->
           <text x="130" y="212" text-anchor="middle"
-                fill="rgba(232,227,211,0.55)" font-size="16"
+                fill="rgba(232,227,211,0.85)" font-size="16"
                 font-family="'Open Sans',sans-serif">response</text>
         </svg>
         <p class="panel-desc">Answers questions.</p>
@@ -701,7 +742,7 @@
         <svg class="panel-svg agent-svg" viewBox="0 0 440 268" fill="none" aria-hidden="true">
           <!-- "user message" label -->
           <text x="220" y="16" text-anchor="middle"
-                fill="rgba(232,227,211,0.55)" font-size="16"
+                fill="rgba(232,227,211,0.85)" font-size="16"
                 font-family="'Open Sans',sans-serif">user message</text>
           <!-- Arrow in -->
           <line x1="220" y1="20" x2="220" y2="76" stroke="#ffc700" stroke-width="2" stroke-dasharray="5 4"/>
@@ -757,7 +798,7 @@
           <polygon points="220,226 213,214 227,214" fill="#ffc700"/>
           <!-- "response" label -->
           <text x="220" y="244" text-anchor="middle"
-                fill="rgba(232,227,211,0.55)" font-size="16"
+                fill="rgba(232,227,211,0.85)" font-size="16"
                 font-family="'Open Sans',sans-serif">response</text>
         </svg>
         <p class="panel-desc">Reads your files, runs your code, edits your project.</p>
@@ -1161,7 +1202,7 @@
 
     section[data-slide="08-context-window"] .block {
       font-family: var(--font-body);
-      font-size: clamp(0.875rem, 0.85vw, 0.875rem);
+      font-size: clamp(1rem, 0.85vw, 1rem);
       font-weight: 600;
       text-align: center;
       padding: var(--space-3) var(--space-2);
@@ -1991,49 +2032,49 @@
             GitHub Copilot</div></td>
           <td>IDE extension</td>
           <td>Multi-provider</td>
-          <td>Already in your editor — zero friction if your institution has a license</td>
+          <td>Zero friction if your institution already has a license</td>
         </tr>
         <tr>
           <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/cursor.svg" alt="" class="tool-logo" aria-hidden="true">
             Cursor</div></td>
           <td>Forked IDE</td>
           <td>Multi-provider</td>
-          <td>Purpose-built for agentic multi-file editing; stronger autonomous code changes than Copilot</td>
+          <td>Purpose-built for agentic multi-file editing across a whole codebase</td>
         </tr>
         <tr>
           <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/cline.svg" alt="" class="tool-logo" aria-hidden="true">
             Cline</div></td>
           <td>IDE extension</td>
           <td>Bring your own API</td>
-          <td>Same editor comfort as Cursor but you supply the key — full control over model and spend</td>
+          <td>IDE extension with bring-your-own API key — full control over model and spend</td>
         </tr>
         <tr>
           <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/claude-code.svg" alt="" class="tool-logo" aria-hidden="true">
             Claude Code</div></td>
           <td>CLI</td>
           <td>Anthropic</td>
-          <td>Leaves the editor entirely; best for long autonomous runs and complex multi-step workflows</td>
+          <td>Terminal-native; best for long autonomous runs and multi-step workflows</td>
         </tr>
         <tr>
           <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/openai-codex.svg" alt="" class="tool-logo" aria-hidden="true">
             OpenAI Codex</div></td>
           <td>CLI</td>
           <td>OpenAI</td>
-          <td>OpenAI-native CLI alternative; useful if your institution already has OpenAI rather than Anthropic credits</td>
+          <td>OpenAI-native CLI; useful if your institution has OpenAI credits</td>
         </tr>
         <tr>
           <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/crush.svg" alt="" class="tool-logo" aria-hidden="true">
             Crush</div></td>
           <td>CLI</td>
           <td>Bring your own</td>
-          <td>Fully self-hostable and open-source; data stays on your machine by architecture, not policy</td>
+          <td>Fully self-hostable; data stays on your machine by architecture, not policy</td>
         </tr>
         <tr class="row-archived">
           <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/opencode.svg" alt="" class="tool-logo" aria-hidden="true">
-            OpenCode <span class="badge">archived</span></div></td>
+            OpenCode</div></td>
           <td>CLI</td>
           <td>Bring your own</td>
-          <td>Predecessor to Crush; widely cited in tutorials and documentation — included for reference</td>
+          <td>Predecessor to Crush; widely cited in tutorials — included for reference</td>
         </tr>
       </tbody>
     </table>
@@ -2091,24 +2132,24 @@
 
     section[data-slide="14-landscape-of-tools"] .tools-table th {
       font-family: var(--font-display);
-      font-size: clamp(0.875rem, 0.9vw, 0.9rem);
+      font-size: clamp(1rem, 0.9vw, 1rem);
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--uw-spirit-purple);
       text-align: left;
-      padding: var(--space-2) var(--space-3);
+      padding: var(--space-1) var(--space-3);
       border-bottom: 2px solid var(--uw-spirit-purple);
     }
 
     section[data-slide="14-landscape-of-tools"] .tools-table td {
       font-family: var(--font-body);
-      font-size: clamp(1.125rem, 1.1vw, 1.125rem);
+      font-size: clamp(1.5rem, 1.35vw, 1.5rem);
       color: var(--uw-gray-90);
-      padding: var(--space-2) var(--space-3);
+      padding: var(--space-1) var(--space-3);
       border-bottom: 1px solid var(--uw-gray-10);
       vertical-align: middle;
-      line-height: 1.4;
+      line-height: 1.3;
     }
 
     section[data-slide="14-landscape-of-tools"] .tools-table tbody tr:last-child td {
@@ -2142,19 +2183,6 @@
       opacity: 0.55;
     }
 
-    section[data-slide="14-landscape-of-tools"] .badge {
-      font-family: var(--font-body);
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--uw-gray-50);
-      border: 1px solid var(--uw-gray-30);
-      border-radius: 3px;
-      padding: 1px 5px;
-      margin-left: 4px;
-      vertical-align: middle;
-    }
   </style>
 </section>
 <section data-slide="15-five-axes"
@@ -2619,7 +2647,7 @@
       <text x="205" y="38" font-family="'Encode Sans',sans-serif" font-size="19" font-weight="700"
             fill="#4b2e83">Commit: establish a clean baseline</text>
       <text x="205" y="60" font-family="'Open Sans',sans-serif" font-size="15"
-            fill="rgba(0,0,0,0.45)">before the agent starts, so you have a safe rollback point</text>
+            fill="rgba(0,0,0,0.62)">before the agent starts, so you have a safe rollback point</text>
 
       <!-- ── ROW 2: AGENT — runs ────────────────────────────────── -->
       <rect x="35" y="94" width="150" height="38" rx="19"
@@ -2630,7 +2658,7 @@
       <text x="205" y="108" font-family="'Encode Sans',sans-serif" font-size="19" font-weight="700"
             fill="#4b2e83">Agent runs</text>
       <text x="205" y="130" font-family="'Open Sans',sans-serif" font-size="15"
-            fill="rgba(0,0,0,0.45)">large changes, fast, confident — and potentially wrong</text>
+            fill="rgba(0,0,0,0.62)">large changes, fast, confident — and potentially wrong</text>
 
       <!-- ── ROW 3: YOU — review ────────────────────────────────── -->
       <rect x="35" y="164" width="150" height="38" rx="19"
@@ -2641,7 +2669,7 @@
       <text x="205" y="178" font-family="'Encode Sans',sans-serif" font-size="19" font-weight="700"
             fill="#4b2e83">Review every change</text>
       <text x="205" y="200" font-family="'Open Sans',sans-serif" font-size="15"
-            fill="rgba(0,0,0,0.45)">read the diff — do not accept output you have not checked</text>
+            fill="rgba(0,0,0,0.62)">read the diff — do not accept output you have not checked</text>
 
       <!-- ── ROW 4: YOU — commit with attestation ───────────────── -->
       <rect x="35" y="232" width="150" height="38" rx="19"
@@ -2660,7 +2688,7 @@
       <!-- ── REPEAT NOTE ─────────────────────────────────────────── -->
       <text x="475" y="305" text-anchor="middle"
             font-family="'Open Sans',sans-serif" font-size="17" font-style="italic"
-            fill="#b7a57a">↻ repeat for each agent task</text>
+            fill="var(--uw-heritage-gold)">↻ repeat for each agent task</text>
 
     </svg>
   </div>
@@ -2722,7 +2750,7 @@
   </style>
 </section>
 <section data-slide="19-week-ahead"
-         aria-label="Slide 18: The Week Ahead"
+         aria-label="Slide 19: The Week Ahead"
          class="slide">
 
   <div class="accent-bar-top-purple"></div>
@@ -2900,7 +2928,7 @@
   </style>
 </section>
 <section data-slide="20-closing"
-         aria-label="Slide 19: Closing"
+         aria-label="Slide 20: Closing"
          class="slide">
 
   <div class="content">

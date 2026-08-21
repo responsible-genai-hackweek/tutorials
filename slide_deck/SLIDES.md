@@ -128,7 +128,7 @@ Render as two-column layout with the phrase as headline.
   - Sycophancy: the model agrees with your framing rather than pushing back, even when your framing is wrong. This is a systematic side-effect of RLHF training that rewards responses users rate as helpful.
   - Scope creep: the model does more than you asked — adds type hints, refactors adjacent code, restructures your project. Trained to be maximally helpful, it over-delivers by default.
   - Context exhaustion: as the conversation grows long and the context window fills up, the model loses track of earlier instructions and makes increasingly confused decisions.
-- Note to self: These are all prompt problems or architecture problems, not mysteries. The point is to name them so participants can recognize them in their project work this week. Connect back to slide 7 (post-training): these failure modes are the predictable cost of the training that makes agents useful.
+- Note to self: These are all prompt problems or architecture problems, not mysteries. The point is to name them so participants can recognize them in their project work this week. Connect back to slide 4 (post-training): these failure modes are the predictable cost of the training that makes agents useful.
   - Fabrication ← SFT teaches the model to always produce a complete, helpful-looking answer. It learns the shape of a good response without learning to say "I don't know." So it fabricates confidently when it lacks specific knowledge.
   - Sycophancy ← RLHF rewards responses humans rate highly. Humans rate agreeable responses higher. That reward signal systematically biases toward agreement even when the user's framing is wrong.
   - Scope creep ← RLHF + SFT reward comprehensive, thorough answers. There is no "you did too much" penalty in training, so the model over-delivers by default.
@@ -154,8 +154,6 @@ Render as two-column layout with the phrase as headline.
 
 ## 12-four-surfaces
 
-**Rebuild this slide.** Replace the fixed four-box grid with a spectrum-oriented layout.
-
 - Key message: Context durability is a spectrum. Current tools give you several mechanisms along it — from files the agent reads every session to procedures it invokes only when the task matches. The mechanisms vary by tool and will evolve, but the underlying tradeoff between always-on and on-demand is durable.
 - Layout: A horizontal spectrum/gradient spanning the slide, anchored by "Always loaded" on the left and "Summoned on demand" on the right. Example mechanisms are positioned along the spectrum as illustrative points, not as an exhaustive numbered list.
   - Left end (always loaded): Context documents — facts and conventions the agent has in hand every session.
@@ -169,11 +167,9 @@ Render as two-column layout with the phrase as headline.
 ## 13-mapping-exercise
 
 - Key message: Before we go further, let us understand where everyone in this room is starting from. Take three minutes to fill out this survey on your phone.
-- Bullets:
-  - QR code linking to the Google Form ("Where Does Your Work Sit?")
-  - This is not a quiz. There are no wrong answers. "I have not used any AI tools yet" is useful data.
-  - Your answers will help us and other instructors this week calibrate tutorials to this specific group.
+- QR code linking to the Google Form ("Where Does Your Work Sit?")
 - Note to self: Project the Google Forms response tab live as results come in. Spend 3–5 minutes after completion reading back patterns and normalizing the range. This is a natural break point at roughly 35 minutes into the session.
+URL: https://forms.gle/U434ksQMfM4yeGxDA
 
 ## 14-landscape-of-tools
 

@@ -69,7 +69,8 @@ No additions.
 No additions.
 
 ## 11-mapping-exercise
-No additions. (QR code will be added when the Google Form is created.)
+- **Source:** assets/images/qrcode.png
+- **Placement:** place this where the QR code belongs in the slide.
 
 ## 12-landscape-of-tools
 No additions.

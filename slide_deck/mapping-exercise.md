@@ -60,8 +60,11 @@ Type: Checkboxes (select all that apply)
 
 - ChatGPT, Claude, or Gemini in a browser (conversational chat)
 - GitHub Copilot (autocomplete in IDE)
+- Cursor or another AI-native IDE
+- Cline (IDE extension with your own API key)
 - Claude Code (command-line agent)
-- Cursor, Windsurf, or another AI-native IDE
+- OpenAI Codex (command-line agent)
+- Crush (self-hosted command-line agent)
 - Jupyter AI (AI features inside JupyterLab)
 - An API directly (OpenAI, Anthropic, Google SDK)
 - A locally-hosted model (Ollama, llama.cpp, etc.)
