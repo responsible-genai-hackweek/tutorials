@@ -171,20 +171,25 @@ Render as two-column layout with the phrase as headline.
 - Note to self: Project the Google Forms response tab live as results come in. Spend 3–5 minutes after completion reading back patterns and normalizing the range. This is a natural break point at roughly 35 minutes into the session.
 URL: https://forms.gle/U434ksQMfM4yeGxDA
 
-## 14-landscape-of-tools
+## 14a-ai-coding-agents
 
-- Key message: Five categories of AI coding tools, mapped by integration depth and privacy control. The right choice depends on the constraints of your work — for most researchers with sensitive data, those two axes dominate the decision.
-- Diagram: Scatter plot as inline SVG. Two axes:
-  - X-axis: Integration Depth (Low → High). Sub-label: "how connected to your actual workflow"
-  - Y-axis: Privacy Ceiling (Low → High). Sub-label: "maximum achievable privacy for this tool category"
-  - Five plotted points, each labeled with category name (bold) and example (italic, smaller):
-    1. Web-based assistants (ChatGPT, Claude.ai, Gemini) — low integration, low privacy control. Bottom-left.
-    2. IDE-native tools (GitHub Copilot) — high integration, low-medium privacy control. Bottom-right.
-    3. AI-native IDEs (Cursor, Windsurf) — medium integration, low-medium privacy control. Center-right.
-    4. Open-source options (Aider, OpenCode) — low-medium integration, high privacy control. Top-left.
-    5. Command-line agents (Claude Code) — high integration, high privacy control. Top-right. This is the non-obvious finding: pairing a command-line agent with a local model gives you both deep integration and full data control.
-  - Light dashed midpoint grid lines divide the plot into four quadrants. No quadrant labels — let the positions speak.
-- Note to self: Keep this descriptive not prescriptive. The key insight to name aloud is the command-line agents point in the top-right: most people assume high capability means low privacy control, but that is not true if you choose the model hosting yourself.
+- Key message: Five coding agents worth knowing, organized by cost model. GitHub Copilot and the API-based agents require tokens or subscriptions; OpenCode and Cline run entirely on keys you supply, with no subscription required.
+- Table: Tool, Form, Cost model, Notable trait.
+  - GitHub Copilot — IDE extension — Free tier; paid from $10/mo — Works inside your existing editor with no additional setup
+  - Claude Code — CLI — Anthropic API tokens — Terminal-native; best for long autonomous runs and multi-step workflows
+  - OpenAI Codex — CLI — OpenAI API tokens — Useful if your institution already has OpenAI credits
+  - OpenCode — CLI — Bring your own key — Open source; connect any provider or a local model, no subscription required
+  - Cline — IDE extension — Bring your own key — Open source IDE extension with the same bring-your-own-key flexibility as OpenCode
+- Note to self: The bring-your-own-key framing is the key point for this audience. OpenCode and Cline cost nothing to run beyond the API tokens you consume — no subscription, no vendor lock-in, and no data policy beyond what your chosen model provider sets.
+
+## 14b-ide-environments
+
+- Key message: Coding agents run inside development environments. The three most relevant to this workshop are VS Code, Cursor Desktop, and JupyterLab with Jupyter AI — the last of which is our primary environment this week.
+- Cards: Three side-by-side.
+  - VS Code — universal editor, free, connects to GitHub Copilot, Cline, and Claude Code out of the box
+  - Cursor Desktop — AI-native fork of VS Code with built-in agent and multi-file editing capabilities
+  - JupyterLab + Jupyter AI — our primary workshop environment; AI chat, code completion, and model-assisted analysis inside your notebooks
+- Note to self: Land on the JupyterLab card. Most of this audience already lives in notebooks — the point is that they do not need to leave that environment to get AI assistance.
 
 ## 15-five-axes
 
