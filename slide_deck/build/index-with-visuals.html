@@ -1884,21 +1884,20 @@
     }
   </style>
 </section>
-<section data-slide="14-landscape-of-tools"
-         aria-label="Slide 14: Landscape of Tools"
+<section data-slide="14a-ai-coding-agents"
+         aria-label="Slide 14A: AI Coding Agents"
          class="slide">
 
   <div class="accent-bar"></div>
   <div class="content">
-    <p class="eyebrow">Landscape of tools</p>
-    <h1>AI coding tools — what exists and how they differ.</h1>
+    <p class="eyebrow">Coding agents</p>
+    <h1>AI Coding Agents</h1>
 
     <table class="tools-table" role="table">
       <thead>
         <tr>
           <th scope="col">Tool</th>
-          <th scope="col">Form</th>
-          <th scope="col">Models</th>
+          <th scope="col">Cost model</th>
           <th scope="col">Notable trait</th>
         </tr>
       </thead>
@@ -1906,58 +1905,39 @@
         <tr>
           <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/github-copilot.svg" alt="" class="tool-logo" aria-hidden="true">
             GitHub Copilot</div></td>
-          <td>IDE extension</td>
-          <td>Multi-provider</td>
-          <td>Zero friction if your institution already has a license</td>
-        </tr>
-        <tr>
-          <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/cursor.svg" alt="" class="tool-logo" aria-hidden="true">
-            Cursor</div></td>
-          <td>Forked IDE</td>
-          <td>Multi-provider</td>
-          <td>Purpose-built for agentic multi-file editing across a whole codebase</td>
-        </tr>
-        <tr>
-          <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/cline.svg" alt="" class="tool-logo" aria-hidden="true">
-            Cline</div></td>
-          <td>IDE extension</td>
-          <td>Bring your own API</td>
-          <td>IDE extension with bring-your-own API key — full control over model and spend</td>
+          <td>Free tier (usage limits apply); $10/mo</td>
+          <td>Works inside your existing editor with no additional setup</td>
         </tr>
         <tr>
           <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/claude-code.svg" alt="" class="tool-logo" aria-hidden="true">
             Claude Code</div></td>
-          <td>CLI</td>
-          <td>Anthropic</td>
+          <td>Anthropic API tokens</td>
           <td>Terminal-native; best for long autonomous runs and multi-step workflows</td>
         </tr>
         <tr>
           <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/openai-codex.svg" alt="" class="tool-logo" aria-hidden="true">
             OpenAI Codex</div></td>
-          <td>CLI</td>
-          <td>OpenAI</td>
-          <td>OpenAI-native CLI; useful if your institution has OpenAI credits</td>
+          <td>OpenAI API tokens</td>
+          <td>OpenAI-native CLI; useful if your institution already has OpenAI credits</td>
         </tr>
         <tr>
-          <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/crush.svg" alt="" class="tool-logo" aria-hidden="true">
-            Crush</div></td>
-          <td>CLI</td>
-          <td>Bring your own</td>
-          <td>Fully self-hostable; data stays on your machine by architecture, not policy</td>
-        </tr>
-        <tr class="row-archived">
           <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/opencode.svg" alt="" class="tool-logo" aria-hidden="true">
             OpenCode</div></td>
-          <td>CLI</td>
-          <td>Bring your own</td>
-          <td>Predecessor to Crush; widely cited in tutorials — included for reference</td>
+          <td class="byo">Bring your own key</td>
+          <td>Open source; connect any provider or a local model — no subscription required</td>
+        </tr>
+        <tr>
+          <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/cline.svg" alt="" class="tool-logo" aria-hidden="true">
+            Cline</div></td>
+          <td class="byo">Bring your own key</td>
+          <td>Open source IDE extension with the same bring-your-own-key flexibility as OpenCode</td>
         </tr>
       </tbody>
     </table>
   </div>
 
   <style>
-    section[data-slide="14-landscape-of-tools"] {
+    section[data-slide="14a-ai-coding-agents"] {
       background: var(--uw-white);
       padding: var(--space-5) var(--space-10) var(--space-5) calc(var(--space-10) + 8px);
       align-items: center;
@@ -1965,14 +1945,14 @@
       overflow: hidden;
     }
 
-    section[data-slide="14-landscape-of-tools"] .accent-bar {
+    section[data-slide="14a-ai-coding-agents"] .accent-bar {
       position: absolute;
       top: 0; left: 0; bottom: 0;
       width: 8px;
       background: var(--uw-spirit-gold);
     }
 
-    section[data-slide="14-landscape-of-tools"] .content {
+    section[data-slide="14a-ai-coding-agents"] .content {
       max-width: 1400px;
       width: 100%;
       display: flex;
@@ -1980,7 +1960,7 @@
       gap: var(--space-4);
     }
 
-    section[data-slide="14-landscape-of-tools"] .eyebrow {
+    section[data-slide="14a-ai-coding-agents"] .eyebrow {
       font-family: var(--font-body);
       font-size: clamp(1rem, 1vw, 1rem);
       font-weight: 400;
@@ -1990,7 +1970,7 @@
       margin: 0;
     }
 
-    section[data-slide="14-landscape-of-tools"] h1 {
+    section[data-slide="14a-ai-coding-agents"] h1 {
       font-family: var(--font-display);
       font-size: clamp(1.5rem, 2vw, 2rem);
       font-weight: 900;
@@ -2001,12 +1981,12 @@
       margin: 0;
     }
 
-    section[data-slide="14-landscape-of-tools"] .tools-table {
+    section[data-slide="14a-ai-coding-agents"] .tools-table {
       width: 100%;
       border-collapse: collapse;
     }
 
-    section[data-slide="14-landscape-of-tools"] .tools-table th {
+    section[data-slide="14a-ai-coding-agents"] .tools-table th {
       font-family: var(--font-display);
       font-size: clamp(1rem, 0.9vw, 1rem);
       font-weight: 700;
@@ -2018,7 +1998,7 @@
       border-bottom: 2px solid var(--uw-spirit-purple);
     }
 
-    section[data-slide="14-landscape-of-tools"] .tools-table td {
+    section[data-slide="14a-ai-coding-agents"] .tools-table td {
       font-family: var(--font-body);
       font-size: clamp(1.5rem, 1.35vw, 1.5rem);
       color: var(--uw-gray-90);
@@ -2028,37 +2008,180 @@
       line-height: 1.3;
     }
 
-    section[data-slide="14-landscape-of-tools"] .tools-table tbody tr:last-child td {
+    section[data-slide="14a-ai-coding-agents"] .tools-table tbody tr:last-child td {
       border-bottom: none;
     }
 
-    section[data-slide="14-landscape-of-tools"] .tools-table tbody tr:hover td {
+    section[data-slide="14a-ai-coding-agents"] .tools-table tbody tr:hover td {
       background: rgba(75, 46, 131, 0.04);
     }
 
-    section[data-slide="14-landscape-of-tools"] .tool-name {
+    section[data-slide="14a-ai-coding-agents"] .tool-name {
       font-weight: 600;
       color: var(--uw-spirit-purple);
       white-space: nowrap;
     }
 
-    section[data-slide="14-landscape-of-tools"] .tool-name-inner {
+    section[data-slide="14a-ai-coding-agents"] .tool-name-inner {
       display: flex;
       align-items: center;
       gap: var(--space-2);
     }
 
-    section[data-slide="14-landscape-of-tools"] .tool-logo {
+    section[data-slide="14a-ai-coding-agents"] .tool-logo {
       width: 22px;
       height: 22px;
       flex-shrink: 0;
       object-fit: contain;
     }
 
-    section[data-slide="14-landscape-of-tools"] .row-archived td {
-      opacity: 0.55;
+    section[data-slide="14a-ai-coding-agents"] .byo {
+      color: var(--uw-accent-teal);
+    }
+  </style>
+</section>
+<section data-slide="14b-ide-environments"
+         aria-label="Slide 14B: IDE Environments for Coding Agents"
+         class="slide">
+
+  <div class="accent-bar"></div>
+  <div class="content">
+    <p class="eyebrow">Development environments</p>
+    <h1>IDEs for Coding Agents</h1>
+
+    <table class="tools-table" role="table">
+      <thead>
+        <tr>
+          <th scope="col">Tool</th>
+          <th scope="col">Cost model</th>
+          <th scope="col">Notable trait</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/vscode.svg" alt="" class="tool-logo" aria-hidden="true">
+            VS Code</div></td>
+          <td>Free</td>
+          <td>Universal editor; connects to GitHub Copilot, Cline, and Claude Code out of the box</td>
+        </tr>
+        <tr>
+          <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/cursor.svg" alt="" class="tool-logo" aria-hidden="true">
+            Cursor Desktop</div></td>
+          <td>Free tier; paid from $20/mo</td>
+          <td>AI-native fork of VS Code with built-in agent capabilities and multi-file editing</td>
+        </tr>
+        <tr>
+          <td class="tool-name"><div class="tool-name-inner"><img src="../assets/images/jupyter-ai.svg" alt="" class="tool-logo" aria-hidden="true">
+            JupyterLab + Jupyter AI</div></td>
+          <td class="byo">Bring your own key</td>
+          <td>AI chat, code completion, and model-assisted analysis inside your notebooks</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <style>
+    section[data-slide="14b-ide-environments"] {
+      background: var(--uw-white);
+      padding: var(--space-5) var(--space-10) var(--space-5) calc(var(--space-10) + 8px);
+      align-items: center;
+      position: relative;
+      overflow: hidden;
     }
 
+    section[data-slide="14b-ide-environments"] .accent-bar {
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 8px;
+      background: var(--uw-spirit-gold);
+    }
+
+    section[data-slide="14b-ide-environments"] .content {
+      max-width: 1400px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    section[data-slide="14b-ide-environments"] .eyebrow {
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 1vw, 1rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--uw-gray-70);
+      margin: 0;
+    }
+
+    section[data-slide="14b-ide-environments"] h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 2vw, 2rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--uw-spirit-purple);
+      margin: 0;
+    }
+
+    section[data-slide="14b-ide-environments"] .tools-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    section[data-slide="14b-ide-environments"] .tools-table th {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 0.9vw, 1rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--uw-spirit-purple);
+      text-align: left;
+      padding: var(--space-1) var(--space-3);
+      border-bottom: 2px solid var(--uw-spirit-purple);
+    }
+
+    section[data-slide="14b-ide-environments"] .tools-table td {
+      font-family: var(--font-body);
+      font-size: clamp(1.5rem, 1.35vw, 1.5rem);
+      color: var(--uw-gray-90);
+      padding: var(--space-1) var(--space-3);
+      border-bottom: 1px solid var(--uw-gray-10);
+      vertical-align: middle;
+      line-height: 1.3;
+    }
+
+    section[data-slide="14b-ide-environments"] .tools-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    section[data-slide="14b-ide-environments"] .tools-table tbody tr:hover td {
+      background: rgba(75, 46, 131, 0.04);
+    }
+
+    section[data-slide="14b-ide-environments"] .tool-name {
+      font-weight: 600;
+      color: var(--uw-spirit-purple);
+      white-space: nowrap;
+    }
+
+    section[data-slide="14b-ide-environments"] .tool-name-inner {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    section[data-slide="14b-ide-environments"] .tool-logo {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      object-fit: contain;
+    }
+
+    section[data-slide="14b-ide-environments"] .byo {
+      color: var(--uw-accent-teal);
+    }
   </style>
 </section>
 <section data-slide="15-five-axes"
